@@ -1,0 +1,146 @@
+.container {
+    width: 1920px;
+    display: flex;
+    justify-content: center;
+    .content {
+        height: 109px;
+        width: 1366px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        form {
+            margin-left: 38px;
+            display: flex;
+            flex-direction: row;
+            button {
+                font-size: 14px;
+                color: white;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 19px;
+                gap: 12px;
+                background: #FFC85E;
+                border-radius: 79px;
+                width: 192px;
+                height: 59px;
+                font-weight: 700;
+                line-height: 17px;
+                margin: 0 15px 0 0;
+            }
+            .inputBlock {
+                position: relative;
+                margin-right: 35px;
+                input {
+                    background: #EDEDED;
+                    border-radius: 36px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 13px 10px 13px 20px;
+                    font-size: 12px;
+                    line-height: 150%;
+                    width: 233px;
+                    height: 33px;
+                    &::placeholder {
+                        opacity: 0.6;
+                    }
+                }
+                .findIcon {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px
+                }
+            }
+        }
+        .data {
+            display: flex;
+            flex-direction: row;
+            margin-right: 50px;
+            .text {
+                display: flex;
+                flex-direction: column;
+                margin-right: 10px;
+                justify-content: center;
+                align-items: flex-end;
+                color: #3F4E65;
+                .number {
+                    color: #111111;
+                    font-weight: 600;
+                    line-height: 150%;
+                }
+                .time {
+                    font-weight: 300;
+                    font-size: 12px;
+                    line-height: 150%;
+                    margin-top: 5px;
+                }
+                .orderCall {
+                    font-size: 10px;
+                    line-height: 150%;
+                    text-decoration-line: underline;
+                    margin-top: 5px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .priceList {
+            color: #FFFFFF;
+            background: #FFC85E;
+            border-radius: 79px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 19px;
+            line-height: 17px;
+            font-weight: 700;
+            font-size: 14px;
+            gap: 12px;
+            width: 200px;
+            height: 59px;
+            margin-right: 51px;
+        }
+        .basket {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .basketIcon {
+                text-align: center;
+                margin-right: 28px;
+                position: relative;
+                .basketCounter {
+                    position: absolute;
+                    padding-top: 2px;
+                    width: 22px;
+                    height: 22px;
+                    background: center no-repeat url('../../../public/images/menu/basketCounter.png');;
+                    font-weight: 700;
+                    line-height: 17px;
+                    color: #FFFFFF;
+                    top: 0;
+                    right: -2px
+                }
+            }
+            .sum {
+                display: flex;
+                flex-direction: column;
+                span {
+                    font-weight: 300;
+                    font-size: 12px;
+                    line-height: 150%;
+                }
+              .money {
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 150%;
+                color: #111111;
+              }  
+            }
+        }
+    }
+}    

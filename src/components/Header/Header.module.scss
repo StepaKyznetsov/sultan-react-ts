@@ -1,0 +1,60 @@
+.container {
+    width: 1920px;
+    display: flex;
+    justify-content: center;
+    .content {
+        height: 61px;
+        width: 1366px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .info {
+            color: #111111;
+            line-height: 18px;
+            font-weight: 600;
+            display: flex;
+            flex-direction: row;
+            span {
+                cursor: pointer;
+            }
+            .undertext {
+                color: #3F4E65;
+                font-weight: 300;
+            }
+            .address {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                margin-left: 32px;
+                &::before {
+                    position: absolute;
+                    content: url('../../../public/images/header/location.png');
+                    left: -34px;
+                    top: 10px;
+                }
+            }
+            .mail {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                margin-left: 75px;
+                &::before {
+                    position: absolute;
+                    content: url('../../../public/images/header/mail.png');
+                    left: -34px;
+                    top: 10px
+                }
+            }
+        }
+        nav {
+            .link {
+                line-height: 150%;
+                margin-left: 60px;
+                &:first-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

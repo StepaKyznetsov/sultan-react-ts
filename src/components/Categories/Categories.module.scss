@@ -1,0 +1,47 @@
+.container {
+    margin-top: 100px;
+    .content {
+        margin: 0 auto;
+        width: 1366px;
+        h2 {
+            margin-bottom: 15px;
+            display: inline;
+            font-weight: 800;
+            font-size: 40px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: #FFC85E;
+            &:last-child {
+                font-weight: 500;
+                color: black
+            }
+        }
+        p {
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 120%;
+            margin-bottom: 50px;
+        }
+        .cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .cardItem {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                img {
+                    width: 250px;
+                    height: 250px;
+                    margin-bottom: 10px;
+                }
+                span {
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 130%;
+                    color: #111111;
+                }
+            }
+        }
+    }
+}
