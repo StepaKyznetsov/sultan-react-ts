@@ -1,7 +1,12 @@
 import React from 'react';
 import css from './Banner.module.scss'
+import {useNavigate} from 'react-router-dom';
+import { CATALOG } from '../../constants/constants';
 
 const Banner: React.FC = () => {
+
+    const navigate = useNavigate()
+
     return(
         <div className = {css.container}>
             <div className = {css.content}>
@@ -11,7 +16,7 @@ const Banner: React.FC = () => {
                 <h3>
                     оптом по кокчетаву и области
                 </h3>
-                <button>
+                <button onClick={() => navigate(CATALOG)}>
                     В КАТАЛОГ
                 </button>
                 <div className = {css.pluses}>

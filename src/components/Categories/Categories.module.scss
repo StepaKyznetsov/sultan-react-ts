@@ -1,8 +1,11 @@
 .container {
     margin-top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     .content {
         margin: 0 auto;
-        width: 1366px;
+        width: 71.15%;
         h2 {
             margin-bottom: 15px;
             display: inline;
@@ -31,9 +34,8 @@
                 flex-direction: column;
                 align-items: center;
                 img {
-                    width: 250px;
-                    height: 250px;
-                    margin-bottom: 10px;
+                    height: auto;
+                    width: 100%;
                 }
                 span {
                     font-weight: 500;

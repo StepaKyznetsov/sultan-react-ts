@@ -1,0 +1,23 @@
+.cards {
+    width: 53.125%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 21px;
+    .pagination {
+        margin-top: 59px;
+        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        div {
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }
+}

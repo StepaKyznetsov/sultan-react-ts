@@ -1,14 +1,18 @@
 .container {
-    width: 1920px;
+    width: 100%;
     display: flex;
     justify-content: center;
+    overflow:hidden;
     .content {
         height: 109px;
-        width: 1366px;
+        width: 71.15%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        form {
+        img {
+            cursor: pointer;
+        }
+        .nav {
             margin-left: 38px;
             display: flex;
             flex-direction: row;
@@ -29,37 +33,17 @@
                 line-height: 17px;
                 margin: 0 15px 0 0;
             }
-            .inputBlock {
-                position: relative;
-                margin-right: 35px;
-                input {
-                    background: #EDEDED;
-                    border-radius: 36px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 13px 10px 13px 20px;
-                    font-size: 12px;
-                    line-height: 150%;
-                    width: 233px;
-                    height: 33px;
-                    &::placeholder {
-                        opacity: 0.6;
-                    }
-                }
-                .findIcon {
-                    cursor: pointer;
-                    position: absolute;
-                    top: 10px;
-                    right: 10px
-                }
-            }
         }
         .data {
+            margin-left: 35px;
             display: flex;
             flex-direction: row;
             margin-right: 50px;
+            img {
+                height: 100%;
+                width: auto;
+                cursor: pointer;
+            }
             .text {
                 display: flex;
                 flex-direction: column;
@@ -87,24 +71,8 @@
                 }
             }
         }
-        .priceList {
-            color: #FFFFFF;
-            background: #FFC85E;
-            border-radius: 79px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 19px;
-            line-height: 17px;
-            font-weight: 700;
-            font-size: 14px;
-            gap: 12px;
-            width: 200px;
-            height: 59px;
-            margin-right: 51px;
-        }
         .basket {
+            margin-left: 51px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -118,7 +86,7 @@
                     padding-top: 2px;
                     width: 22px;
                     height: 22px;
-                    background: center no-repeat url('../../../public/images/menu/basketCounter.png');;
+                    background: center no-repeat url('../../../public/images/menu/basketCounter.png');
                     font-weight: 700;
                     line-height: 17px;
                     color: #FFFFFF;

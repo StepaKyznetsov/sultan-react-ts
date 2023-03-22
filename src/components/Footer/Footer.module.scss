@@ -1,14 +1,75 @@
 .container {
+    width: 100%;
     color: white;
     margin-top: 100px;
     background-color: #3F4E65;
-    width: 100%;
-    height: 500px;
+    height: 429px;
+    line-height: 150%;
+    padding-top: 71px;
     .content {
         margin: 0 auto;
-        width: 1366px;
+        width: 71.15%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         .column {
             display: flex;
+            flex-direction: column;
+            .logo {
+                width: 156px;
+                height: 66px;
+                margin-bottom: 15px;
+            }
+            a {
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 16px;
+                width: 320px;
+                margin-bottom: 45px;
+            }
+            span {
+                font-size: 12px;
+                margin-bottom: 15px;
+            }
+           
+            .head {
+                font-weight: 600;
+                font-size: 20px;
+                margin-bottom: 25px;
+            }
+            .connect {
+                margin-top: 20px;
+            }
+            .number {
+                font-weight: 600;
+                margin-bottom: 3px;
+            }
+            .time {
+                font-weight: 300;
+                font-size: 12px;
+                margin-bottom: 3px;
+            }
+            .call {
+                margin-bottom: 25px;
+                text-decoration-line: underline;
+                font-size: 10px;
+                cursor: pointer;
+            }
+            .mail {
+                font-weight: 600;
+                line-height: 18px;
+                margin-bottom: 25px;
+            }
+            img {
+                cursor: pointer;
+            }
+            .messenger {
+                margin-right: 10px;
+            }
+            .card {
+                margin-right: 5px;
+            }
         }
     }
 }

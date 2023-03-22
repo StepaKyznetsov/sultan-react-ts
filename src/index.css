@@ -9,12 +9,13 @@ html, body {
   height: 100%;
   width: 100%;
   color: #3F4E65;
-  line-height: 1;
+  line-height: 150%;
   font-weight: 400;
   font-size: 14px;
 }
 
 body {
+  width: 100%;
   font-size: 14px;
   font-family: Inter;
   -webkit-font-smoothing: antialiased;

@@ -1,34 +1,37 @@
 import React from 'react';
-import css from './Menu.module.scss'
+import PriceButton from '../../ui/PriceButton/PriceButton';
+import css from './Menu.module.scss';
+import Input from '../../ui/Input/Input';
+import {useNavigate} from 'react-router-dom';
+import { CATALOG, MAIN } from '../../constants/constants';
 
 const Menu: React.FC = () => {
+
+    const navigate = useNavigate()
+
     return(
         <div className = {css.container}>
             <div className = {css.content}>
-                <img 
+                <img
+                    onClick={() => navigate(MAIN)}
                     src = "/images/menu/logo.png" 
                     alt = "logo" 
                 />
-                <form>
-                    <button>
+                <div className = {css.nav}>
+                    <button onClick={() => navigate(CATALOG)}>
                         Каталог
                         <img 
                             src = "/images/menu/catalog.png" 
                             alt = "catalog" 
                         />
                     </button>
-                    <div className = {css.inputBlock}>
-                        <input 
-                            placeholder = "Поиск..." 
-                            type = "text" 
-                        />
-                        <img 
-                            className = {css.findIcon}
-                            src = "/images/menu/find.png" 
-                            alt = "find" 
-                        />
-                    </div>
-                </form>
+                    <Input
+                        width = {233}
+                        text = 'Поиск...'
+                        src = '/images/menu/find.png'
+                        alt = 'find'
+                    />
+                </div>
                 <div className = {css.data}>
                     <div className = {css.text}>
                         <span className = {css.number}>
@@ -46,13 +49,7 @@ const Menu: React.FC = () => {
                         alt = "call" 
                     />
                 </div>
-                <button className = {css.priceList}>
-                    Прайс-лист
-                    <img 
-                        src = "/images/menu/download.png" 
-                        alt = "download" 
-                    />
-                </button>
+                <PriceButton />
                 <div className = {css.basket}>
                     <div className = {css.basketIcon}>
                         <img 
