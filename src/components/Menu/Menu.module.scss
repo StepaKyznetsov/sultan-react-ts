@@ -3,6 +3,8 @@
     display: flex;
     justify-content: center;
     overflow:hidden;
+    border-top: 1px solid #d9dce0;
+    border-bottom: 1px solid #d9dce0;
     .content {
         height: 109px;
         width: 71.15%;
@@ -103,6 +105,7 @@
                     line-height: 150%;
                 }
               .money {
+                white-space: nowrap;
                 font-weight: 600;
                 font-size: 14px;
                 line-height: 150%;

@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    span {
+        font-weight: 300;
+        line-height: 120%;
+        margin-right: 20px;
+        cursor: pointer;
+        position: relative;
+        &:last-child {
+            cursor: default;
+            color: #9fa7b2;
+            margin: 0;
+        }
+        &:not(:first-child) {
+            &::before {
+                position: absolute;
+                content: url('../../../public/images/breadcrumbs/delimiter.png');
+                left: -10px;
+                top: 1px
+            }
+        }
+    }
+}

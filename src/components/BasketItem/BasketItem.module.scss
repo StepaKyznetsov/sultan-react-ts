@@ -1,0 +1,86 @@
+.container {
+    width: 100%;
+    height: fit-content;
+    margin-top: 50px;
+    border-top: 1px #c5cad1 dashed;
+    border-bottom: 1px #c5cad1 dashed;
+    .item {
+        height: 291px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .info { 
+            display: flex;
+            flex-direction: row;
+            .image {
+                width: 281px;
+                height: 191px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            .text {
+                width: fit-content;
+                margin-left: 20px;
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+                margin-top: 15px;
+                .sizeType {
+                    display: flex;
+                    align-items: center;
+                }
+                span {
+                    font-size: 12px;
+                    line-height: 130%;
+                    margin-left: 5px;
+                }
+                h2 {
+                    margin-top: 10px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    line-clamp: 2;
+                    -webkit-line-clamp: 2;
+                    display: -moz-box;
+                    -moz-box-orient: vertical;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    box-orient: vertical;
+                    height: 72px;
+                    width: 480px;
+                    font-weight: 700;
+                    font-size: 30px;
+                    line-height: 36px;
+                    color: #111111;
+                }
+                p {
+                    margin-top: 10px;
+                    font-weight: 300;
+                    font-size: 12px;
+                    width: 444px;
+                }
+            } 
+        }
+        .interactive {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .price {
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 130%;
+                color: #111111;
+                margin-right: 86px;
+            }
+            .remove {
+                background: none;
+            }
+        }
+    }
+}

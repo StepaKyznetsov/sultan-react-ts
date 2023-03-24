@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Header.module.scss'
+import {LINKSHEADER} from '../../constants/constants';
 
 const Header: React.FC = () => {
     return(
@@ -24,18 +25,14 @@ const Header: React.FC = () => {
                     </div>
                 </div>
                 <nav>
-                    <a href = "#"  className = {css.link}>
-                        О компании
-                    </a>
-                    <a href = "#"  className = {css.link}>
-                        Доставка и оплата
-                    </a>
-                    <a href = "#"  className = {css.link}>
-                        Возврат
-                    </a>
-                    <a href = "#"  className = {css.link}>
-                        Контакты
-                    </a>
+                    {LINKSHEADER.map(e => 
+                        <span 
+                            key = {e}
+                            className = {css.link}
+                        >
+                            {e}
+                        </span> 
+                    )}
                 </nav>
             </div>
         </header>

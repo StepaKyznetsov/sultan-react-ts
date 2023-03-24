@@ -6,10 +6,13 @@
     height: 419px;
     display: flex;
     flex-direction: column;
-    
     align-items: flex-start;
     padding: 42px 22px 29px 22px;
+    &:hover {
+        box-shadow: 0px 15px 39px -11px rgb(134, 126, 126);
+    }
     .image {
+        cursor: pointer;
         width: fit-content;
         padding: 0 35px;
         margin: auto;
@@ -29,6 +32,7 @@
         }
     }
     .productName {
+        cursor: pointer;
         color: #111111;
         font-weight: 500;
         font-size: 16px;

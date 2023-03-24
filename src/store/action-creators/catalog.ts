@@ -2,7 +2,7 @@ import {CatalogAction, CatalogActionTypes} from "../../types/catalog";
 import {Dispatch} from "redux";
 import axios from "axios";
 
-export const fetchCatalog = (page = 1, limit = 10) => {
+export const fetchCatalog = (page = 1, limit = 15) => {
     return async (dispatch: Dispatch<CatalogAction>) => {
         try {
             dispatch({type: CatalogActionTypes.FETCH_CATALOG})

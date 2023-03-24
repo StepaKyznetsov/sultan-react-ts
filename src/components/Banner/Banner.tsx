@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './Banner.module.scss'
 import {useNavigate} from 'react-router-dom';
-import { CATALOG } from '../../constants/constants';
+import {CATALOG} from '../../constants/constants';
 
 const Banner: React.FC = () => {
 

@@ -5,9 +5,10 @@ const Categories: React.FC = () => {
     return(
         <div className = {css.container}>
             <div className = {css.content}>
-                <h2>
-                    категории <h2>товаров</h2>
-                </h2>
+                <div>
+                    <h2>категории </h2>
+                    <h2>товаров</h2>
+                </div>
                 <p>
                     10 000+ ходовых позиций по специальным ценам
                 </p>

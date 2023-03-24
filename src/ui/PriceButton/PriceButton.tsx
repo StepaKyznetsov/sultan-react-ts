@@ -1,12 +1,17 @@
 import React from 'react';
 import css from './PriceButton.module.scss';
 
-const PriceButton: React.FC = () => {
+interface IButton {
+    text: string;
+    url: string
+}
+
+const PriceButton: React.FC<IButton> = ({text, url}) => {
     return (
         <button className = {css.priceButton}>
-            Прайс-лист
+            {text}
             <img 
-                src = "/images/menu/download.png" 
+                src = {url} 
                 alt = "download" 
             />
         </button>

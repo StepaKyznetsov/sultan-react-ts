@@ -1,0 +1,138 @@
+.container {
+    width: 100%;
+    margin-top: 45px;
+    .content {
+        margin: 0 auto;
+        width: 71.15%;
+        .info {
+            padding: 0 17px;
+            margin-top: 65px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .image {
+                width: 664px;
+                height: fit-content;
+                display: flex;
+                justify-content: center;
+                img {
+                   height: 100%;
+                }
+            }
+            .blockInfo {
+                display: flex;
+                flex-direction: column;
+                width: 628px;
+                .about {
+                    margin: 35px 0 35px 0;
+                    height: fit-content;
+                    .stock {
+                        font-weight: 500;
+                        line-height: 130%;
+                        color: #1FD85D;
+                    }
+                }
+                .name {
+                    font-weight: 800;
+                    font-size: 30px;
+                    line-height: 150%;
+                    color: #111111;
+                    .title {
+                        font-weight: 500;
+                        margin-left: 5px;
+                    }
+                }
+                .weight {
+                    display: flex;
+                    align-items: center;
+                    font-size: 12px;
+                    line-height: 130%;
+                    margin: 10px 0 25px 0;
+                }
+                .interaction {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .price {
+                        font-weight: 800;
+                        font-size: 30px;
+                        line-height: 130%;
+                        color: #111111;
+                        margin-right: 40px;
+                    }
+                }
+                .more {
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 20px;
+                    .share {
+                        cursor: pointer;
+                        box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        width: 57px;
+                        height: 57px;
+                    }
+                    .promotion {
+                        box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
+                        border-radius: 10px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        width: 316px;
+                        height: 77px;
+                        text-align: center;
+                        font-size: 12px;
+                        margin: 0 10px;
+                        font-weight: 500;
+                        }
+                    .priceList {
+                        box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
+                        border-radius: 10px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        gap: 10px;
+                        width: 186px;
+                        height: 77px;
+                        font-weight: 700;
+                        font-size: 14px;
+                        line-height: 17px;
+                        color: #3F4E65;
+                        background: #FFFFFF;
+                    }
+                }
+                .characteristics {
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        margin-bottom: 5px;
+                    } 
+                    .value {
+                        font-weight: 500;
+                        line-height: 150%;
+                        color: #111111;
+                    }
+                    .subtitle {
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: #111111;
+                        margin: 30px 0 15px 0;
+                    }
+                    p {
+                        margin-bottom: 10px;
+                        font-weight: 300;
+                        font-size: 12px;
+                        width: 611px;
+                    }
+                }
+            }  
+        }
+    }
+}

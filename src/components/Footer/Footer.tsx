@@ -2,6 +2,7 @@ import React from 'react';
 import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Footer.module.scss';
 import Input from '../../ui/Input/Input';
+import {LINKSFOOTER} from '../../constants/constants';
 
 const Footer: React.FC = () => {
     return(
@@ -31,44 +32,36 @@ const Footer: React.FC = () => {
                     <span className = {css.head}>
                         Меню сайта:
                     </span>
-                    <a href = "#">
-                        О компании
-                    </a>
-                    <a href = "#">
-                        Доставка и оплата
-                    </a>
-                    <a href = "#">
-                        Возврат
-                    </a>
-                    <a href = "#">
-                        Контакты
-                    </a>
+                    {LINKSFOOTER[0].map((e: string) =>
+                        <span 
+                            className = {css.link} 
+                            key = {e}
+                        >
+                            {e}
+                        </span>
+                    )}
                 </div>
                 <div className = {css.column}>
                     <span className = {css.head}>
                         Категории:
                     </span>
-                    <a href = "#">
-                        Бытовая химия
-                    </a>
-                    <a href = "#">
-                        Косметика и гигиена
-                    </a>
-                    <a href = "#">
-                        Товары для дома
-                    </a>
-                    <a href = "#">
-                        Товары для детей и мам
-                    </a>
-                    <a href = "#">
-                        Посуда
-                    </a>
+                    {LINKSFOOTER[1].map((e: string) =>
+                        <span 
+                            className = {css.link} 
+                            key = {e}
+                        >
+                            {e}
+                        </span>
+                    )}
                 </div>
                 <div className = {css.column}>
                     <span className = {css.head}>
                         Скачать прайс-лист:
                     </span>
-                    <PriceButton />
+                    <PriceButton 
+                        text = 'Прайс-лист'
+                        url = '/images/menu/download.png'
+                    />
                     <span className = {css.connect}>
                         Связь в мессенджерах:
                     </span>
@@ -99,7 +92,9 @@ const Footer: React.FC = () => {
                     </span>
                     <span className = {css.mail}>
                         opt.sultan@mail.ru<br />
-                        <span className = {css.time}>На связи в любое время</span>
+                        <span className = {css.time}>
+                            На связи в любое время
+                        </span>
                     </span>
                     <div>
                         <img

@@ -3,11 +3,14 @@ import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Menu.module.scss';
 import Input from '../../ui/Input/Input';
 import {useNavigate} from 'react-router-dom';
-import { CATALOG, MAIN } from '../../constants/constants';
+import { BASKET, CATALOG, MAIN } from '../../constants/constants';
+import {useReadLocalStorage} from 'usehooks-ts';
 
 const Menu: React.FC = () => {
-
+    
     const navigate = useNavigate()
+    const sum = useReadLocalStorage('sum')
+    const products = useReadLocalStorage('products')
 
     return(
         <div className = {css.container}>
@@ -49,24 +52,35 @@ const Menu: React.FC = () => {
                         alt = "call" 
                     />
                 </div>
-                <PriceButton />
-                <div className = {css.basket}>
+                <PriceButton 
+                    text = 'Прайс-лист'
+                    url = '/images/menu/download.png'
+                />
+                <div
+                    onClick={() => navigate(BASKET)}
+                    className = {css.basket}
+                >
                     <div className = {css.basketIcon}>
                         <img 
                             src = "/images/menu/basket.png" 
                             alt = "basket" 
                         />
-                        <span className = {css.basketCounter}>
-                            3
-                        </span>
+                        {Number(localStorage.getItem('products')) > 0 
+                            ? 
+                            <span className = {css.basketCounter}>
+                                {localStorage.getItem('products')}
+                            </span>
+                            :
+                            null
+                        }
                     </div>
                     <div className = {css.sum}>
                         <span>
                             Корзина
                         </span>
-                        <span className = {css.money}>
-                            12 478 ₸ 
-                        </span>
+                        <div className = {css.money}>
+                            {localStorage.getItem('sum') || '0'} ₸
+                        </div>
                     </div>
                 </div>
             </div>
