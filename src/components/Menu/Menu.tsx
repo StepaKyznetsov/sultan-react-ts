@@ -3,14 +3,15 @@ import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Menu.module.scss';
 import Input from '../../ui/Input/Input';
 import {useNavigate} from 'react-router-dom';
-import { BASKET, CATALOG, MAIN } from '../../constants/constants';
+import {BASKET, CATALOG, MAIN} from '../../constants/constants';
 import {useReadLocalStorage} from 'usehooks-ts';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Menu: React.FC = () => {
     
     const navigate = useNavigate()
     const sum = useReadLocalStorage('sum')
-    const products = useReadLocalStorage('products')
+    const {order} = useTypedSelector(state => state.basket)
 
     return(
         <div className = {css.container}>
@@ -65,10 +66,11 @@ const Menu: React.FC = () => {
                             src = "/images/menu/basket.png" 
                             alt = "basket" 
                         />
-                        {Number(localStorage.getItem('products')) > 0 
+                        {
+                            order.length 
                             ? 
                             <span className = {css.basketCounter}>
-                                {localStorage.getItem('products')}
+                                {order.length}
                             </span>
                             :
                             null

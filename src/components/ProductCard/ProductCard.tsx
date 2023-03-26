@@ -28,10 +28,10 @@ const ProductCard: React.FC<ICardProps> = ({
 }) => {
 
     const navigate = useNavigate()
-    const {getProductById} = useActions()
+    const {getProductById, addToBasket} = useActions()
     const {items} = useTypedSelector(state => state.catalog)
     const [sum, setSum] = useLocalStorage('sum', 0)
-    const [products, setProducts] = useLocalStorage('products', 0)
+    const {order} = useTypedSelector(state => state.basket)
 
     const productPage = (id: number, items: any[]): void => {
         navigate(CATALOG + '/' + id)
@@ -39,8 +39,7 @@ const ProductCard: React.FC<ICardProps> = ({
     }
 
     const addToCart = (id: number, items: any[]): void => {
-      getProductById(id, items)
-      setProducts(products + 1)
+      addToBasket(barcode, items, order, 1)
       setSum(+((sum + price).toFixed(2)))
     }
 
@@ -48,67 +47,68 @@ const ProductCard: React.FC<ICardProps> = ({
         <div className = {css.container}>
             <div
                 onClick={() => productPage(barcode, items)}
-                className = {css.image}>
-            <img
-                src = {photo} 
-                alt = "product" 
-            />
-        </div>
-        <div className = {css.size}>
-            <img 
-                src = "/images/catalog/bottle.svg" 
-                alt = "type" 
-            />
-            <span>
-                {size}
-            </span>
-        </div>
-        <span
-            onClick={() => productPage(barcode, items)}
-            className = {css.productName}
-        >
-            <span className = {css.brand}>
-                {brand}
-            </span>
-            {title}
-        </span>
-        <div className = {css.item}>
-            <span>
-                Штрихкод:
-            </span>
-            <span className = {css.value}>
-                {barcode}
-            </span>
-        </div>
-        <div className = {css.item}>
-            <span>
-                Производитель: 
-            </span>
-            <span className = {css.value}>
-                {manufacturer}
-            </span>
-        </div>
-        <div className = {css.item}>
-            <span>
-                Бренд: 
-            </span>
-            <span className = {css.value}>
-                {brand}
-            </span>
-        </div>
-        <div className = {css.order}>
-            <span>
-                {price} ₸
-            </span>
-            <button onClick={() => addToCart(barcode, items)}>
-                В КОРЗИНУ
-                <img 
-                    src = "/images/catalog/basket.png" 
-                    alt = "basket" 
+                className = {css.image}
+            >
+                <img
+                    src = {photo} 
+                    alt = "product" 
                 />
-            </button>
+            </div>
+            <div className = {css.size}>
+                <img 
+                    src = "/images/catalog/bottle.svg" 
+                    alt = "type" 
+                />
+                <span>
+                    {size}
+                </span>
+            </div>
+            <span
+                onClick={() => productPage(barcode, items)}
+                className = {css.productName}
+            >
+                <span className = {css.brand}>
+                    {brand}
+                </span>
+                {title}
+            </span>
+            <div className = {css.item}>
+                <span>
+                    Штрихкод:
+                </span>
+                <span className = {css.value}>
+                    {barcode}
+                </span>
+            </div>
+            <div className = {css.item}>
+                <span>
+                    Производитель: 
+                </span>
+                <span className = {css.value}>
+                    {manufacturer}
+                </span>
+            </div>
+            <div className = {css.item}>
+                <span>
+                    Бренд: 
+                </span>
+                <span className = {css.value}>
+                    {brand}
+                </span>
+            </div>
+            <div className = {css.order}>
+                <span>
+                    {price} ₸
+                </span>
+                <button onClick={() => addToCart(barcode, items)}>
+                    В КОРЗИНУ
+                    <img 
+                        src = "/images/catalog/basket.png" 
+                        alt = "basket" 
+                    />
+                </button>
+            </div>
         </div>
-      </div>
     );
 }
 

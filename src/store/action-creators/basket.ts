@@ -1,19 +1,44 @@
 import {BasketAction, BasketActionTypes} from "../../types/basket";
 import {Dispatch} from "redux";
 
-export const getCurrentBasket = (page = 1, limit = 15) => {
-    return async (dispatch: Dispatch<BasketAction>) => {
-        try {
-            dispatch({type: BasketActionTypes.GET_CURRENT_BASKET})
+export const addToBasket = (barcode: number, items: any[], current: any[], counter: number) => {
 
-            setTimeout(() => {
-                dispatch({type: BasketActionTypes.SET_BASKET_SUCCESS, payload: {}})
-            }, 500)
-        } catch (e) {
-            dispatch({
-                type: BasketActionTypes.SET_BASKET_ERROR,
-                payload: 'Произошла ошибка при загрузке товаров'
-            })
-        }
-    }
+    return (dispatch: Dispatch<BasketAction>) => {
+        if (current.filter(e => e.data[0].barcode === barcode).length !== 0) {
+          return dispatch({
+            type: BasketActionTypes.CHANGE_PRODUCT_COUNTER, 
+            payload: [
+                barcode,
+                counter
+            ]
+        })
+        } 
+        dispatch({
+            type: BasketActionTypes.ADD_TO_BASKET, 
+            payload:{
+                data: items.filter(e => e.barcode === barcode), 
+                counter, 
+                id: barcode
+            }
+        })
+    }       
 }
+
+export const resetBasket = () => {
+    return (dispatch: Dispatch<BasketAction>) => {
+        dispatch({
+            type: BasketActionTypes.RESET_BASKET
+        })
+    }  
+}
+
+export const removeFromBasket = (barcode: number, items: any[]) => {
+    return (dispatch: Dispatch<BasketAction>) => {
+        dispatch({
+            type: BasketActionTypes.REMOVE_FROM_BASKET,
+            payload: items.findIndex(e => e.id === barcode)
+       })
+    }  
+}
+
+

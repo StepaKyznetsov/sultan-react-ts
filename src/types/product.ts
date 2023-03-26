@@ -5,24 +5,12 @@ export interface ProductState {
 }
 
 export enum ProductActionTypes {
-    GET_CURRENT_PRODUCT = 'GET_CURRENT_PRODUCT',
-    SET_PRODUCT_SUCCESS = 'SET_PRODUCT_SUCCESS',
-    SET_PRODUCT_ERROR = 'SET_PRODUCT_ERROR',
+    SET_CURRENT_PRODUCT = 'SET_CURRENT_PRODUCT',
 }
 
-interface GetCurrentProductAction {
-    type: ProductActionTypes.GET_CURRENT_PRODUCT
-}
-interface SetProductSuccessAction {
-    type: ProductActionTypes.SET_PRODUCT_SUCCESS;
-    payload: object;
-}
-interface SetProductErrorAction {
-    type: ProductActionTypes.SET_PRODUCT_ERROR;
-    payload: string;
+interface SetCurrentProductAction {
+    type: ProductActionTypes.SET_CURRENT_PRODUCT;
+    payload: Object;
 }
 
-export type ProductAction =
-    GetCurrentProductAction
-    | SetProductSuccessAction
-    | SetProductErrorAction
+export type ProductAction = SetCurrentProductAction

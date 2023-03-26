@@ -1,28 +1,42 @@
+interface Item {
+    data: Object;
+    counter: number;
+    id: number;
+}
+
 export interface BasketState {
-    current: Object;
-    loading: boolean;
+    order: Item[];
     error: null | string;
 }
 
 export enum BasketActionTypes {
-    GET_CURRENT_BASKET = 'GET_CURRENT_BASKET',
-    SET_BASKET_SUCCESS = 'SET_BASKET_SUCCESS',
-    SET_BASKET_ERROR = 'SET_BASKET_ERROR',
+    REMOVE_FROM_BASKET = 'REMOVE_FROM_BASKET',
+    ADD_TO_BASKET = 'ADD_TO_BASKET',
+    RESET_BASKET = 'RESET_BASKET',
+    CHANGE_PRODUCT_COUNTER = 'CHANGE_PRODUCT_COUNTER'
 }
 
-interface GetCurrentBasketAction {
-    type: BasketActionTypes.GET_CURRENT_BASKET
+interface RemoveFromBasket {
+    type: BasketActionTypes.REMOVE_FROM_BASKET;
+    payload: number;
 }
-interface SetBasketSuccessAction {
-    type: BasketActionTypes.SET_BASKET_SUCCESS;
-    payload: object;
+
+interface AddToBasket {
+    type: BasketActionTypes.ADD_TO_BASKET;
+    payload: Item;
 }
-interface SetBasketErrorAction {
-    type: BasketActionTypes.SET_BASKET_ERROR;
-    payload: string;
+
+interface ResetBasket {
+    type: BasketActionTypes.RESET_BASKET
+}
+
+interface ChangeProductCounter {
+    type: BasketActionTypes.CHANGE_PRODUCT_COUNTER;
+    payload: number[];
 }
 
 export type BasketAction =
-    GetCurrentBasketAction
-    | SetBasketSuccessAction
-    | SetBasketErrorAction
+    RemoveFromBasket
+    | AddToBasket
+    | ResetBasket
+    | ChangeProductCounter

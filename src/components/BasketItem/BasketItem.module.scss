@@ -1,8 +1,6 @@
 .container {
     width: 100%;
     height: fit-content;
-    margin-top: 50px;
-    border-top: 1px #c5cad1 dashed;
     border-bottom: 1px #c5cad1 dashed;
     .item {
         height: 291px;
@@ -44,13 +42,11 @@
                     margin-top: 10px;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    line-clamp: 2;
                     -webkit-line-clamp: 2;
                     display: -moz-box;
                     -moz-box-orient: vertical;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    box-orient: vertical;
                     height: 72px;
                     width: 480px;
                     font-weight: 700;
@@ -64,7 +60,7 @@
                     font-size: 12px;
                     width: 444px;
                 }
-            } 
+            }
         }
         .interactive {
             display: flex;
@@ -76,7 +72,7 @@
                 font-size: 30px;
                 line-height: 130%;
                 color: #111111;
-                margin-right: 86px;
+                width: 200px;
             }
             .remove {
                 background: none;

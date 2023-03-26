@@ -1,42 +1,37 @@
-import React, {useState} from 'react';
+import React from 'react';
 import css from './Counter.module.scss';
 
 interface ICounter {
-    marginRight: number; 
+    marginRight: number;
+    increment(): void;
+    decrement(): void;
+    count: number;
 }
 
-const Counter: React.FC<ICounter> = ({marginRight}) => {
-
-    const [counter, setCounter] = useState(1)
-    const [decrementActive, setDecrementActive] = useState(false)
-
-    const decrement = (): void => {
-        if (counter === 2) setDecrementActive(false)
-        if (counter === 1) return 
-        setCounter(counter - 1)
-    }
-    const increment = (): void  => {
-        setDecrementActive(true)
-        setCounter(counter + 1)
-    }
-    
+const Counter: React.FC<ICounter> = ({
+    marginRight, 
+    increment, 
+    decrement, 
+    count
+}) => {
     return(
         <div
             style = {{marginRight: `${marginRight}px`}}
             className = {css.btns}
         >
             <button
-                disabled = {!decrementActive}
-                onClick={() => decrement()}
+                onClick = {() => decrement()}
                 className = {css.btn}
             >
                 -
             </button>
-            <div>
-                {counter}
-            </div>
+            <input
+                type = "number" 
+                disabled 
+                value = {count} 
+            />
             <button
-                onClick={() => increment()}
+                onClick = {() => increment()}
                 className = {css.btn}
             >
                 +

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Counter from '../../ui/Counter/Counter';
 import PriceButton from '../../ui/PriceButton/PriceButton';
 import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
 import css from './ProductPage.module.scss';
 import {useLocalStorage} from 'usehooks-ts';
 import {CATALOG} from '../../constants/constants';
+import {useTypedSelector} from '../../hooks/useTypedSelector';
+import {useActions} from '../../hooks/useActions';
 
 interface IProductPageProps {
     title: string;
     photo: string;
     size: string;
+    sizeType: string;
     barcode: number;
     manufacturer: string;
     brand: string;
@@ -21,6 +24,7 @@ const ProductPage: React.FC<IProductPageProps> = ({
     photo,
     title,
     size,
+    sizeType,
     barcode,
     manufacturer,
     brand,
@@ -29,13 +33,25 @@ const ProductPage: React.FC<IProductPageProps> = ({
 }) => {
 
     const [sum, setSum] = useLocalStorage('sum', 0)
-    const [products, setProducts] = useLocalStorage('products', 0)
+    const {addToBasket} = useActions()
+    const {items} = useTypedSelector(state => state.catalog)
+    const {order} = useTypedSelector(state => state.basket)
+    const [counter, setCounter] = useState(1)
+
+    const decrement = (): void => {
+        if (counter === 1) return 
+        setCounter(counter - 1)
+    }
+    const increment = (): void  => {
+        setCounter(counter + 1)
+    }
 
     const addToCart = (): void => {
-        setProducts(products + 1)
+        addToBasket(barcode, items, order, counter)
+        setCounter(1)
         setSum(+((sum + price).toFixed(2)))
     }
-    
+
     return(
         <div className = {css.container}>
             <div className = {css.content}>
@@ -72,10 +88,14 @@ const ProductPage: React.FC<IProductPageProps> = ({
                             </div>
                             <div className = {css.weight}>
                                 <img 
-                                    src = "/images/catalog/box.svg" 
+                                    src = {
+                                        sizeType === 'вес' ? 
+                                        '/images/catalog/box.svg' : 
+                                        '/images/catalog/bottle.svg'
+                                    }  
                                     alt = "type" 
                                 />
-                                <span>
+                                <span className = {css.value}>
                                     {size}
                                 </span>
                             </div>
@@ -83,7 +103,12 @@ const ProductPage: React.FC<IProductPageProps> = ({
                                 <span className = {css.price}>
                                     {price} ₸
                                 </span>
-                                <Counter marginRight = {38} />
+                                <Counter
+                                    marginRight = {38}
+                                    increment = {increment}
+                                    decrement = {decrement}
+                                    count = {counter}
+                                />
                                 <div onClick={() => addToCart()}>
                                     <PriceButton
                                         text = 'В корзину'

@@ -10,6 +10,7 @@ const Product: React.FC = () => {
   return (
     <>
       <ProductPage
+        sizeType = {currentProduct.sizeType}
         photo = {currentProduct.photo}
         title = {currentProduct.title}
         size = {currentProduct.size}

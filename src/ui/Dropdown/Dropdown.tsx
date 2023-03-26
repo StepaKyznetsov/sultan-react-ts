@@ -12,7 +12,10 @@ const Dropdown: React.FC<IDropdownProps> = ({options}) => {
     return(
         <select className = {css.dropdown}>
             {options.map(e =>
-                <option key = {e.value} value = {e.value}>
+                <option 
+                    key = {e.value} 
+                    value = {e.value}
+                >
                     {e.name}
                 </option>
             )}
