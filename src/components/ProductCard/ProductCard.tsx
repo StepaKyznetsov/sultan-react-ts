@@ -3,7 +3,6 @@ import css from './ProductCard.module.scss';
 import {useNavigate} from 'react-router-dom';
 import {CATALOG} from '../../constants/constants';
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {getProductById} from "../../store/action-creators/product";
 import {useActions} from "../../hooks/useActions";
 import {useLocalStorage} from 'usehooks-ts';
 
@@ -38,7 +37,7 @@ const ProductCard: React.FC<ICardProps> = ({
         getProductById(id, items)
     }
 
-    const addToCart = (id: number, items: any[]): void => {
+    const addToCart = (items: any[]): void => {
       addToBasket(barcode, items, order, 1)
       setSum(+((sum + price).toFixed(2)))
     }
@@ -100,7 +99,7 @@ const ProductCard: React.FC<ICardProps> = ({
                 <span>
                     {price} ₸
                 </span>
-                <button onClick={() => addToCart(barcode, items)}>
+                <button onClick={() => addToCart(items)}>
                     В КОРЗИНУ
                     <img 
                         src = "/images/catalog/basket.png" 

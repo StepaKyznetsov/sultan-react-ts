@@ -2,7 +2,7 @@ import React from 'react';
 import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Footer.module.scss';
 import Input from '../../ui/Input/Input';
-import {LINKSFOOTER} from '../../constants/constants';
+import {LINKS} from '../../constants/constants';
 
 const Footer: React.FC = () => {
     return(
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                     <span className = {css.head}>
                         Меню сайта:
                     </span>
-                    {LINKSFOOTER[0].map((e: string) =>
+                    {LINKS[0].map((e: string) =>
                         <span 
                             className = {css.link} 
                             key = {e}
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                     <span className = {css.head}>
                         Категории:
                     </span>
-                    {LINKSFOOTER[1].map((e: string) =>
+                    {LINKS[1].map((e: string) =>
                         <span 
                             className = {css.link} 
                             key = {e}

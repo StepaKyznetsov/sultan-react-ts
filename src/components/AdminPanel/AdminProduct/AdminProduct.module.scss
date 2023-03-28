@@ -1,0 +1,83 @@
+.container {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 14px 39px -11px rgba(0, 0, 0, 0.06);
+    &:hover {
+        box-shadow: 0px 5px 15px -5px rgb(134, 126, 126);
+    }
+    .content {
+        height: 100px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 100%;
+            width: 70%;
+            .image {
+                margin-right: 50px;
+                width: 20%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                img {
+                    object-fit: cover;
+                }
+            }
+            .text {
+                display: flex;
+                flex-direction: row;
+                .id {
+                    margin-right: 10px;
+                }
+                .brand {
+                    margin-right: 10px;
+                    font-weight: 500;
+                }
+            }
+        }
+        .btns {
+            display: flex;
+            flex-direction: row;
+            button {
+                color: white;
+                padding: 10px 19px;
+                gap: 12px;
+                background: #FFC85E;
+                border-radius: 79px;
+                width: 192px;
+                height: 59px;
+                font-weight: 700;
+                line-height: 17px;
+                margin: 0 15px 0 0;
+                &:last-child {
+                    background-color: #ff7676;
+                }
+            }
+        }
+    }
+    .changeProduct {
+        margin: 0 auto;
+        width: 60%;
+        h3 {
+            color: #3F4E65;
+            display: inline-block;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 25px;
+            text-align: center;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            .field {
+
+            }
+        }
+    }
+}

@@ -2,16 +2,15 @@ import {BasketAction, BasketActionTypes} from "../../types/basket";
 import {Dispatch} from "redux";
 
 export const addToBasket = (barcode: number, items: any[], current: any[], counter: number) => {
-
     return (dispatch: Dispatch<BasketAction>) => {
         if (current.filter(e => e.data[0].barcode === barcode).length !== 0) {
-          return dispatch({
-            type: BasketActionTypes.CHANGE_PRODUCT_COUNTER, 
-            payload: [
-                barcode,
-                counter
-            ]
-        })
+            return dispatch({
+                type: BasketActionTypes.CHANGE_PRODUCT_COUNTER,
+                payload: [
+                    barcode,
+                    counter
+                ]
+            })
         } 
         dispatch({
             type: BasketActionTypes.ADD_TO_BASKET, 

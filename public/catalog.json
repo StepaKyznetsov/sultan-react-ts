@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "title": "Экологичное туалетное мыло. Литсея и бергамот",
         "photo": "/images/mock/biomio.png",
         "sizeType": "вес",
@@ -9,10 +9,11 @@
         "manufacturer": "460404",
         "brand": "BioMio BIO-SOAP",
         "price": 34.61,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."           
+        "categories": ["Уход за руками"],   
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 2,
+        "id": 1,
         "title": "Средство для мытья посуды Апельсин+мята",
         "photo": "/images/mock/sorti.png",
         "sizeType": "объём",
@@ -21,10 +22,11 @@
         "manufacturer": "460405",
         "brand": "Sorti",
         "price": 52.51,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 3,
+        "id": 2,
         "title": "Средство для мытья посуды Crystal",
         "photo": "/images/mock/aos.png",
         "sizeType": "объём",
@@ -33,10 +35,11 @@
         "manufacturer": "460406",
         "brand": "Aos",
         "price": 54.1,
+        "categories": ["Уход за руками"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 4,
+        "id": 3,
         "title": "Автомат Гель СМС жидкое в растворимых капсулах",
         "photo": "/images/mock/ariel.png",
         "sizeType": "вес",
@@ -45,10 +48,11 @@
         "manufacturer": "460407",
         "brand": "Ariel",
         "price": 49,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 5,
+        "id": 4,
         "title": "Порошок стиральный Автомат 100 пятен COMPACT",
         "photo": "/images/mock/bimax.png",
         "sizeType": "вес",
@@ -57,10 +61,11 @@
         "manufacturer": "460408",
         "brand": "Bimax",
         "price": 52,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 6,
+        "id": 5,
         "title": "Экологичное туалетное мыло. Литсея и бергамот",
         "photo": "/images/mock/biomio.png",
         "sizeType": "вес",
@@ -69,10 +74,11 @@
         "manufacturer": "460404",
         "brand": "BioMio BIO-SOAP",
         "price": 24,
+        "categories": ["Уход за руками"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."           
     },
     {
-        "id": 7,
+        "id": 6,
         "title": "Средство для мытья посуды Апельсин+мята",
         "photo": "/images/mock/sorti.png",
         "sizeType": "объём",
@@ -81,10 +87,11 @@
         "manufacturer": "460405",
         "brand": "Sorti",
         "price": 85.3,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 8,
+        "id": 7,
         "title": "Средство для мытья посуды Crystal",
         "photo": "/images/mock/aos.png",
         "sizeType": "объём",
@@ -93,10 +100,11 @@
         "manufacturer": "460406",
         "brand": "Aos",
         "price": 99.9,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 9,
+        "id": 8,
         "title": "Автомат Гель СМС жидкое в растворимых капсулах",
         "photo": "/images/mock/ariel.png",
         "sizeType": "вес",
@@ -105,10 +113,11 @@
         "manufacturer": "460407",
         "brand": "Ariel",
         "price": 12.34,
+        "categories": ["Уход за руками"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 10,
+        "id": 9,
         "title": "Порошок стиральный Автомат 100 пятен COMPACT",
         "photo": "/images/mock/bimax.png",
         "sizeType": "вес",
@@ -117,10 +126,11 @@
         "manufacturer": "460408",
         "brand": "Bimax",
         "price": 54.21,
+        "categories": ["Уход за руками", "Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 11,
+        "id": 10,
         "title": "Экологичное туалетное мыло. Литсея и бергамот",
         "photo": "/images/mock/biomio.png",
         "sizeType": "вес",
@@ -129,10 +139,11 @@
         "manufacturer": "460404",
         "brand": "BioMio BIO-SOAP",
         "price": 63.3,
+        "categories": ["Уход за руками"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."           
     },
     {
-        "id": 12,
+        "id": 11,
         "title": "Средство для мытья посуды Апельсин+мята",
         "photo": "/images/mock/sorti.png",
         "sizeType": "объём",
@@ -141,10 +152,11 @@
         "manufacturer": "460405",
         "brand": "Sorti",
         "price": 48.76,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 13,
+        "id": 12,
         "title": "Средство для мытья посуды Crystal",
         "photo": "/images/mock/aos.png",
         "sizeType": "объём",
@@ -153,10 +165,11 @@
         "manufacturer": "460406",
         "brand": "Aos",
         "price": 48.76,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 14,
+        "id": 13,
         "title": "Автомат Гель СМС жидкое в растворимых капсулах",
         "photo": "/images/mock/ariel.png",
         "sizeType": "вес",
@@ -165,10 +178,11 @@
         "manufacturer": "460407",
         "brand": "Ariel",
         "price": 48.76,
+        "categories": ["Уход за руками", "Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 15,
+        "id": 14,
         "title": "Порошок стиральный Автомат 100 пятен COMPACT",
         "photo": "/images/mock/bimax.png",
         "sizeType": "вес",
@@ -177,10 +191,11 @@
         "manufacturer": "460408",
         "brand": "Bimax",
         "price": 48.76,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 16,
+        "id": 15,
         "title": "Экологичное туалетное мыло. Литсея и бергамот",
         "photo": "/images/mock/biomio.png",
         "sizeType": "вес",
@@ -189,10 +204,11 @@
         "manufacturer": "460404",
         "brand": "BioMio BIO-SOAP",
         "price": 48.76,
+        "categories": ["Уход за руками", "Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."           
     },
     {
-        "id": 17,
+        "id": 16,
         "title": "Средство для мытья посуды Апельсин+мята",
         "photo": "/images/mock/sorti.png",
         "sizeType": "объём",
@@ -201,10 +217,11 @@
         "manufacturer": "460405",
         "brand": "Sorti",
         "price": 48.76,
+        "categories": ["Уход за руками"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 18,
+        "id": 17,
         "title": "Средство для мытья посуды Crystal",
         "photo": "/images/mock/aos.png",
         "sizeType": "объём",
@@ -213,10 +230,11 @@
         "manufacturer": "460406",
         "brand": "Aos",
         "price": 48.76,
+        "categories": ["Уход за руками"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 19,
+        "id": 18,
         "title": "Автомат Гель СМС жидкое в растворимых капсулах",
         "photo": "/images/mock/ariel.png",
         "sizeType": "вес",
@@ -225,10 +243,11 @@
         "manufacturer": "460407",
         "brand": "Ariel",
         "price": 48.76,
+        "categories": ["Уход за телом"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     },
     {
-        "id": 20,
+        "id": 19,
         "title": "Порошок стиральный Автомат 100 пятен COMPACT",
         "photo": "/images/mock/bimax.png",
         "sizeType": "вес",
@@ -237,6 +256,7 @@
         "manufacturer": "460408",
         "brand": "Bimax",
         "price": 48.76,
+        "categories": ["Уход за руками"], 
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus consectetur aliquet sed pellentesque consequat consectetur congue mauris venenatis. Nunc elit, dignissim sed nulla ullamcorper enim, malesuada."
     }
-]  
+]

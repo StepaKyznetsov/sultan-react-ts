@@ -27,10 +27,42 @@ export const catalogReducer = (state = initialState, action: CatalogAction): Cat
                 loading: false, 
                 error: action.payload
             }
+        case CatalogActionTypes.REMOVE_FROM_CATALOG:
+            return {
+                ...state,
+                items: [
+                    ...state.items.slice(0, action.payload).concat(...state.items.slice(action.payload + 1))
+                ]
+            }
+        case CatalogActionTypes.CHANGE_PRODUCT:
+            return {
+                ...state,
+                items: state.items.map(e => e.id === action.payload.id ?
+                    action.payload.data
+                    :
+                    e
+                )
+            }
+        case CatalogActionTypes.ADD_PRODUCT:
+            return {
+                ...state,
+                items: [
+                    ...state.items,
+                    action.payload
+                ]
+            }
         case CatalogActionTypes.SET_CATALOG_PAGE:
             return {
                 ...state, 
                 page: action.payload
+            }
+        case CatalogActionTypes.PRICE_SORTING: 
+            return {
+                ...state
+            }
+        case CatalogActionTypes.NAME_SORTING: 
+            return {
+                ...state
             }
         default:
             return state

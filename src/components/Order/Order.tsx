@@ -12,15 +12,15 @@ const Order: React.FC = () => {
 
     const [sum, setSum] = useLocalStorage('sum', 0)
     const [products, setProducts] = useLocalStorage('products', 0)
-    const [modal, setModal] = useState(false);
+    const [modal, setModal] = useState(false)
     const {resetBasket} = useActions()
     const {order} = useTypedSelector(state => state.basket)
     
     let data = order.map(e => JSON.parse(JSON.stringify(e)))
-    
+
     useEffect(() => {
-        modal ? 
-            document.body.style.overflow = 'hidden' : 
+        modal ?
+            document.body.style.overflow = 'hidden' :
             document.body.style.overflow = 'auto'
     }, [modal, setModal])
 
@@ -60,14 +60,11 @@ const Order: React.FC = () => {
                 />
             )}
             <div className = {css.checkout}>
-                <button onClick={() => checkout()}>
-                    Оформить заказ
-                </button>
                 <Modal visible={modal} setVisible={setModal}>
                     <div className = {css.modal}>
                         <div className = {css.close}>
                             <img 
-                                onClick = {() => checkout()}
+                                onClick = {() => setModal(false)}
                                 src = "/images/basket/close.png" 
                                 alt = "exit" 
                             />
@@ -86,8 +83,11 @@ const Order: React.FC = () => {
                         </div>
                     </div>
                 </Modal>
+                <button onClick={() => checkout()}>
+                    Оформить заказ
+                </button>
                 <span className = {css.sum}>
-                    {localStorage.getItem('sum')} ₸
+                    {parseFloat(Number(sum).toFixed(2))} ₸
                 </span>
             </div>
         </div>

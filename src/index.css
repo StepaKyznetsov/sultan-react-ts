@@ -37,6 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
+  transition: all ease-in 0.3s;
   font-family: Inter;
   cursor: pointer;
 }

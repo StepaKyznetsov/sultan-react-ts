@@ -5,7 +5,7 @@ import Input from '../../ui/Input/Input';
 import {useNavigate} from 'react-router-dom';
 import {BASKET, CATALOG, MAIN} from '../../constants/constants';
 import {useReadLocalStorage} from 'usehooks-ts';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+import {useTypedSelector} from '../../hooks/useTypedSelector';
 
 const Menu: React.FC = () => {
     
@@ -81,7 +81,7 @@ const Menu: React.FC = () => {
                             Корзина
                         </span>
                         <div className = {css.money}>
-                            {localStorage.getItem('sum') || '0'} ₸
+                            {parseFloat(Number(sum).toFixed(2))} ₸
                         </div>
                     </div>
                 </div>

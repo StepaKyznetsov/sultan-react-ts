@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {useLocalStorage} from 'usehooks-ts';
 import {useActions} from '../../hooks/useActions';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
@@ -35,21 +35,21 @@ const BasketItem: React.FC<IBasketItem> = ({
     const [sum, setSum] = useLocalStorage('sum', 0)
 
     const inc = (): void => {
+        setSum(sum + price)
         addToBasket(barcode, items, order, 1)
     }
 
     const dec = (): void => {
         if (count === 1) return
+        setSum(sum - price)
         addToBasket(barcode, items, order, -1)
     }
 
     const removeItem = (): void => {
         removeFromBasket(barcode, order)
+        setSum(sum - price * count)
+        if (order.length === 1) setSum(0)
     }
-
-    useEffect(() => {
-        setSum(sum + price * count)
-    }, [])
 
     return(
         <div className = {css.container}>
@@ -91,7 +91,7 @@ const BasketItem: React.FC<IBasketItem> = ({
                         count = {count}
                     />
                     <div className = {css.price}>
-                        {price * count} ₸
+                        {parseFloat((price * count).toFixed(2))} ₸
                     </div>
                     <button
                         onClick={() => removeItem()}

@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './Header.module.scss'
-import {LINKSHEADER} from '../../constants/constants';
+import {LINKS} from '../../constants/constants';
 
 const Header: React.FC = () => {
     return(
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
                     </div>
                 </div>
                 <nav>
-                    {LINKSHEADER.map(e => 
+                    {LINKS[0].map(e =>
                         <span 
                             key = {e}
                             className = {css.link}

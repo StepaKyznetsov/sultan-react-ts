@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import css from './ProductList.module.scss'
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {fetchCatalog} from "../../store/action-creators/catalog";
 import {useActions} from "../../hooks/useActions";
 import ProductCard from '../ProductCard/ProductCard';
 import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
@@ -18,20 +17,28 @@ const styles = {
 
 const ProductList: React.FC = () => {
 
+    const [min, setMin] = useState('0')
+    const [max, setMax] = useState('10000')
     const {items, error, loading, page, limit} = useTypedSelector(state => state.catalog)
     const {fetchCatalog, setCatalogPage} = useActions()
     const pages = [1, 2, 3, 4, 5]
-
+    
     useEffect(() => {
-        fetchCatalog(page, limit)
+        if (items.length === 0) fetchCatalog(page, limit)
     }, [page])
 
+    const countProducts = items.filter(e => e.price >= min && e.price <= max)
+    let res = countProducts.slice((page - 1) * limit, limit * page)
+    
     const choosePage = (p: number): void => {
-        if (p === page || p > Math.ceil(items.length / limit)) return
+        if (p === page || p > Math.ceil((countProducts.length / limit))) 
+            return
         setCatalogPage(p)
     }
 
-    let res = items.slice((page - 1) * limit, limit * page)
+    const filterCategory = (type: string): void => {
+        res = res.filter(e => e.categories.indexOf(type) !== -1)
+    }
 
     return(
         <div className = {css.container}>
@@ -61,13 +68,13 @@ const ProductList: React.FC = () => {
                     </div>
                 </div>
                 <div className = {css.categories}>
-                    <div>
+                    <div onClick={() => filterCategory('Уход за телом')}>
                        <span>
                             Уход <br />
                             за телом
                         </span> 
                     </div>
-                    <div>
+                    <div onClick={() => filterCategory('Уход за руками')}>
                         <span>
                             Уход <br />
                             за руками
@@ -87,15 +94,17 @@ const ProductList: React.FC = () => {
                         </span>
                         <div className = {css.priceFilter}>
                             <input
-                                placeholder = '0'
-                                type="number" 
+                                value = {min}
+                                type = 'string'
+                                onChange = {(e) => setMin(e.target.value)}
                             />
                             <span>
                                 -
                             </span>
                             <input
-                                placeholder = '10000'
-                                type="number" 
+                                value = {max}
+                                type = 'string'
+                                onChange = {(e) => setMax(e.target.value)}
                             />  
                         </div>
                         <h4>
@@ -118,7 +127,8 @@ const ProductList: React.FC = () => {
                     </div>
                 </div>
                 <div className = {css.pagination}>
-                    {pages.map(e =>
+                    {countProducts.length > 15 &&
+                        pages.map(e =>
                         <div key = {e}
                             onClick = {() => choosePage(e)}
                             style = {e === page ? styles.active : styles.none}

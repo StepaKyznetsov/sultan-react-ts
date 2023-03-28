@@ -37,7 +37,7 @@ const ProductPage: React.FC<IProductPageProps> = ({
     const {items} = useTypedSelector(state => state.catalog)
     const {order} = useTypedSelector(state => state.basket)
     const [counter, setCounter] = useState(1)
-
+    
     const decrement = (): void => {
         if (counter === 1) return 
         setCounter(counter - 1)
@@ -47,9 +47,9 @@ const ProductPage: React.FC<IProductPageProps> = ({
     }
 
     const addToCart = (): void => {
+        setSum(sum + counter * price)
         addToBasket(barcode, items, order, counter)
         setCounter(1)
-        setSum(+((sum + price).toFixed(2)))
     }
 
     return(
