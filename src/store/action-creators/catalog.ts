@@ -64,3 +64,10 @@ export function removeFromCatalog(id: number, items: any[]): CatalogAction {
         payload: items.findIndex(e => e.id === id)
     }
 }
+
+export function changeLimit(limit: number): CatalogAction {
+    return {
+        type: CatalogActionTypes.CHANGE_LIMIT,
+        payload: limit
+    }
+}

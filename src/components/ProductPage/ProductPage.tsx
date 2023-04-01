@@ -7,6 +7,7 @@ import {useLocalStorage} from 'usehooks-ts';
 import {CATALOG} from '../../constants/constants';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import {useActions} from '../../hooks/useActions';
+import BackArrow from "../../ui/BackArrow/BackArrow";
 
 interface IProductPageProps {
     title: string;
@@ -37,7 +38,9 @@ const ProductPage: React.FC<IProductPageProps> = ({
     const {items} = useTypedSelector(state => state.catalog)
     const {order} = useTypedSelector(state => state.basket)
     const [counter, setCounter] = useState(1)
-    
+    const [showDescription, setShowDescription] = useState(false)
+    const [showCharacteristics, setShowCharacteristics] = useState(false)
+
     const decrement = (): void => {
         if (counter === 1) return 
         setCounter(counter - 1)
@@ -66,6 +69,7 @@ const ProductPage: React.FC<IProductPageProps> = ({
                         }
                         ]} 
                     />
+                <BackArrow />
                 <div className = {css.info}>
                     <div className = {css.image}>
                         <img 
@@ -104,16 +108,23 @@ const ProductPage: React.FC<IProductPageProps> = ({
                                     {price} ₸
                                 </span>
                                 <Counter
-                                    marginRight = {38}
+                                    styles = ''
+                                    marginRight = {0}
                                     increment = {increment}
                                     decrement = {decrement}
                                     count = {counter}
                                 />
                                 <div onClick={() => addToCart()}>
-                                    <PriceButton
-                                        text = 'В корзину'
-                                        url = '/images/catalog/basket.png'
-                                    />    
+
+                                    <button
+                                        className = {css.priceButton}
+                                    >
+                                        В корзину
+                                        <img
+                                            src = "/images/catalog/basket.png"
+                                            alt = "download"
+                                        />
+                                    </button>
                                 </div>
                             </div>
                             <div className = {css.more}>
@@ -138,66 +149,104 @@ const ProductPage: React.FC<IProductPageProps> = ({
                         </div>
                         <div className = {css.characteristics}>
                             <div>
-                                <span>Производитель:</span>
-                                <span className = {css.value}> {brand}</span>
+                                <span>Производитель: </span>
+                                <span className = {css.value}>
+                                    {brand}
+                                </span>
                             </div>
                             <div>
-                                <span>Бренд:</span>
-                                <span className = {css.value}> {brand}</span>
+                                <span>Бренд: </span>
+                                <span className = {css.value}>
+                                    {brand}
+                                </span>
                             </div>
                             <div>
-                                <span>Артикул:</span>
-                                <span className = {css.value}> {manufacturer}</span>
+                                <span>Артикул: </span>
+                                <span className = {css.value}>
+                                    460404
+                                </span>
                             </div>
                             <div>
-                                <span>Штрихкод:</span>
-                                <span className = {css.value}> {barcode}</span>
+                                <span>Штрихкод: </span>
+                                <span className = {css.value}>
+                                    {barcode}
+                                </span>
                             </div>
-                            <span className = {css.subtitle}>
+                            <span
+                                onClick = {() => setShowDescription(!showDescription)}
+                                className = {showDescription ?
+                                    `${css.subtitle}` : `${css.subtitle} ${css.rotate}`
+                                }
+                            >
                                 Описание
                             </span>
-                            <p>
-                                {description}
-                            </p>
-                            <span className = {css.subtitle}>
+                            {showDescription &&
+                                <p>
+                                    {description}
+                                </p>
+                            }
+                            <span
+                                onClick = {() => setShowCharacteristics(!showCharacteristics)}
+                                className = {showCharacteristics ?
+                                    `${css.subtitle} ${css.ch}` : `${css.subtitle} ${css.ch} ${css.rotate}`
+                                }
+                            >
                                 Характеристики
                             </span>
-                            <div>
-                                <span>Назначение:</span>
-                                <span className = {css.value}> {brand}</span>
-                            </div>
-                            <div>
-                                <span>Тип:</span>
-                                <span className = {css.value}> {brand}</span>
-                            </div>
-                            <div>
-                                <span>Производитель:</span>
-                                <span className = {css.value}> {manufacturer}</span>
-                            </div>
-                            <div>
-                                <span>Бренд:</span>
-                                <span className = {css.value}> {barcode}</span>
-                            </div>
-                            <div>
-                                <span>Артикул:</span>
-                                <span className = {css.value}> {barcode}</span>
-                            </div>
-                            <div>
-                                <span>Штрихкод:</span>
-                                <span className = {css.value}> {barcode}</span>
-                            </div>
-                            <div>
-                                <span>Вес:</span>
-                                <span className = {css.value}> {size}</span>
-                            </div>
-                            <div>
-                                <span>Объем:</span>
-                                <span className = {css.value}> {size}</span>
-                            </div>
-                            <div>
-                                <span>Кол-во в коробке:</span>
-                                <span className = {css.value}> {size}</span>
-                            </div>
+                            {showCharacteristics &&
+                                <div>
+                                    <div>
+                                        <span>Назначение: </span>
+                                        <span className = {css.value}>
+                                            {brand}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Тип: </span>
+                                        <span className = {css.value}>
+                                            {brand}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Производитель: </span>
+                                        <span className = {css.value}>
+                                            {manufacturer}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Бренд: </span>
+                                        <span className = {css.value}> {barcode}</span>
+                                    </div>
+                                    <div>
+                                        <span>Артикул: </span>
+                                        <span className = {css.value}> {barcode}</span>
+                                    </div>
+                                    <div>
+                                        <span>Штрихкод: </span>
+                                        <span className = {css.value}>
+                                            {barcode}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Вес: </span>
+                                        <span className = {css.value}>
+                                            {size}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Объем: </span>
+                                        <span className = {css.value}>
+                                            {size}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Кол-во в коробке: </span>
+                                        <span className = {css.value}>
+                                            {size}
+                                        </span>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>   
                 </div>

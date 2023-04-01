@@ -4,9 +4,11 @@ import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
 import Modal from '../Modal/Modal';
 import css from './Order.module.scss';
 import {useLocalStorage} from 'usehooks-ts';
-import {BASKET} from '../../constants/constants';
+import {BASKET, CATALOG} from '../../constants/constants';
 import {useActions} from '../../hooks/useActions';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
+import BackArrow from "../../ui/BackArrow/BackArrow";
+import {useNavigate} from "react-router-dom";
 
 const Order: React.FC = () => {
 
@@ -15,7 +17,8 @@ const Order: React.FC = () => {
     const [modal, setModal] = useState(false)
     const {resetBasket} = useActions()
     const {order} = useTypedSelector(state => state.basket)
-    
+    const navigate = useNavigate()
+
     let data = order.map(e => JSON.parse(JSON.stringify(e)))
 
     useEffect(() => {
@@ -34,7 +37,7 @@ const Order: React.FC = () => {
 
     return(
         <div className = {css.container}>
-            <Breadcrumbs 
+            <Breadcrumbs
                 links = {[
                     {
                         title: 'Корзина', 
@@ -42,14 +45,22 @@ const Order: React.FC = () => {
                     }
                 ]}
             />
-            <h2 className = {css.title}>
-                Корзина
-            </h2>
+            <BackArrow />
+            {!data.length ?
+                <h2 className = {css.title}>
+                    Корзина пуста
+                    <span onClick={() => navigate(CATALOG)}> К покупкам</span>
+                </h2>
+                :
+                <h2 className = {css.title}>
+                    Корзина
+                </h2>
+            }
             {data.map(e =>
                 <BasketItem
                     key = {e.data[0].barcode}
                     image = {e.data[0].photo}
-                    size = {e.data[0].size} 
+                    size = {e.data[0].size}
                     sizeType = {e.data[0].sizeType}
                     title = {e.data[0].title}
                     brand = {e.data[0].brand}
@@ -63,16 +74,16 @@ const Order: React.FC = () => {
                 <Modal visible={modal} setVisible={setModal}>
                     <div className = {css.modal}>
                         <div className = {css.close}>
-                            <img 
+                            <img
                                 onClick = {() => setModal(false)}
-                                src = "/images/basket/close.png" 
-                                alt = "exit" 
+                                src = "/images/basket/close.png"
+                                alt = "exit"
                             />
                         </div>
                         <div className = {css.success}>
-                            <img 
-                                src = "/images/basket/success.png" 
-                                alt = "success" 
+                            <img
+                                src = "/images/basket/success.png"
+                                alt = "success"
                             />
                             <h2 className = {css.thanks}>
                                 Спасибо за заказ

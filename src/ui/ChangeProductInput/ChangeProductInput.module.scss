@@ -1,0 +1,13 @@
+.field {
+    margin: 10px 0;
+    input {
+        width: 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 13px 10px 13px 20px;
+        background: #EDEDED;
+        border-radius: 36px;
+    }
+}

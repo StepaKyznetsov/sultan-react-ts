@@ -1,6 +1,12 @@
 .btns {
     display: flex;
     flex-direction: row;
+    @media (max-width: 1500px) {
+        margin-left: auto;
+    }
+    @media (max-width: 400px) {
+        margin-left: 38px;
+    }
     button {
         background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
         border-radius: 1000px;
@@ -13,14 +19,14 @@
         justify-content: center;
         align-items: center;
         color: #3F4E65;
-        &:disabled {
-            background-color: rgb(241, 185, 185);
-            cursor: default;
+        @media (max-width: 1500px) {
+            margin-right: 0;
         }
+
     }
     input {
         background: none;
-        width: 45px;
+        width: 44px;
         text-align: center;
     }
 }

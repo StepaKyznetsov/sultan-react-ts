@@ -20,19 +20,20 @@ export enum CatalogActionTypes {
     ADD_PRODUCT = 'ADD_PRODUCT',
     SET_CATALOG_PAGE = 'SET_CATALOG_PAGE',
     PRICE_SORTING = 'PRICE_SORTING',
-    NAME_SORTING = 'NAME_SORTING'
+    NAME_SORTING = 'NAME_SORTING',
+    CHANGE_LIMIT = 'CHANGE_LIMIT',
 }
 
 interface FetchCatalogAction {
     type: CatalogActionTypes.FETCH_CATALOG
 }
 interface FetchCatalogSuccessAction {
-    type: CatalogActionTypes.FETCH_CATALOG_SUCCESS;
+    type: CatalogActionTypes.FETCH_CATALOG_SUCCESS
     payload: any[];
 }
 
 interface RemoveFromCatalog {
-    type: CatalogActionTypes.REMOVE_FROM_CATALOG;
+    type: CatalogActionTypes.REMOVE_FROM_CATALOG
     payload: number;
 }
 
@@ -42,16 +43,16 @@ interface ChangeProduct {
 }
 
 interface AddProduct {
-    type: CatalogActionTypes.ADD_PRODUCT;
+    type: CatalogActionTypes.ADD_PRODUCT
     payload: object;
 }
 
 interface FetchCatalogErrorAction {
-    type: CatalogActionTypes.FETCH_CATALOG_ERROR;
+    type: CatalogActionTypes.FETCH_CATALOG_ERROR
     payload: string;
 }
 interface SetCatalogPage {
-    type: CatalogActionTypes.SET_CATALOG_PAGE;
+    type: CatalogActionTypes.SET_CATALOG_PAGE
     payload: number;
 }
 
@@ -61,6 +62,11 @@ interface PriceSorting {
 
 interface NameSorting {
     type: CatalogActionTypes.NAME_SORTING
+}
+
+interface ChangeLimit {
+    type: CatalogActionTypes.CHANGE_LIMIT
+    payload: number;
 }
 
 export type CatalogAction =
@@ -73,3 +79,4 @@ export type CatalogAction =
     | SetCatalogPage
     | PriceSorting
     | NameSorting
+    | ChangeLimit

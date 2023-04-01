@@ -1,22 +1,19 @@
 import React from 'react';
 import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Menu.module.scss';
-import Input from '../../ui/Input/Input';
 import {useNavigate} from 'react-router-dom';
-import {BASKET, CATALOG, MAIN} from '../../constants/constants';
-import {useReadLocalStorage} from 'usehooks-ts';
-import {useTypedSelector} from '../../hooks/useTypedSelector';
+import {CATALOG, MAIN} from '../../constants/constants';
+import BasketHead from "../../ui/Basket/Basket";
 
 const Menu: React.FC = () => {
     
     const navigate = useNavigate()
-    const sum = useReadLocalStorage('sum')
-    const {order} = useTypedSelector(state => state.basket)
 
     return(
         <div className = {css.container}>
             <div className = {css.content}>
                 <img
+                    className = {css.logo}
                     onClick={() => navigate(MAIN)}
                     src = "/images/menu/logo.png" 
                     alt = "logo" 
@@ -29,12 +26,12 @@ const Menu: React.FC = () => {
                             alt = "catalog" 
                         />
                     </button>
-                    <Input
-                        width = {233}
-                        text = 'Поиск...'
-                        src = '/images/menu/find.png'
-                        alt = 'find'
-                    />
+                    <div className = {css.inputBlock}>
+                        <input
+                            placeholder = 'Поиск...'
+                            type = "text"
+                        />
+                    </div>
                 </div>
                 <div className = {css.data}>
                     <div className = {css.text}>
@@ -53,38 +50,13 @@ const Menu: React.FC = () => {
                         alt = "call" 
                     />
                 </div>
-                <PriceButton 
-                    text = 'Прайс-лист'
-                    url = '/images/menu/download.png'
-                />
-                <div
-                    onClick={() => navigate(BASKET)}
-                    className = {css.basket}
-                >
-                    <div className = {css.basketIcon}>
-                        <img 
-                            src = "/images/menu/basket.png" 
-                            alt = "basket" 
-                        />
-                        {
-                            order.length 
-                            ? 
-                            <span className = {css.basketCounter}>
-                                {order.length}
-                            </span>
-                            :
-                            null
-                        }
-                    </div>
-                    <div className = {css.sum}>
-                        <span>
-                            Корзина
-                        </span>
-                        <div className = {css.money}>
-                            {parseFloat(Number(sum).toFixed(2))} ₸
-                        </div>
-                    </div>
+                <div className = {css.priceBtn}>
+                    <PriceButton
+                        text = 'Прайс-лист'
+                        url = '/images/menu/download.png'
+                    />
                 </div>
+                <BasketHead />
             </div>
         </div>
     )

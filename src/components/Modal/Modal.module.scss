@@ -1,4 +1,5 @@
 .modal {
+    z-index: 100;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -14,6 +15,11 @@
         padding: 30px;
         display: flex;
         flex-direction: column;
+        @media (max-width: 750px) {
+            height: 288px;
+            width: 90.625%;
+            padding: 0;
+        }
     }
 }
 .active {

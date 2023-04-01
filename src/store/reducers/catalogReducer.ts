@@ -64,6 +64,11 @@ export const catalogReducer = (state = initialState, action: CatalogAction): Cat
             return {
                 ...state
             }
+        case CatalogActionTypes.CHANGE_LIMIT:
+            return {
+                ...state,
+                limit: action.payload
+            }
         default:
             return state
     }

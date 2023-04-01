@@ -1,6 +1,5 @@
 export interface ProductState {
     current: Object;
-    loading: boolean;
     error: null | string;
 }
 

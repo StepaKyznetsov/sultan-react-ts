@@ -3,12 +3,14 @@ import css from './PriceButton.module.scss';
 
 interface IButton {
     text: string;
-    url: string
+    url: string;
 }
 
 const PriceButton: React.FC<IButton> = ({text, url}) => {
     return (
-        <button className = {css.priceButton}>
+        <button
+            className = {css.priceButton}
+        >
             {text}
             <img 
                 src = {url} 

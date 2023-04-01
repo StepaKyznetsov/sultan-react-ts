@@ -15,19 +15,25 @@ const Footer: React.FC = () => {
                         alt = "logoFooter" 
                     />
                     <p>
-                        Компания «Султан» — снабжаем<br />розничные магазины товарами<br />
-                        "под ключ" в Кокчетаве и Акмолинской<br />области
+                        Компания «Султан» — снабжаем розничные магазины товарами
+                        "под ключ" в Кокчетаве и Акмолинской области
                     </p>
                     <span>
                         Подпишись на скидки и акции
                     </span>
-                    <Input
-                        width = {252}
-                        text = 'Введите ваш E-mail'
-                        src = '/images/footer/input.png'
-                        alt = 'find'
-                    />
+                    <div className = {css.inputBlock}>
+                        <input
+                            placeholder = 'Введите ваш E-mail'
+                            type = "text"
+                        />
+                        <img
+                            className = {css.icon}
+                            src = '/images/footer/input.png'
+                            alt = 'find'
+                        />
+                    </div>
                 </div>
+
                 <div className = {css.column}>
                     <span className = {css.head}>
                         Меню сайта:
@@ -55,25 +61,30 @@ const Footer: React.FC = () => {
                     )}
                 </div>
                 <div className = {css.column}>
-                    <span className = {css.head}>
+                    <span className = {`${css.head} ${css.download}`}>
                         Скачать прайс-лист:
                     </span>
-                    <PriceButton 
-                        text = 'Прайс-лист'
-                        url = '/images/menu/download.png'
-                    />
+                    <button
+                        className = {css.priceButton}
+                    >
+                        Прайс-лист
+                        <img
+                            src = "/images/menu/download.png"
+                            alt = "download"
+                        />
+                    </button>
                     <span className = {css.connect}>
                         Связь в мессенджерах:
                     </span>
                     <div>
                         <img
                             className = {css.messenger}
-                            src = "/images/footer/wup.png" 
-                            alt = "whatsup" 
+                            src = "/images/footer/wup.png"
+                            alt = "whatsup"
                         />
-                        <img 
-                            src = "/images/footer/tg.png" 
-                            alt = "telegram" 
+                        <img
+                            src = "/images/footer/tg.png"
+                            alt = "telegram"
                         />
                     </div>
                 </div>
@@ -99,12 +110,12 @@ const Footer: React.FC = () => {
                     <div>
                         <img
                             className = {css.card}
-                            src = "/images/footer/visa.png" 
-                            alt = "visa" 
+                            src = "/images/footer/visa.png"
+                            alt = "visa"
                         />
-                        <img 
-                            src = "/images/footer/mc.png" 
-                            alt = "mastercard" 
+                        <img
+                            src = "/images/footer/mc.png"
+                            alt = "mastercard"
                         />
                     </div>
                 </div>

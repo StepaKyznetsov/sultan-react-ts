@@ -101,7 +101,8 @@ const ProductCard: React.FC<ICardProps> = ({
                 </span>
                 <button onClick={() => addToCart(items)}>
                     В КОРЗИНУ
-                    <img 
+                    <img
+                        className = {css.cart}
                         src = "/images/catalog/basket.png" 
                         alt = "basket" 
                     />

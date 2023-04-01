@@ -2,17 +2,17 @@ import React from 'react';
 import css from './Input.module.scss';
 
 interface IInputProps {
-    text: string,
-    src: string,
-    alt: string,
-    width: number
+    text: string;
+    src: string;
+    alt: string;
+    width: string;
 }
 
 const Input: React.FC<IInputProps> = ({text, src, alt, width}) => {
     return (
         <div className = {css.inputBlock}>
             <input
-                style = {{width: `${width}px`}} 
+                style = {{width: `${width}`}}
                 placeholder = {text} 
                 type = "text" 
             />

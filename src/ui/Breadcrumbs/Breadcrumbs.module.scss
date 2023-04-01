@@ -1,5 +1,8 @@
 .container {
     width: 100%;
+    @media (max-width: 1100px) {
+        display: none;
+    }
     span {
         font-weight: 300;
         line-height: 120%;

@@ -4,6 +4,8 @@ import {useActions} from '../../hooks/useActions';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import Counter from '../../ui/Counter/Counter';
 import css from './BasketItem.module.scss';
+import {CATALOG} from "../../constants/constants";
+import {useNavigate} from "react-router-dom";
 
 interface IBasketItem {
     image: string;
@@ -29,14 +31,20 @@ const BasketItem: React.FC<IBasketItem> = ({
     count,
 }) => {
 
+    const navigate = useNavigate()
     const {order} = useTypedSelector(state => state.basket)
     const {items} = useTypedSelector(state => state.catalog)
-    const {addToBasket, removeFromBasket} = useActions()
+    const {addToBasket, removeFromBasket, getProductById} = useActions()
     const [sum, setSum] = useLocalStorage('sum', 0)
 
     const inc = (): void => {
         setSum(sum + price)
         addToBasket(barcode, items, order, 1)
+    }
+
+    const productPage = (id: number, items: any[]): void => {
+        navigate(CATALOG + '/' + id)
+        getProductById(id, items)
     }
 
     const dec = (): void => {
@@ -55,7 +63,10 @@ const BasketItem: React.FC<IBasketItem> = ({
         <div className = {css.container}>
             <div className = {css.item}>
                 <div className = {css.info}>
-                    <div className = {css.image}>
+                    <div
+                        onClick={() => productPage(barcode, items)}
+                        className = {css.image}
+                    >
                         <img
                             src = {image}
                             alt = "productImage" 
@@ -75,7 +86,7 @@ const BasketItem: React.FC<IBasketItem> = ({
                                 {size}
                             </span>
                         </div>
-                        <h2>
+                        <h2 onClick={() => productPage(barcode, items)}>
                             {brand} {title}
                         </h2>
                         <p>
@@ -84,15 +95,16 @@ const BasketItem: React.FC<IBasketItem> = ({
                     </div> 
                 </div>
                 <div className = {css.interactive}>
-                    <Counter 
-                        marginRight = {88}
+                    <Counter
+                        styles = {css.counter}
+                        marginRight = {0}
                         increment = {inc}
                         decrement = {dec}
                         count = {count}
                     />
-                    <div className = {css.price}>
+                    <span className = {css.price}>
                         {parseFloat((price * count).toFixed(2))} ₸
-                    </div>
+                    </span>
                     <button
                         onClick={() => removeItem()}
                         className = {css.remove}

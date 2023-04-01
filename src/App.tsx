@@ -16,12 +16,11 @@ const App: React.FC = () => {
         <Header />
         <Menu />
         <Routes>
-          <Route path = {MAIN} element = {<Main />} />
           <Route path = {CATALOG} element = {<Catalog />} />
           <Route path = {CATALOG + '/:id'} element = {<Product />} />
           <Route path = {BASKET} element = {<Basket />} />
           <Route path = {ADMIN} element = {<Admin />} />
-          <Route path = "*" element = {<Navigate replace to = {MAIN} />} />
+          <Route path = "*" element = {<Navigate replace to = {CATALOG} />} />
         </Routes>
         <Footer />
       </BrowserRouter>
