@@ -12,6 +12,13 @@ const AdminPanel: React.FC = () => {
     const {items} = useTypedSelector(state => state.catalog)
     const [toggle, setToggle] = useState(false)
 
+    const getElement = (name: string) => {
+        // @ts-ignore
+        return !document.getElementById(name) ? null : document.getElementById(name).value
+    }
+    
+    console.log(getElement('priceInput'))
+
     return(
         <div className={css.container}>
             <div className = {css.content}>

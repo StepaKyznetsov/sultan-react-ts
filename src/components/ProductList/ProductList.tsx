@@ -45,7 +45,6 @@ const ProductList: React.FC = () => {
         setMaxQuery(10000)
         setMin(0)
         setMax(10000)
-
     }
 
     const filteredByCategory = (category: string) => {
@@ -54,26 +53,6 @@ const ProductList: React.FC = () => {
             setCategoriesFilter(categoriesFilter.filter(e => e !== category)) :
             setCategoriesFilter([...categoriesFilter, category])
     }
-
-    let brands: Brand[] = []
-
-    const getBrands = () => {
-        filteredItems.map(item => {
-            if (!brands.filter(e => e.name === item.brand).length)
-                brands.push({
-                    name: item.brand,
-                    counter: 1
-                })
-            else {
-                let obj: Brand | undefined = brands.find(e => e.name === item.brand)
-                if (!obj) return
-                obj.counter += 1
-            }
-        })
-        return showAll ? brands : brands = brands.slice(0, 4)
-    }
-
-    getBrands()
 
     const handleFindBrand = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
@@ -107,6 +86,7 @@ const ProductList: React.FC = () => {
         if (!currentBrands.filter(e => e === value).length) setCurrentBrands([...currentBrands, value])
         else setCurrentBrands(currentBrands.filter(e => e !== value))
     }
+
     for (let i = 0; i < categoriesFilter.length; i++){
         filteredItems = filteredItems.filter(e => e.categories.indexOf(categoriesFilter[i]) !== -1)
     }
@@ -124,6 +104,27 @@ const ProductList: React.FC = () => {
             return
         setCatalogPage(p)
     }
+
+    let brands: Brand[] = []
+
+    const getBrands = () => {
+        console.log(filteredItems)
+        countProducts.map(item => {
+            if (!brands.filter(e => e.name === item.brand).length)
+                brands.push({
+                    name: item.brand,
+                    counter: 1
+                })
+            else {
+                let obj: Brand | undefined = brands.find(e => e.name === item.brand)
+                if (!obj) return
+                obj.counter += 1
+            }
+        })
+        return showAll ? brands : brands = brands.slice(0, 4)
+    }
+
+    getBrands()
 
     return(
         <div className = {css.container}>

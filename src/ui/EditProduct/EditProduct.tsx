@@ -59,24 +59,24 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
 
     let currentProduct = JSON.parse(JSON.stringify(current))[0]
 
-    let brand = usage === 0 ? getElement('brandInput') : currentProduct.brand
-    let title = usage === 0 ? getElement('titleInput') : currentProduct.title
-    let barcode = usage === 0 ? getElement('barcodeInput') : currentProduct.barcode
-    let size = usage === 0 ? getElement('sizeInput') : currentProduct.size
-    let manufacturer = usage === 0 ? getElement('manufacturerInput') : currentProduct.manufacturer
-    let price = usage === 0 ? getElement('priceInput') : currentProduct.price
-    let photo = usage === 0 ? getElement('photoInput') : currentProduct.photo
+    let brand = usage === 0 ? '' : currentProduct.brand
+    let title = usage === 0 ? '' : currentProduct.title
+    let barcode = usage === 0 ? '' : currentProduct.barcode
+    let size = usage === 0 ? '' : currentProduct.size
+    let manufacturer = usage === 0 ? '' : currentProduct.manufacturer
+    let price = usage === 0 ? '' : currentProduct.price
+    let photo = usage === 0 ? '' : currentProduct.photo
 
     const isEmptyInputs = () => {
-        return !brand ||
-            !title ||
-            !barcode ||
-            !size ||
-            !manufacturer ||
-            !price ||
-            !photo ||
-            !currentDescription ||
-            !currentCategories.length
+        return !currentDescription ||
+            !currentCategories.length ||
+            !getElement('titleInput') ||
+            !getElement('photoInput') ||
+            !getElement('sizeInput') ||
+            !getElement('barcodeInput') ||
+            !getElement('manufacturerInput') ||
+            !getElement('brandInput') ||
+            !getElement('priceInput')
     }
 
     const inputData = [

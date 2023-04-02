@@ -1,6 +1,5 @@
 import React from 'react';
 import Catalog from './pages/Catalog/Catalog';
-import Main from './pages/Main/Main';
 import {HashRouter, Routes, Route, Navigate} from 'react-router-dom';
 import {ADMIN, BASKET, CATALOG, MAIN} from './constants/constants';
 import Header from './components/Header/Header';
