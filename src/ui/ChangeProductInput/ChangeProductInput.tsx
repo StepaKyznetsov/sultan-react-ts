@@ -27,7 +27,7 @@ const ChangeProductInput: React.FC<IChangeProductInput> = ({
             <span>{name}: </span>
             <input
                 id = {id}
-                type ={type}
+                type = {type}
                 value = {value || ''}
                 onChange={handleChange}
             />

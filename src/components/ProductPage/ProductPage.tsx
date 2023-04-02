@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Counter from '../../ui/Counter/Counter';
-import PriceButton from '../../ui/PriceButton/PriceButton';
 import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
 import css from './ProductPage.module.scss';
 import {useLocalStorage} from 'usehooks-ts';
@@ -174,7 +173,8 @@ const ProductPage: React.FC<IProductPageProps> = ({
                             </div>
                             <span
                                 onClick = {() => setShowDescription(!showDescription)}
-                                className = {showDescription ?
+                                className = {
+                                    showDescription ?
                                     `${css.subtitle}` : `${css.subtitle} ${css.rotate}`
                                 }
                             >

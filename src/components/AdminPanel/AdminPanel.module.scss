@@ -44,13 +44,21 @@
         .addProduct {
             display: flex;
             justify-content: center;
-            div {
+            .close {
+                background-color: #FFC85E;
+                &:hover {
+                    background-color: #fad074;
+                }
+                &:active {
+                    background-color: #fcd58d;
+                }
+            }
+            button {
                 color: white;
                 background-color: #65e38d;
                 box-shadow: 0px 15px 39px -11px rgb(134, 126, 126);
                 border-radius: 10px;
-                cursor: pointer;
-                width: fit-content;
+                width: 177px;
                 height: 70px;
                 padding: 0 10px;
                 display: flex;

@@ -14,6 +14,7 @@ interface ICardProps {
     barcode: number;
     manufacturer: string;
     price: number;
+    sizeType: string;
 }
 
 const ProductCard: React.FC<ICardProps> = ({
@@ -24,6 +25,7 @@ const ProductCard: React.FC<ICardProps> = ({
     barcode,
     manufacturer,
     price,
+    sizeType
 }) => {
 
     const navigate = useNavigate()
@@ -55,7 +57,7 @@ const ProductCard: React.FC<ICardProps> = ({
             </div>
             <div className = {css.size}>
                 <img 
-                    src = "/images/catalog/bottle.svg" 
+                    src = {sizeType === 'вес' ? "/images/catalog/box.svg" : "/images/catalog/bottle.svg"}
                     alt = "type" 
                 />
                 <span>

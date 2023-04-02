@@ -1,7 +1,6 @@
 import React from 'react';
 import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Footer.module.scss';
-import Input from '../../ui/Input/Input';
 import {LINKS} from '../../constants/constants';
 
 const Footer: React.FC = () => {

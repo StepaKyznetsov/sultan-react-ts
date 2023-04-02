@@ -3,6 +3,8 @@ import css from "./EditProduct.module.scss";
 import ChangeProductInput from "../ChangeProductInput/ChangeProductInput";
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const enum enumUse {
     create,
@@ -19,8 +21,11 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
     const {current} = useTypedSelector(state => state.product)
     const {addProduct, changeProduct} = useActions()
     const [currentDescription, setCurrentDescription] = useState<string>('')
-    const [currentType, setCurrentType] = useState<string>('')
+    const [currentType, setCurrentType] = useState<string>('вес')
     const [currentCategories, setCurrentCategories] = useState<string[]>([])
+    const notifyValidation = () => toast.warn("Не все поля заполнены!");
+    const notifyNewProduct = () => toast("Новый товар создан!");
+    const notifyEditSuccess = () => toast("Данные товара изменены!");
 
     useEffect(() => {
         if (usage === 1) {
@@ -28,7 +33,6 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
             setCurrentType(currentProduct.sizeType)
             setCurrentCategories([...currentProduct.categories])
         }
-
     }, [])
 
     const getElement = (name: string) => {
@@ -52,6 +56,7 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
             setCurrentCategories(currentCategories.filter(e => e !== value)) :
             setCurrentCategories([...currentCategories, value])
     }
+
     let currentProduct = JSON.parse(JSON.stringify(current))[0]
 
     let brand = usage === 0 ? getElement('brandInput') : currentProduct.brand
@@ -62,19 +67,17 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
     let price = usage === 0 ? getElement('priceInput') : currentProduct.price
     let photo = usage === 0 ? getElement('photoInput') : currentProduct.photo
 
-    const clearData = () => {
-        if (usage === 0) {
-            brand = ''
-            title = ''
-            barcode = ''
-            size = ''
-            manufacturer = ''
-            price = ''
-            photo = ''
-        }
+    const isEmptyInputs = () => {
+        return !brand ||
+            !title ||
+            !barcode ||
+            !size ||
+            !manufacturer ||
+            !price ||
+            !photo ||
+            !currentDescription ||
+            !currentCategories.length
     }
-
-    clearData()
 
     const inputData = [
         {
@@ -121,24 +124,28 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
         },
     ]
 
-    const result = {
-        title: getElement('titleInput'),
-        photo: getElement('photoInput'),
-        sizeType: currentType,
-        size: getElement('sizeInput'),
-        barcode: +getElement('barcodeInput'),
-        manufacturer: getElement('manufacturerInput'),
-        brand: getElement('brandInput'),
-        price: +getElement('priceInput'),
-        categories: currentCategories,
-        description: currentDescription
-    }
-
     const confirm = () => {
-        if (usage === 0)
+        if (isEmptyInputs()) return notifyValidation()
+
+        let result = {
+            title: getElement('titleInput'),
+            photo: getElement('photoInput'),
+            sizeType: currentType,
+            size: getElement('sizeInput'),
+            barcode: +getElement('barcodeInput'),
+            manufacturer: getElement('manufacturerInput'),
+            brand: getElement('brandInput'),
+            price: +getElement('priceInput'),
+            categories: currentCategories,
+            description: currentDescription
+        }
+
+        if (usage === 0) {
             addProduct(items, {
                 ...result
-        })
+            })
+            notifyNewProduct()
+        }
         else {
             changeProduct({
                 data: {
@@ -147,7 +154,7 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
                 },
                 id: currentProduct.id
             })
-
+            notifyEditSuccess()
         }
     }
 
@@ -221,6 +228,11 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
                 onClick = {confirm}>
                 Сохранить изменения
             </button>
+            <ToastContainer
+                position="bottom-center"
+                theme="dark"
+                closeOnClick
+            />
         </div>
     )
 }

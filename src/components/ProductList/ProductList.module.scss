@@ -12,11 +12,20 @@
             width: 90.625%;
         }
         .head {
+            position: relative;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-end;
             margin-top: 50px;
+            @media (max-width: 800px) {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 25px;
+            }
+            @media (max-width: 500px) {
+                align-items: flex-start;
+            }
             h2 {
                 font-weight: 500;
                 font-size: 40px;
@@ -32,6 +41,9 @@
                 }
             }
             .dropdown {
+                @media (max-width: 800px) {
+                    margin-top: 10px;
+                }
                 span {
                     margin-right: 5px;
                     font-weight: 500;
@@ -44,6 +56,9 @@
             margin: 46px 0 30px 0;
             display: flex;
             justify-content: center;
+            @media (max-width: 800px) {
+                display: none;
+            }
             .activeButton {
                 background-color: rgba(254, 202, 110, 0.3);
             }
@@ -83,15 +98,44 @@
                 margin-top: 20px;
                 @media (max-width: 1763px) {
                     flex-direction: row;
-                    justify-content: space-around;
+                    justify-content: space-between;
+                }
+                @media (max-width: 1260px) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                @media (max-width: 500px) {
+                    align-items: flex-start;
+                    width:100%;
+                    margin: 0 auto;
                 }
                 h4 {
+                    color: black;
                     font-weight: 500;
                     font-size: 16px;
                     margin-bottom: 10px;
+                    @media (max-width: 800px) {
+                        margin-bottom: 15px;
+                    }
+                    @media (max-width: 400px) {
+                        margin: 19px 0;
+                    }
                 }
                 .params {
                     margin-bottom: 30px;
+                    @media (max-width: 800px) {
+                        margin: 0;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                    @media (max-width: 500px) {
+                        align-items: flex-start;
+                        width:100%;
+                        margin-top: 10px;
+                    }
                     .price {
                         font-weight: 300;
                     }
@@ -102,6 +146,10 @@
                     }
                     .priceFilter {
                         margin-top: 16px;
+                        @media (max-width: 800px) {
+                            margin-bottom: 15px;
+                        }
+
                         span {
                             font-weight: 500;
                             margin: 0 10px;
@@ -122,7 +170,186 @@
                         }
                     }
                 }
+                .brand {
+                    @media (max-width: 1760px) {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        width: 60%;
+                    }
+                    @media (max-width: 1260px) {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    div {
+                        @media (max-width: 400px) {
+                            width:100%;
+                        }
+                    }
+                    .inputBlock {
+                        margin-bottom: 15px;
+                        position: relative;
+                        width: 260px;
+                        input {
+                            width: 260px;
+                            background-color: #EDEDED;
+                            border-radius: 36px;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 13px 10px 13px 20px;
+                            font-size: 12px;
+                            line-height: 150%;
+                            height: 33px;
+                            &::placeholder {
+                                opacity: 0.6;
+                            }
+                        }
+                        .icon {
+                            cursor: pointer;
+                            position: absolute;
+                            top: 10px;
+                            right: -20px;
+                        }
+                    }
+                    .enumBrands {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        @media (max-width: 400px) {
+                            width:100%;
+                        }
+                        .soloBrand {
 
+                        }
+                        div {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 5px;
+                            &:last-child {
+                                margin-bottom: 15px;
+                            }
+                            span {
+                                margin: 0 5px 0 10px;
+                                font-size: 14px;
+                                line-height: 150%;
+                                &:last-child {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        .showAll {
+                            position: relative;
+                            margin-top: 15px;
+                            width: fit-content;
+                            cursor: pointer;
+                            &:after {
+                                position: absolute;
+                                content: url('../../../public/images/product/arrow.png');
+                                right: -12px;
+                                top: 0;
+                            }
+                        }
+                        .rotate {
+                            &:after {
+                                position: absolute;
+                                content: url('../../../public/images/product/arrow.png');
+                                right: -12px;
+                                top: 3px;
+                                transform: rotate(180deg);
+                            }
+                        }
+                        .findBrand {
+                            margin-top: 25px;
+                            display: flex;
+                            flex-direction: row;
+                            @media (max-width: 400px) {
+                                justify-content: space-between;
+                                width: 290px;
+                            }
+                            button {
+                                color: white;
+                                background: #FFC85E;
+                                border-radius: 79px;
+                                &:hover {
+                                    background-color: #fad074;
+                                }
+                                &:active {
+                                    background-color: #fcd58d;
+                                }
+                            }
+                            .show {
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 10px 19px;
+                                width: 169px;
+                                height: 59px;
+                            }
+                            .remove {
+                                margin-left: 10px;
+                                width: 59px;
+                                height: 59px;
+                            }
+                        }
+                        .sideBarFilters {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            margin-top: 40px;
+                            font-weight: 500;
+                            font-size: 16px;
+                            text-transform: uppercase;
+                            color: #111111;
+                            @media (max-width: 800px) {
+                                margin-top: 10px;
+                                display: flex;
+                                flex-direction: column;
+                                font-size: 14px;
+                                line-height: 17px;
+                            }
+                            @media (max-width: 500px) {
+                                text-transform: none;
+                                font-size: 14px;
+                                line-height: 17px;
+                                font-weight: 400;
+                            }
+                            span {
+                                cursor: pointer;
+                                margin: 0 0 20px 0;
+                                @media (max-width: 800px) {
+                                    margin-bottom: 10px;
+                                    &:last-child {
+                                        margin: 0;
+                                    }
+                                }
+                                &:last-child {
+                                    margin: 0;
+                                }
+                            }
+                            .activeSpan {
+                                color: #FFC85E;
+                            }
+                        }
+                    }
+                }
+            }
+            .emptyList {
+                font-weight: 500;
+                font-size: 30px;
+                line-height: 120%;
+                color: black;
+                text-transform: uppercase;
+                margin: 0 auto;
+                @media (max-width: 1500px) {
+                    margin-top: 20px;
+                    font-size: 20px;
+                }
+                @media (max-width: 1100px) {
+                    font-size: 14px;
+                }
             }
             .cards {
                 width: 74.67%;

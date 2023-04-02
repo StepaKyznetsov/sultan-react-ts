@@ -31,9 +31,11 @@ const AdminPanel: React.FC = () => {
                     Управление каталогом
                 </h2>
                 <div className = {css.addProduct}>
-                    <div onClick = {() => setToggle(!toggle)}>
-                        Добавить новый товар
-                    </div>
+                    <button
+                        className = {toggle ? `${css.close}` : ''}
+                        onClick = {() => setToggle(!toggle)}>
+                        {toggle ?  'Отмена' : 'Добавить новый товар'}
+                    </button>
                 </div>
                 {toggle ?
                     <div className = {css.newProduct}>

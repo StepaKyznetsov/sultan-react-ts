@@ -79,7 +79,7 @@ const AdminProduct: React.FC<IAdminProduct> = ({
                 </div>
                 <div className = {css.btns}>
                     <button onClick={() => startEdit(barcode)}>
-                        Редактировать
+                        {open ? 'Отмена' : 'Редактировать'}
                     </button>
                     <button onClick={() => removeFromCatalog(id, items)}>
                         Удалить
