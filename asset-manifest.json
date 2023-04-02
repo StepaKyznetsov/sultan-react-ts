@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sultan-react-ts/static/css/main.f0831020.css",
+    "main.js": "/sultan-react-ts/static/js/main.1cbe24b7.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/sultan-react-ts/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/sultan-react-ts/index.html",
+    "main.f0831020.css.map": "/sultan-react-ts/static/css/main.f0831020.css.map",
+    "main.1cbe24b7.js.map": "/sultan-react-ts/static/js/main.1cbe24b7.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/sultan-react-ts/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f0831020.css",
+    "static/js/main.1cbe24b7.js"
+  ]
+}
