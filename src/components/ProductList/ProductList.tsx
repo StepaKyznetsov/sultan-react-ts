@@ -42,15 +42,15 @@ const ProductList: React.FC = () => {
         }
     }, [])
 
+    useEffect(() => {
+        if (items.length === 0) fetchCatalog(page, currentLimit)
+    }, [page])
+
     const pages = [1, 2, 3, 4, 5]
 
     let currentLimit = limit
 
     let filteredItems = [...items]
-
-    useEffect(() => {
-        if (items.length === 0) fetchCatalog(page, currentLimit)
-    }, [page])
 
     const removeRes = () => {
         setQuery('')
@@ -59,7 +59,7 @@ const ProductList: React.FC = () => {
         setMaxQuery(10000)
         setMin(0)
         setMax(10000)
-        setCurrentBrands([...brandsDefault])
+        setCurrentBrands([])
     }
 
     const filteredByCategory = (category: string) => {
@@ -101,7 +101,7 @@ const ProductList: React.FC = () => {
         if (!brandsDefault.filter(e => e === value).length) setBrandsDefault([...brandsDefault, value])
         else setBrandsDefault(brandsDefault.filter(e => e !== value))
     }
-
+    
     for (let i = 0; i < categoriesFilter.length; i++){
         filteredItems = filteredItems.filter(e => e.categories.indexOf(categoriesFilter[i]) !== -1)
     }
@@ -115,15 +115,14 @@ const ProductList: React.FC = () => {
     let res = countProducts.slice((page - 1) * limit, limit * page)
 
     const choosePage = (p: number): void => {
-        if (p === page || p > Math.ceil((countProducts.length / limit)))
-            return
+        if (p === page || p > Math.ceil((countProducts.length / limit))) return
         setCatalogPage(p)
     }
 
     let brands: Brand[] = []
 
     const getBrands = () => {
-        filteredItems.map(item => {
+        countProducts.map(item => {
             if (!brands.filter(e => e.name === item.brand).length)
                 brands.push({
                     name: item.brand,
@@ -138,6 +137,8 @@ const ProductList: React.FC = () => {
         return showAll ? brands : brands = brands.slice(0, 4)
     }
 
+    getBrands()
+
     const search = () => {
         setQuery(findBrand)
         setMinQuery(min)
@@ -147,12 +148,8 @@ const ProductList: React.FC = () => {
     }
 
     const handleKeyPress = (e: any) => {
-        if(e.key === 'Enter'){
-            search()
-        }
+        if(e.key === 'Enter') search()
     }
-
-    getBrands()
 
     return(
         <div className = {css.container} ref = {wrapperRef}>
@@ -286,7 +283,7 @@ const ProductList: React.FC = () => {
                                     `${css.brandInput} ${css.hiddenContent}`
                                 }
                             >
-                                <h4>
+                                <h4 className = {css.brandSubtitle}>
                                     Бренд
                                 </h4>
                                 <div className = {css.inputBlock}>

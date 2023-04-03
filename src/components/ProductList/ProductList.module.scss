@@ -96,18 +96,19 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            @media (max-width: 1763px) {
+            @media (max-width: 1765px) {
                 flex-direction: column;
             }
             .filters {
+                background-color: white;
                 display: flex;
                 flex-direction: column;
                 margin-top: 20px;
-                @media (max-width: 1763px) {
+                @media (max-width: 1765px) {
                     flex-direction: row;
                     justify-content: space-between;
                 }
-                @media (max-width: 1260px) {
+                @media (max-width: 1360px) {
                     flex-direction: column;
                     align-items: center;
                 }
@@ -118,6 +119,7 @@
                 }
                 h4 {
                     color: black;
+                    position: relative;
                     font-weight: 500;
                     font-size: 16px;
                     margin-bottom: 10px;
@@ -193,8 +195,10 @@
                         }
                         @media (max-width: 400px) {
                             top: 60px; 
-                            width: 100%;
+                            width: 100vw;
                             align-items: flex-start;
+                            left: -5.8%;
+                            padding-left: 15px;
                         }
                         .price {
                             font-weight: 300;
@@ -232,13 +236,13 @@
                 }
                 .brand {
                     position: relative;
-                    @media (max-width: 1760px) {
+                    @media (max-width: 1765px) {
                         display: flex;
                         flex-direction: row;
                         justify-content: space-between;
                         width: 60%;
                     }
-                    @media (max-width: 1260px) {
+                    @media (max-width: 1360px) {
                         flex-direction: column;
                         align-items: center;
                     }
@@ -259,12 +263,30 @@
                             top: 77px;
                             @media (max-width: 400px) {
                                 top: 65px;
-                                width: 100%;
+                                width: 100vw;
                                 align-items: flex-start;
+                                left: -5.8%;
+                                padding-left: 15px;
                             }
                         }
                         @media (max-width: 400px) {
                             margin: 0 auto;
+                        }
+                        .brandSubtitle {
+                            @media (max-width: 800px) and (min-width: 400px) {
+                                margin-bottom: 5px;
+                            }
+                            &:before {
+                                position: absolute;
+                                content: url('../../../public/images/catalog/border.png');
+                                top: -20px;
+                                @media (max-width: 1765px) {
+                                    visibility: hidden;
+                                }
+                                @media (max-width: 400px) {
+                                    visibility: visible;
+                                }
+                            }
                         }
                         .inputBlock {
                             margin-bottom: 15px;
@@ -303,7 +325,7 @@
                         font-size: 16px;
                         text-transform: uppercase;
                         color: #111111;
-                        @media (max-width: 1763px) {
+                        @media (max-width: 1765px) {
                             display: none;
                         }
                         @media (max-width: 1260px) {
@@ -353,10 +375,12 @@
                             top: 160px;
                             width: 100vw;
                             align-items: center;
+                            padding-top: 10px;
                         }
                         @media (max-width: 400px) {
-                            width:100%;
+                            width: 100vw;
                             top: 200px;
+                            left: -5.8%;
                             align-items: flex-start;
                         }
                         .soloBrand {
@@ -364,7 +388,8 @@
                                 width: 45%;
                             }
                             @media (max-width: 400px) {
-                                width:100%;
+                                width: 100%;
+                                margin-left: 15px;
                             }
                         }
                         div {
@@ -394,6 +419,9 @@
                                 right: -12px;
                                 top: 0;
                             }
+                            @media (max-width: 400px) {
+                                margin-left: 15px;
+                            }
                         }
                         .rotate {
                             &:after {
@@ -405,6 +433,7 @@
                             }
                         }
                         .findBrand {
+                            z-index: 80;
                             margin-top: 25px;
                             display: flex;
                             flex-direction: row;

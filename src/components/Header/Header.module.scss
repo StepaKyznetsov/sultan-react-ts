@@ -20,6 +20,7 @@
         justify-content: space-between;
         align-items: center;
         @media (max-width: 1100px) {
+            overflow-y: auto;
             width: 100%;
             background-color: white;
             z-index: 100;
@@ -236,17 +237,35 @@
                 line-height: 15px;
             }
             .catalog {
+                position: relative;
                 cursor: pointer;
                 margin: 0 47px;
                 display: flex;
                 align-items: center;
+                &:after {
+                    position: absolute;
+                    content: url('../../../public/images/header/border.png');
+                    right: -45px;
+                }
             }
         }
     }
 }
 .hiddenContent {
     transform: translateY(-100%);
-    @media (min-width: 1100px) {
+    @media (min-width: 1101px) {
         transform: translateY(0);;
+    }
+}
+.back {
+    @media (max-width: 1100px) {
+        background-color: black;
+        opacity: 0.5;
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;   
     }
 }
