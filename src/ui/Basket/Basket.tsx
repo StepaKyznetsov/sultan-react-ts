@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import css from './Basket.module.scss'
 import {BASKET} from "../../constants/constants";
 import {useNavigate} from "react-router-dom";

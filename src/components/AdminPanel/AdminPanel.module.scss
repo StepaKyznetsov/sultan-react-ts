@@ -3,9 +3,14 @@
     display: flex;
     justify-content: center;
     margin-top: 45px;
+    @media (max-width: 1100px) and (min-width: 501px) {
+        padding-top: 160px;
+    }
     @media (max-width: 1100px) {
-        padding-top: 20px;
         margin-top: 0;
+    }
+    @media (max-width: 500px) {
+        padding-top: 20px;
     }
     .content {
         width: 71.15%;

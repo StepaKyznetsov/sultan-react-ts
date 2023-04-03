@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import css from './Header.module.scss'
 import {CATALOG, LINKS} from '../../constants/constants';
 import Basket from "../../ui/Basket/Basket";
@@ -10,17 +10,28 @@ const Header: React.FC = () => {
     const [open, setOpen] = useState(false)
     const {changeLimit} = useActions()
     const navigate = useNavigate()
+    const wrapperRef: any = useRef(null)
 
     useEffect(() => {
         window.addEventListener('resize', (e) => {
-            window.innerWidth > 1100 ? setOpen(true) : setOpen(false)
             window.innerWidth <= 1280 ? changeLimit(16) : changeLimit(15)
         })
     }, [])
 
+    useEffect(() => {
+        const handleClickOutside = (event: any) => {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target))
+                setOpen(false)
+        }
+        document.addEventListener('click', handleClickOutside)
+        return () => {
+            document.removeEventListener('click', handleClickOutside)
+        }
+    }, [])
+
     return(
-        <header className = {css.container}>
-            <div className = {open ? `${css.content}` : `${css.hiddenContent}`}>
+        <header className = {css.container} ref = {wrapperRef}>
+            <div className = {open ? `${css.content}` : `${css.content} ${css.hiddenContent}`}>
                 <div className = {css.info}>
                     <div className = {css.address}>
                         <span>

@@ -4,15 +4,11 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    @media (max-width: 1500px) {
-        font-size: 10px;
-    }
     @media (max-width: 1100px) {
-        font-size: 14px;
-        margin-bottom: 131px;
+        font-size: 14px;  
     }
     @media (max-width: 500px) {
-        margin-bottom: 115px;
+        height: 106px;   
     }
     .content {
         margin: 0 auto;
@@ -37,7 +33,6 @@
         }
         @media (max-width: 500px) {
             top: 100px;
-
         }
         .info {
             white-space: nowrap;
@@ -250,5 +245,8 @@
     }
 }
 .hiddenContent {
-    display: none;
+    transform: translateY(-100%);
+    @media (min-width: 1100px) {
+        transform: translateY(0);;
+    }
 }

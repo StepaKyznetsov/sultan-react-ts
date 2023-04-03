@@ -1,9 +1,14 @@
 .container {
     margin-top: 45px;
     width: 100%;
+    @media (max-width: 1100px) and (min-width: 501px) {
+        padding-top: 160px;
+    }
     @media (max-width: 1100px) {
-        padding-top: 20px;
         margin-top: 0;
+    }
+    @media (max-width: 500px) {
+        padding-top: 20px;
     }
     .content {
         width: 71.15%;
@@ -23,7 +28,7 @@
                 align-items: center;
                 margin-top: 25px;
             }
-            @media (max-width: 500px) {
+            @media (max-width: 400px) {
                 align-items: flex-start;
             }
             h2 {
@@ -42,7 +47,9 @@
             }
             .dropdown {
                 @media (max-width: 800px) {
-                    margin-top: 10px;
+                    z-index: 99;
+                    position: absolute;
+                    top: 175px
                 }
                 span {
                     margin-right: 5px;
@@ -56,7 +63,7 @@
             margin: 46px 0 30px 0;
             display: flex;
             justify-content: center;
-            @media (max-width: 800px) {
+            @media (max-width: 1260px) {
                 display: none;
             }
             .activeButton {
@@ -104,9 +111,9 @@
                     flex-direction: column;
                     align-items: center;
                 }
-                @media (max-width: 500px) {
+                @media (max-width: 400px) {
                     align-items: flex-start;
-                    width:100%;
+                    width: 100%;
                     margin: 0 auto;
                 }
                 h4 {
@@ -115,13 +122,14 @@
                     font-size: 16px;
                     margin-bottom: 10px;
                     @media (max-width: 800px) {
-                        margin-bottom: 15px;
+                        margin: 0;
                     }
                     @media (max-width: 400px) {
                         margin: 19px 0;
                     }
                 }
                 .params {
+                    position: relative;
                     margin-bottom: 30px;
                     @media (max-width: 800px) {
                         margin: 0;
@@ -131,46 +139,99 @@
                         align-items: center;
                         justify-content: space-between;
                     }
-                    @media (max-width: 500px) {
+                    @media (max-width: 400px) {
                         align-items: flex-start;
                         width:100%;
                         margin-top: 10px;
                     }
-                    .price {
-                        font-weight: 300;
-                    }
-                    .currency {
-                        margin-left: 5px;
-                        color: black;
-                        font-weight: 500;
-                    }
-                    .priceFilter {
-                        margin-top: 16px;
+                    .openMenu {
                         @media (max-width: 800px) {
-                            margin-bottom: 15px;
+                            width: 80%;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-around;
+                            align-items: center;
                         }
-
-                        span {
-                            font-weight: 500;
-                            margin: 0 10px;
+                        @media (max-width: 400px) {
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
                         }
-                        input {
-                            outline: none;
-                            appearance: none;
-                            color: #3f4e65;
+                        .burger {
+                            display: none;
+                            background: #FFCA65;
+                            opacity: 0.5;
+                            border-radius: 100px;
+                            width: 32px;
+                            height: 32px;
+                            @media (max-width: 800px) {
+                                display: block;
+                            }
+                        } 
+                    }
+                    .burger {
+                        display: none;
+                        background: #FFCA65;
+                        opacity: 0.5;
+                        border-radius: 100px;
+                        width: 32px;
+                        height: 32px;
+                        @media (max-width: 800px) {
+                            display: block;
+                        }
+                    }
+                    .priceInput {
+                        z-index: 99;
+                        @media (max-width: 800px) {
+                            width: 100vw;
+                            background-color: white;
+                            position: absolute;
+                            top: 40px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        @media (max-width: 400px) {
+                            top: 60px; 
+                            width: 100%;
+                            align-items: flex-start;
+                        }
+                        .price {
                             font-weight: 300;
-                            font-size: 12px;
-                            line-height: 15px;
-                            text-align: center;
-                            padding: 4px 14px;
-                            width: 72px;
-                            height: 15px;
-                            background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
-                            border-radius: 1000px;
+                        }
+                        .currency {
+                            margin-left: 5px;
+                            color: black;
+                            font-weight: 500;
+                        }
+                        .priceFilter {
+                            margin-top: 16px;
+                            @media (max-width: 800px) {
+                                margin-bottom: 15px;
+                            }
+                            span {
+                                font-weight: 500;
+                                margin: 0 10px;
+                            }
+                            input {
+                                outline: none;
+                                appearance: none;
+                                color: #3f4e65;
+                                font-weight: 300;
+                                font-size: 12px;
+                                line-height: 15px;
+                                text-align: center;
+                                padding: 4px 14px;
+                                width: 72px;
+                                height: 15px;
+                                background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+                                border-radius: 1000px;
+                            }
                         }
                     }
                 }
                 .brand {
+                    position: relative;
                     @media (max-width: 1760px) {
                         display: flex;
                         flex-direction: row;
@@ -181,47 +242,130 @@
                         flex-direction: column;
                         align-items: center;
                     }
-                    div {
-                        @media (max-width: 400px) {
-                            width:100%;
-                        }
+                    @media (max-width: 500px) {
+                        width: 90.625%;
                     }
-                    .inputBlock {
-                        margin-bottom: 15px;
-                        position: relative;
-                        width: 260px;
-                        input {
-                            width: 260px;
-                            background-color: #EDEDED;
-                            border-radius: 36px;
+                    .brandInput {
+                        width: fit-content;
+                        height: fit-content;
+                        @media (max-width: 800px) {
                             display: flex;
-                            flex-direction: row;
-                            justify-content: space-between;
+                            flex-direction: column;
                             align-items: center;
-                            padding: 13px 10px 13px 20px;
-                            font-size: 12px;
-                            line-height: 150%;
-                            height: 33px;
-                            &::placeholder {
-                                opacity: 0.6;
+                            z-index: 99;
+                            width: 100vw;
+                            background-color: white;
+                            position: absolute;
+                            top: 77px;
+                            @media (max-width: 400px) {
+                                top: 65px;
+                                width: 100%;
+                                align-items: flex-start;
                             }
                         }
-                        .icon {
-                            cursor: pointer;
-                            position: absolute;
-                            top: 10px;
-                            right: -20px;
+                        @media (max-width: 400px) {
+                            margin: 0 auto;
+                        }
+                        .inputBlock {
+                            margin-bottom: 15px;
+                            position: relative;
+                            width: 260px;
+                            input {
+                                width: 260px;
+                                background-color: #EDEDED;
+                                border-radius: 36px;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding: 13px 10px 13px 20px;
+                                font-size: 12px;
+                                line-height: 150%;
+                                height: 33px;
+                                &::placeholder {
+                                    opacity: 0.6;
+                                }
+                            }
+                            .icon {
+                                cursor: pointer;
+                                position: absolute;
+                                top: 10px;
+                                right: -20px;
+                            }
                         }
                     }
-                    .enumBrands {
+                    .sideBarFilters {
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
+                        margin-top: 30px;
+                        font-weight: 500;
+                        font-size: 16px;
+                        text-transform: uppercase;
+                        color: #111111;
+                        @media (max-width: 1763px) {
+                            display: none;
+                        }
+                        @media (max-width: 1260px) {
+                            display: flex;
+                        }
+                        @media (max-width: 800px) {
+                            margin: 10px 0 86px 0;
+                            display: flex;
+                            flex-direction: column;
+                            font-size: 14px;
+                            line-height: 17px;
+                        }
+                        @media (max-width: 400px) {
+                            text-transform: none;
+                            margin-right: auto;
+                            font-size: 14px;
+                            line-height: 17px;
+                            font-weight: 400;
+                        }
+                        span {
+                            cursor: pointer;
+                            margin: 0 0 20px 0;
+                            @media (max-width: 800px) {
+                                margin-bottom: 10px;
+                                &:last-child {
+                                    margin: 0;
+                                }
+                            }
+                            &:last-child {
+                                margin: 0;
+                            }
+                        }
+                        .activeSpan {
+                            color: #FFC85E;
+                        }
+                    }
+                    .enumBrands {
+                        z-index: 99;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        @media (max-width: 800px) {
+                            width: 100vw;
+                            margin: 0 auto;
+                            background-color: white;
+                            position: absolute;
+                            top: 160px;
+                            width: 100vw;
+                            align-items: center;
+                        }
                         @media (max-width: 400px) {
                             width:100%;
+                            top: 200px;
+                            align-items: flex-start;
                         }
                         .soloBrand {
-
+                            @media (max-width: 800px) {
+                                width: 45%;
+                            }
+                            @media (max-width: 400px) {
+                                width:100%;
+                            }
                         }
                         div {
                             display: flex;
@@ -264,6 +408,9 @@
                             margin-top: 25px;
                             display: flex;
                             flex-direction: row;
+                            @media (max-width: 800px) {
+                                margin: 25px auto 0 auto;
+                            }
                             @media (max-width: 400px) {
                                 justify-content: space-between;
                                 width: 290px;
@@ -276,7 +423,7 @@
                                     background-color: #fad074;
                                 }
                                 &:active {
-                                    background-color: #fcd58d;
+                                    background-color: #f7ddae;
                                 }
                             }
                             .show {
@@ -292,45 +439,6 @@
                                 margin-left: 10px;
                                 width: 59px;
                                 height: 59px;
-                            }
-                        }
-                        .sideBarFilters {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: flex-start;
-                            margin-top: 40px;
-                            font-weight: 500;
-                            font-size: 16px;
-                            text-transform: uppercase;
-                            color: #111111;
-                            @media (max-width: 800px) {
-                                margin-top: 10px;
-                                display: flex;
-                                flex-direction: column;
-                                font-size: 14px;
-                                line-height: 17px;
-                            }
-                            @media (max-width: 500px) {
-                                text-transform: none;
-                                font-size: 14px;
-                                line-height: 17px;
-                                font-weight: 400;
-                            }
-                            span {
-                                cursor: pointer;
-                                margin: 0 0 20px 0;
-                                @media (max-width: 800px) {
-                                    margin-bottom: 10px;
-                                    &:last-child {
-                                        margin: 0;
-                                    }
-                                }
-                                &:last-child {
-                                    margin: 0;
-                                }
-                            }
-                            .activeSpan {
-                                color: #FFC85E;
                             }
                         }
                     }
@@ -395,5 +503,11 @@
                 }
             }
         }
+    }
+}
+.hiddenContent {
+    @media (max-width: 800px) {
+        position: absolute;
+        display: none !important; 
     }
 }

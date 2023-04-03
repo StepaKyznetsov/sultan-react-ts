@@ -6,13 +6,15 @@ interface IChangeProductInput {
     field: string | number;
     type: string;
     id: string;
+    handleKeyPress(e: any): void;
 }
 
 const ChangeProductInput: React.FC<IChangeProductInput> = ({
     name,
     field,
     type,
-    id
+    id,
+    handleKeyPress
 }) => {
 
     const [value, setValue] = useState(field)
@@ -30,6 +32,7 @@ const ChangeProductInput: React.FC<IChangeProductInput> = ({
                 type = {type}
                 value = {value || ''}
                 onChange={handleChange}
+                onKeyDown = {(e) => handleKeyPress(e)}
             />
         </div>
     )

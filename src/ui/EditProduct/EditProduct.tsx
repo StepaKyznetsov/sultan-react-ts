@@ -23,9 +23,10 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
     const [currentDescription, setCurrentDescription] = useState<string>('')
     const [currentType, setCurrentType] = useState<string>('вес')
     const [currentCategories, setCurrentCategories] = useState<string[]>([])
-    const notifyValidation = () => toast.warn("Не все поля заполнены!");
-    const notifyNewProduct = () => toast("Новый товар создан!");
-    const notifyEditSuccess = () => toast("Данные товара изменены!");
+    const notifyValidation = () => toast.warn("Не все поля заполнены!")
+    const notifyExistBarcode = () => toast.warn("Такой штрих-код уже используется!")
+    const notifyNewProduct = () => toast("Новый товар создан!")
+    const notifyEditSuccess = () => toast("Данные товара изменены!")
 
     useEffect(() => {
         if (usage === 1) {
@@ -125,6 +126,7 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
     ]
 
     const confirm = () => {
+        if (items.find(e => e.barcode === +getElement('barcodeInput'))) return notifyExistBarcode()
         if (isEmptyInputs()) return notifyValidation()
 
         let result = {
@@ -158,6 +160,10 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
         }
     }
 
+    const handleKeyPress = (e: any) => {
+        if (e.key === 'Enter') confirm()
+    }
+
     return(
         <div className = {css.options}>
             {inputData.map(e =>
@@ -167,6 +173,7 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
                     field = {e.field}
                     type = {e.type}
                     id = {e.id}
+                    handleKeyPress = {handleKeyPress}
                 />
             )}
             <div>

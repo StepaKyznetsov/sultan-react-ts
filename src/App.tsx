@@ -1,7 +1,7 @@
 import React from 'react';
 import Catalog from './pages/Catalog/Catalog';
-import {HashRouter, Routes, Route, Navigate} from 'react-router-dom';
-import {ADMIN, BASKET, CATALOG, MAIN} from './constants/constants';
+import {Routes, Route, Navigate, BrowserRouter} from 'react-router-dom';
+import {ADMIN, BASKET, CATALOG} from './constants/constants';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Footer from './components/Footer/Footer';
@@ -11,7 +11,7 @@ import Admin from './pages/Admin/Admin';
 
 const App: React.FC = () => {
   return (
-      <HashRouter>
+      <BrowserRouter>
         <Header />
         <Menu />
         <Routes>
@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <Route path = "*" element = {<Navigate replace to = {CATALOG} />} />
         </Routes>
         <Footer />
-      </HashRouter>
+      </BrowserRouter>
   );
 }
 

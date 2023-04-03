@@ -12,13 +12,6 @@ const AdminPanel: React.FC = () => {
     const {items} = useTypedSelector(state => state.catalog)
     const [toggle, setToggle] = useState(false)
 
-    const getElement = (name: string) => {
-        // @ts-ignore
-        return !document.getElementById(name) ? null : document.getElementById(name).value
-    }
-    
-    console.log(getElement('priceInput'))
-
     return(
         <div className={css.container}>
             <div className = {css.content}>
@@ -40,7 +33,7 @@ const AdminPanel: React.FC = () => {
                 <div className = {css.addProduct}>
                     <button
                         className = {toggle ? `${css.close}` : ''}
-                        onClick = {() => setToggle(!toggle)}>
+                        onClick = {() =>  setToggle(!toggle)}>
                         {toggle ?  'Отмена' : 'Добавить новый товар'}
                     </button>
                 </div>
@@ -71,6 +64,11 @@ const AdminPanel: React.FC = () => {
                                 categories = {e.categories}
                             />
                         )}
+                        {!items.length &&
+                            <h2>
+                                Перейдите на страницу Каталог!
+                            </h2>
+                        }
                     </div>
                 }
             </div>
