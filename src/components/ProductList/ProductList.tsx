@@ -108,8 +108,7 @@ const ProductList: React.FC = () => {
     let brands: Brand[] = []
 
     const getBrands = () => {
-        console.log(filteredItems)
-        countProducts.map(item => {
+        filteredItems.map(item => {
             if (!brands.filter(e => e.name === item.brand).length)
                 brands.push({
                     name: item.brand,
@@ -263,16 +262,18 @@ const ProductList: React.FC = () => {
                                         </span>
                                     </div>
                                 )}
-                                <div
+                                {brands.length >= 4 &&
+                                    <div
                                     onClick = {() => setShowAll(!showAll)}
                                     className = {
                                         showAll ?
                                             `${css.showAll}` :
                                             `${css.showAll} ${css.rotate}`
-                                    }
-                                >
-                                    Показать все
-                                </div>
+                                        }
+                                    >
+                                        Показать все
+                                    </div>        
+                                }
                                 <div className = {css.findBrand}>
                                     <button
                                         onClick={() => {
