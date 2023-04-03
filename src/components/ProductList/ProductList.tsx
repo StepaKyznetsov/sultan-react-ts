@@ -24,8 +24,8 @@ const ProductList: React.FC = () => {
     const [currentSort, setCurrentSort] = useState<string>('name')
     const [showAll, setShowAll] = useState<boolean>(false)
     const [open, setOpen] = useState<boolean>(false)
+    const [changeBrands, setChangeBrands] = useState<boolean>(false)
     const [brandsDefault, setBrandsDefault] = useState<string[]>([])
-    const [currentBrands, setCurrentBrands] = useState<string[]>([])
     const [findBrand, setFindBrand] = useState<string>('')
     const [query, setQuery] = useState<string>('')
     const {fetchCatalog, setCatalogPage} = useActions()
@@ -59,7 +59,7 @@ const ProductList: React.FC = () => {
         setMaxQuery(10000)
         setMin(0)
         setMax(10000)
-        setCurrentBrands([])
+        setChangeBrands(false)
     }
 
     const filteredByCategory = (category: string) => {
@@ -109,7 +109,7 @@ const ProductList: React.FC = () => {
     const countProducts = filteredItems
         .filter(e => e.brand.toLowerCase().includes(query.toLowerCase()))
         .filter(e => e.price >= minQuery && e.price <= maxQuery)
-        .filter(e => currentBrands.indexOf(e.brand) !== -1 || !currentBrands.length)
+        .filter(e => brandsDefault.indexOf(e.brand) !== -1 || !brandsDefault.length)
         .filter(e => categoriesFilter.indexOf(e) === -1)
 
     let res = countProducts.slice((page - 1) * limit, limit * page)
@@ -121,8 +121,8 @@ const ProductList: React.FC = () => {
 
     let brands: Brand[] = []
 
-    const getBrands = () => {
-        countProducts.map(item => {
+    const getBrands = (arr: any[]) => {
+        arr.map(item => {
             if (!brands.filter(e => e.name === item.brand).length)
                 brands.push({
                     name: item.brand,
@@ -137,14 +137,15 @@ const ProductList: React.FC = () => {
         return showAll ? brands : brands = brands.slice(0, 4)
     }
 
-    getBrands()
+    !changeBrands ? getBrands(filteredItems) : getBrands(countProducts)
 
     const search = () => {
+        choosePage(1)
         setQuery(findBrand)
         setMinQuery(min)
         setMaxQuery(max)
         setOpen(false)
-        setCurrentBrands([...brandsDefault])
+        setChangeBrands(true)
     }
 
     const handleKeyPress = (e: any) => {
