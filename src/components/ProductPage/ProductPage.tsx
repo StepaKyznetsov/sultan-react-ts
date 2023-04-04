@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Counter from '../../ui/Counter/Counter';
 import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
 import css from './ProductPage.module.scss';
@@ -7,6 +7,7 @@ import {CATALOG} from '../../constants/constants';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import {useActions} from '../../hooks/useActions';
 import BackArrow from "../../ui/BackArrow/BackArrow";
+import {decrement, increment} from '../../utils';
 
 interface IProductPageProps {
     title: string;
@@ -40,19 +41,29 @@ const ProductPage: React.FC<IProductPageProps> = ({
     const [showDescription, setShowDescription] = useState(false)
     const [showCharacteristics, setShowCharacteristics] = useState(false)
 
-    const decrement = (): void => {
-        if (counter === 1) return 
-        setCounter(counter - 1)
-    }
-    const increment = (): void  => {
-        setCounter(counter + 1)
-    }
-
     const addToCart = (): void => {
         setSum(sum + counter * price)
         addToBasket(barcode, items, order, counter)
         setCounter(1)
     }
+
+    const characteristics = [
+        [
+            {name: 'Производитель:', value: brand},
+            {name: 'Бренд:', value: brand},
+            {name: 'Артикул:', value: 460404},
+            {name: 'Штрихкод:', value: barcode}
+        ],
+        [
+            {name: 'Назначение:', value: brand},
+            {name: 'Тип:', value: brand},
+            {name: 'Производитель:', value: manufacturer},
+            {name: 'Бренд:', value: brand},
+            {name: 'Артикул:', value: barcode},
+            {name: 'Штрихкод:', value: barcode},
+            {name: sizeType === 'вес' ? 'Вес:' : 'Объём', value: size},
+        ]
+    ]
 
     return(
         <div className = {css.container}>
@@ -109,8 +120,8 @@ const ProductPage: React.FC<IProductPageProps> = ({
                                 <Counter
                                     styles = ''
                                     marginRight = {0}
-                                    increment = {increment}
-                                    decrement = {decrement}
+                                    increment = {() => increment(counter, setCounter)}
+                                    decrement = {() => decrement(counter, setCounter)}
                                     count = {counter}
                                 />
                                 <div onClick={() => addToCart()}>
@@ -147,35 +158,20 @@ const ProductPage: React.FC<IProductPageProps> = ({
                             </div>
                         </div>
                         <div className = {css.characteristics}>
-                            <div>
-                                <span>Производитель: </span>
-                                <span className = {css.value}>
-                                    {brand}
-                                </span>
-                            </div>
-                            <div>
-                                <span>Бренд: </span>
-                                <span className = {css.value}>
-                                    {brand}
-                                </span>
-                            </div>
-                            <div>
-                                <span>Артикул: </span>
-                                <span className = {css.value}>
-                                    460404
-                                </span>
-                            </div>
-                            <div>
-                                <span>Штрихкод: </span>
-                                <span className = {css.value}>
-                                    {barcode}
-                                </span>
-                            </div>
+                            {characteristics[0].map(e => 
+                                <div>
+                                    <span>{e.name} </span>
+                                    <span className = {css.value}>
+                                        {e.value}
+                                    </span>
+                                </div>
+                            )}
                             <span
                                 onClick = {() => setShowDescription(!showDescription)}
                                 className = {
                                     showDescription ?
-                                    `${css.subtitle}` : `${css.subtitle} ${css.rotate}`
+                                    `${css.subtitle}` : 
+                                    `${css.subtitle} ${css.rotate}`
                                 }
                             >
                                 Описание
@@ -195,56 +191,14 @@ const ProductPage: React.FC<IProductPageProps> = ({
                             </span>
                             {showCharacteristics &&
                                 <div>
-                                    <div>
-                                        <span>Назначение: </span>
-                                        <span className = {css.value}>
-                                            {brand}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <span>Тип: </span>
-                                        <span className = {css.value}>
-                                            {brand}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <span>Производитель: </span>
-                                        <span className = {css.value}>
-                                            {manufacturer}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <span>Бренд: </span>
-                                        <span className = {css.value}> {barcode}</span>
-                                    </div>
-                                    <div>
-                                        <span>Артикул: </span>
-                                        <span className = {css.value}> {barcode}</span>
-                                    </div>
-                                    <div>
-                                        <span>Штрихкод: </span>
-                                        <span className = {css.value}>
-                                            {barcode}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <span>Вес: </span>
-                                        <span className = {css.value}>
-                                            {size}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <span>Объем: </span>
-                                        <span className = {css.value}>
-                                            {size}
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <span>Кол-во в коробке: </span>
-                                        <span className = {css.value}>
-                                            {size}
-                                        </span>
-                                    </div>
+                                    {characteristics[1].map(e =>
+                                        <div>
+                                            <span>{e.name} </span>
+                                            <span className = {css.value}>
+                                                {e.value}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
                             }
                         </div>

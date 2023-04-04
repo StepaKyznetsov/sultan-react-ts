@@ -1,9 +1,10 @@
 import React, {useEffect, useState, useRef} from 'react';
-import css from './Header.module.scss'
+import css from './Header.module.scss';
 import {CATALOG, LINKS} from '../../constants/constants';
 import Basket from "../../ui/Basket/Basket";
 import {useActions} from "../../hooks/useActions";
 import {useNavigate} from "react-router-dom";
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 const Header: React.FC = () => {
 
@@ -11,20 +12,14 @@ const Header: React.FC = () => {
     const {changeLimit} = useActions()
     const navigate = useNavigate()
     const wrapperRef: any = useRef(null)
+    useClickOutside(wrapperRef, setOpen)
 
     useEffect(() => {
-        const handleClickOutside = (event: any) => {
-            if (wrapperRef.current && !wrapperRef.current.contains(event.target))
-                setOpen(false)
-        }
         const handleWidthResize = () => {
             window.innerWidth <= 1280 ? changeLimit(16) : changeLimit(15)
         }
-
-        window.addEventListener('click', handleClickOutside)
         window.addEventListener('resize', handleWidthResize)
         return () => {
-            window.removeEventListener('click', handleClickOutside)
             window.removeEventListener('resize', handleWidthResize)
         }
     }, [])

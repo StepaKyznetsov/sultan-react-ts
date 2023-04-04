@@ -25,47 +25,47 @@ export enum CatalogActionTypes {
 }
 
 interface FetchCatalogAction {
-    type: CatalogActionTypes.FETCH_CATALOG
+    type: CatalogActionTypes.FETCH_CATALOG;
 }
 interface FetchCatalogSuccessAction {
-    type: CatalogActionTypes.FETCH_CATALOG_SUCCESS
+    type: CatalogActionTypes.FETCH_CATALOG_SUCCESS;
     payload: any[];
 }
 
 interface RemoveFromCatalog {
-    type: CatalogActionTypes.REMOVE_FROM_CATALOG
+    type: CatalogActionTypes.REMOVE_FROM_CATALOG;
     payload: number;
 }
 
 interface ChangeProduct {
-    type: CatalogActionTypes.CHANGE_PRODUCT
+    type: CatalogActionTypes.CHANGE_PRODUCT;
     payload: IChangeProduct;
 }
 
 interface AddProduct {
-    type: CatalogActionTypes.ADD_PRODUCT
+    type: CatalogActionTypes.ADD_PRODUCT;
     payload: object;
 }
 
 interface FetchCatalogErrorAction {
-    type: CatalogActionTypes.FETCH_CATALOG_ERROR
+    type: CatalogActionTypes.FETCH_CATALOG_ERROR;
     payload: string;
 }
 interface SetCatalogPage {
-    type: CatalogActionTypes.SET_CATALOG_PAGE
+    type: CatalogActionTypes.SET_CATALOG_PAGE;
     payload: number;
 }
 
 interface PriceSorting {
-    type: CatalogActionTypes.PRICE_SORTING
+    type: CatalogActionTypes.PRICE_SORTING;
 }
 
 interface NameSorting {
-    type: CatalogActionTypes.NAME_SORTING
+    type: CatalogActionTypes.NAME_SORTING;
 }
 
 interface ChangeLimit {
-    type: CatalogActionTypes.CHANGE_LIMIT
+    type: CatalogActionTypes.CHANGE_LIMIT;
     payload: number;
 }
 

@@ -59,47 +59,20 @@
                 }
             }
             .inputBlock {
-                position: relative;
-                display: flex;
-                align-items: center;
                 width: 263px;
-                max-width: 263px;
-                &:after {
-                    position: absolute;
-                    content: url("../../../public/images/menu/find.png");
-                    right: 10px;
-                    top: 10px;
-                }
-                @media (max-width: 1500px) {
-                    &:after {
-                        display: none;
-                    }
-                }
-                input {
+                .input {
                     box-sizing: border-box;
                     height: 100%;
                     width: 100%;
-                    background-color: #EDEDED;
-                    border-radius: 36px;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding-left: 20px;
-                    font-size: 12px;
-                    line-height: 150%;
-                    &::placeholder {
-                        opacity: 0.6;
-                    }
+                    padding-left: 20px;                    
                     @media (max-width: 1500px) {
                         height: 40px;
                     }
                 }
                 .icon {
-                    cursor: pointer;
-                    position: absolute;
-                    top: 10px;
-                    right: 10px
+                    @media (max-width: 1500px) {
+                        display: none;
+                    }
                 }
             }
 

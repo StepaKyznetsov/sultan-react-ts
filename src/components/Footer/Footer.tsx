@@ -2,6 +2,7 @@ import React from 'react';
 import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Footer.module.scss';
 import {LINKS} from '../../constants/constants';
+import Input from '../../ui/Input/Input';
 
 const Footer: React.FC = () => {
     return(
@@ -20,19 +21,15 @@ const Footer: React.FC = () => {
                     <span>
                         Подпишись на скидки и акции
                     </span>
-                    <div className = {css.inputBlock}>
-                        <input
-                            placeholder = 'Введите ваш E-mail'
-                            type = "text"
-                        />
-                        <img
-                            className = {css.icon}
-                            src = '/images/footer/input.png'
-                            alt = 'find'
-                        />
-                    </div>
+                    <Input 
+                        divStyles = {css.inputBlock}
+                        inputStyles = {css.input}
+                        imageStyles = {css.icon}
+                        text = 'Введите ваш E-mail' 
+                        src = '/images/footer/input.png' 
+                        alt = 'find'
+                    />
                 </div>
-
                 <div className = {css.column}>
                     <span className = {css.head}>
                         Меню сайта:
@@ -63,15 +60,11 @@ const Footer: React.FC = () => {
                     <span className = {`${css.head} ${css.download}`}>
                         Скачать прайс-лист:
                     </span>
-                    <button
-                        className = {css.priceButton}
-                    >
-                        Прайс-лист
-                        <img
-                            src = "/images/menu/download.png"
-                            alt = "download"
-                        />
-                    </button>
+                    <PriceButton 
+                        buttonStyles = {css.priceButton}
+                        text = 'Прайс-лист' 
+                        url = "/images/menu/download.png"
+                    />
                     <span className = {css.connect}>
                         Связь в мессенджерах:
                     </span>

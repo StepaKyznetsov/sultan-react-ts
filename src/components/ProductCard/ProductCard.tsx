@@ -44,6 +44,12 @@ const ProductCard: React.FC<ICardProps> = ({
       setSum(+((sum + price).toFixed(2)))
     }
 
+    const characteristicsOnCard = [
+        {name: 'Штрихкод:', value: barcode},
+        {name: 'Производитель:', value: manufacturer},
+        {name: 'Бренд:', value: brand},
+    ]
+
     return (
         <div className = {css.container}>
             <div
@@ -52,7 +58,7 @@ const ProductCard: React.FC<ICardProps> = ({
             >
                 <img
                     src = {photo} 
-                    alt = "product" 
+                    alt = "product"
                 />
             </div>
             <div className = {css.size}>
@@ -73,30 +79,16 @@ const ProductCard: React.FC<ICardProps> = ({
                 </span>
                 {title}
             </span>
-            <div className = {css.item}>
-                <span>
-                    Штрихкод:
-                </span>
-                <span className = {css.value}>
-                    {barcode}
-                </span>
-            </div>
-            <div className = {css.item}>
-                <span>
-                    Производитель: 
-                </span>
-                <span className = {css.value}>
-                    {manufacturer}
-                </span>
-            </div>
-            <div className = {css.item}>
-                <span>
-                    Бренд: 
-                </span>
-                <span className = {css.value}>
-                    {brand}
-                </span>
-            </div>
+            {characteristicsOnCard.map(e => 
+                <div className = {css.item}>
+                    <span>
+                        {e.name}
+                    </span>
+                    <span className = {css.value}>
+                        {e.value}
+                    </span>
+                </div>
+            )}
             <div className = {css.order}>
                 <span>
                     {price} ₸

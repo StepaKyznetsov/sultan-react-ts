@@ -4,6 +4,7 @@ import css from './Menu.module.scss';
 import {useNavigate} from 'react-router-dom';
 import {CATALOG, MAIN} from '../../constants/constants';
 import BasketHead from "../../ui/Basket/Basket";
+import Input from '../../ui/Input/Input';
 
 const Menu: React.FC = () => {
     
@@ -26,12 +27,14 @@ const Menu: React.FC = () => {
                             alt = "catalog" 
                         />
                     </button>
-                    <div className = {css.inputBlock}>
-                        <input
-                            placeholder = 'Поиск...'
-                            type = "text"
-                        />
-                    </div>
+                    <Input 
+                        divStyles = {css.inputBlock}
+                        inputStyles = {css.input}
+                        imageStyles = {css.icon}
+                        text = 'Поиск...' 
+                        src = '/images/menu/find.png' 
+                        alt = 'find'
+                    />
                 </div>
                 <div className = {css.data}>
                     <div className = {css.text}>
@@ -52,6 +55,7 @@ const Menu: React.FC = () => {
                 </div>
                 <div className = {css.priceBtn}>
                     <PriceButton
+                        buttonStyles = ''
                         text = 'Прайс-лист'
                         url = '/images/menu/download.png'
                     />

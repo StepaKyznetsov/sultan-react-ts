@@ -7,6 +7,9 @@ import Breadcrumbs from "../../ui/Breadcrumbs/Breadcrumbs";
 import Dropdown from "../../ui/Dropdown/Dropdown";
 import {CATALOG} from "../../constants/constants";
 import BackArrow from "../../ui/BackArrow/BackArrow";
+import Input from '../../ui/Input/Input';
+import {useClickOutside} from '../../hooks/useClickOutside';
+import {getBrands, filterByCategory} from '../../utils';
 
 interface Brand {
     name: string;
@@ -19,7 +22,6 @@ const ProductList: React.FC = () => {
     const [max, setMax] = useState<number>(10000)
     const [minQuery, setMinQuery] = useState<number>(0)
     const [maxQuery, setMaxQuery] = useState<number>(10000)
-    const {items, page, limit} = useTypedSelector(state => state.catalog)
     const [categoriesFilter, setCategoriesFilter] = useState<string[]>([])
     const [currentSort, setCurrentSort] = useState<string>('name')
     const [showAll, setShowAll] = useState<boolean>(false)
@@ -28,19 +30,11 @@ const ProductList: React.FC = () => {
     const [brandsDefault, setBrandsDefault] = useState<string[]>([])
     const [findBrand, setFindBrand] = useState<string>('')
     const [query, setQuery] = useState<string>('')
+    const {items, page, limit} = useTypedSelector(state => state.catalog)
     const {fetchCatalog, setCatalogPage} = useActions()
     const wrapperRef: any = useRef(null)
 
-    useEffect(() => {
-        const handleClickOutside = (event: any) => {
-            if (wrapperRef.current && !wrapperRef.current.contains(event.target))
-                setOpen(false)
-        }
-        document.addEventListener('click', handleClickOutside)
-        return () => {
-            document.removeEventListener('click', handleClickOutside)
-        }
-    }, [])
+    useClickOutside(wrapperRef, setOpen)
 
     useEffect(() => {
         if (items.length === 0) fetchCatalog(page, currentLimit)
@@ -52,7 +46,7 @@ const ProductList: React.FC = () => {
 
     let filteredItems = [...items]
 
-    const removeRes = () => {
+    const removeRequestData = () => {
         setQuery('')
         setFindBrand('')
         setMinQuery(0)
@@ -60,13 +54,6 @@ const ProductList: React.FC = () => {
         setMin(0)
         setMax(10000)
         setChangeBrands(false)
-    }
-
-    const filteredByCategory = (category: string) => {
-        choosePage(1)
-        categoriesFilter.indexOf(category) !== -1 ?
-            setCategoriesFilter(categoriesFilter.filter(e => e !== category)) :
-            setCategoriesFilter([...categoriesFilter, category])
     }
 
     const handleFindBrand = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,26 +107,14 @@ const ProductList: React.FC = () => {
     }
 
     let brands: Brand[] = []
+    
+    !changeBrands ? 
+        getBrands(filteredItems, brands) : 
+        getBrands(countProducts, brands)
 
-    const getBrands = (arr: any[]) => {
-        arr.map(item => {
-            if (!brands.filter(e => e.name === item.brand).length)
-                brands.push({
-                    name: item.brand,
-                    counter: 1
-                })
-            else {
-                let obj: Brand | undefined = brands.find(e => e.name === item.brand)
-                if (!obj) return
-                obj.counter += 1
-            }
-        })
-        return showAll ? brands : brands = brands.slice(0, 4)
-    }
+    if (!showAll) brands = brands.slice(0, 4)
 
-    !changeBrands ? getBrands(filteredItems) : getBrands(countProducts)
-
-    const search = () => {
+    const setRequestData = () => {
         choosePage(1)
         setQuery(findBrand)
         setMinQuery(min)
@@ -149,7 +124,7 @@ const ProductList: React.FC = () => {
     }
 
     const handleKeyPress = (e: any) => {
-        if(e.key === 'Enter') search()
+        if(e.key === 'Enter') setRequestData()
     }
 
     return(
@@ -203,7 +178,11 @@ const ProductList: React.FC = () => {
                                 `${css.activeButton}` :
                                 ''
                         }
-                        onClick={() => filteredByCategory('Уход за телом')}
+                        onClick={() => {
+                            choosePage(1)
+                            filterByCategory(categoriesFilter, 'Уход за телом', setCategoriesFilter)
+                            }
+                        }
                     >
                        <span>
                             Уход <br />
@@ -216,7 +195,11 @@ const ProductList: React.FC = () => {
                                 `${css.activeButton}` :
                                 ''
                         }
-                        onClick={() => filteredByCategory('Уход за руками')}
+                        onClick={() => {
+                            choosePage(1)
+                            filterByCategory(categoriesFilter, 'Уход за руками', setCategoriesFilter)
+                            }
+                        }
                     >
                         <span>
                             Уход <br />
@@ -287,20 +270,17 @@ const ProductList: React.FC = () => {
                                 <h4 className = {css.brandSubtitle}>
                                     Бренд
                                 </h4>
-                                <div className = {css.inputBlock}>
-                                    <input
-                                        placeholder = 'Поиск...'
-                                        type = "text"
-                                        onChange = {handleFindBrand}
-                                        onKeyDown={(e) => handleKeyPress(e)}
-                                        value = {findBrand}
-                                    />
-                                    <img
-                                        className = {css.icon}
-                                        src = '/images/menu/find.png'
-                                        alt = 'find'
-                                    />
-                                </div>
+                                <Input
+                                    onChange = {handleFindBrand}
+                                    onKeyDown={(e: any) => handleKeyPress(e)}
+                                    value = {findBrand}
+                                    divStyles = {css.inputBlock}
+                                    inputStyles = {css.input}
+                                    imageStyles = {css.icon}
+                                    text = 'Поиск...' 
+                                    src = '/images/menu/find.png' 
+                                    alt = 'find'
+                                />
                             </div>
                             <div className = {
                                     open ? 
@@ -336,12 +316,12 @@ const ProductList: React.FC = () => {
                                 }
                                 <div className = {css.findBrand}>
                                     <button
-                                        onClick={search}
+                                        onClick={setRequestData}
                                         className = {css.show}>
                                         Показать
                                     </button>
                                     <button
-                                        onClick = {removeRes}
+                                        onClick = {removeRequestData}
                                         className = {css.remove}>
                                         <img
                                             src = "/images/catalog/remove.png"
@@ -357,7 +337,11 @@ const ProductList: React.FC = () => {
                                             `${css.activeSpan}` :
                                             ''
                                     }
-                                    onClick={() => filteredByCategory('Уход за телом')}
+                                    onClick={() => {
+                                        choosePage(1)
+                                        filterByCategory(categoriesFilter, 'Уход за телом', setCategoriesFilter)
+                                        }
+                                    }
                                 >
                                     Уход за телом
                                 </span>
@@ -367,7 +351,11 @@ const ProductList: React.FC = () => {
                                             `${css.activeSpan}` :
                                             ''
                                     }
-                                    onClick={() => filteredByCategory('Уход за руками')}
+                                    onClick={() => {
+                                        choosePage(1)
+                                        filterByCategory(categoriesFilter, 'Уход за руками', setCategoriesFilter)
+                                        }
+                                    }
                                 >
                                     Уход за руками
                                 </span>
