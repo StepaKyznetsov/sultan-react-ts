@@ -4,7 +4,7 @@ import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
 import Modal from '../Modal/Modal';
 import css from './Order.module.scss';
 import {useLocalStorage} from 'usehooks-ts';
-import {BASKET, CATALOG} from '../../constants/constants';
+import {BASKET, CATALOG} from '../../constants';
 import {useActions} from '../../hooks/useActions';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import BackArrow from "../../ui/BackArrow/BackArrow";

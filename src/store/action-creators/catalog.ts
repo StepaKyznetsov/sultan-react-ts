@@ -33,7 +33,6 @@ export const setCatalogPage = (page: number): CatalogAction => {
     return {
         type: CatalogActionTypes.SET_CATALOG_PAGE,
         payload: page
-
     }
 }
 

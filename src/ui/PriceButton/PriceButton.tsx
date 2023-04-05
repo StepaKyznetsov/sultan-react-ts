@@ -7,7 +7,10 @@ interface IButton {
     url: string;
 }
 
-const PriceButton: React.FC<IButton> = ({text, url, buttonStyles}) => {
+const PriceButton: React.FC<IButton> = ({
+    text, 
+    url, buttonStyles
+}) => {
     return (
         <button
             className = {`${css.priceButton} ${buttonStyles}`}

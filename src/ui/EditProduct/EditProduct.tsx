@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import css from "./EditProduct.module.scss";
-import ChangeProductInput from "../ChangeProductInput/ChangeProductInput";
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DropdownCheckbox from './DropdownCheckbox/DropdownCheckbox';
+import InputData from './InputData/InputData';
 
 const enum enumUse {
     create,
@@ -80,53 +81,7 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
             !getElement('priceInput')
     }
 
-    const inputData = [
-        {
-            id: "brandInput",
-            name: "Бренд",
-            field: brand,
-            type: "string",
-        },
-        {
-            id: "titleInput",
-            name: "Название",
-            field: title,
-            type: "string",
-        },
-        {
-            id: "barcodeInput",
-            name: "Штрих-код",
-            field: barcode,
-            type: "number",
-        },
-        {
-            id: "sizeInput",
-            name: "Размер",
-            field: size,
-            type: "string",
-        },
-        {
-            id: "manufacturerInput",
-            name: "Производитель",
-            field: manufacturer,
-            type: "string",
-        },
-        {
-            id: "priceInput",
-            name: "Цена",
-            field: price,
-            type: "number",
-        },
-        {
-            id: "photoInput",
-            name: "Фото",
-            field: photo,
-            type: "string",
-        },
-    ]
-
     const confirm = () => {
-        if (items.find(e => e.barcode === +getElement('barcodeInput'))) return notifyExistBarcode()
         if (isEmptyInputs()) return notifyValidation()
 
         let result = {
@@ -143,6 +98,7 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
         }
 
         if (usage === 0) {
+            if (items.find(e => e.barcode === +getElement('barcodeInput'))) return notifyExistBarcode()
             addProduct(items, {
                 ...result
             })
@@ -160,22 +116,22 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
         }
     }
 
-    const handleKeyPress = (e: any) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') confirm()
     }
 
     return(
         <div className = {css.options}>
-            {inputData.map(e =>
-                <ChangeProductInput
-                    key = {e.id}
-                    name = {e.name}
-                    field = {e.field}
-                    type = {e.type}
-                    id = {e.id}
-                    handleKeyPress = {handleKeyPress}
-                />
-            )}
+            <InputData 
+                brand = {brand}
+                title = {title}
+                barcode = {barcode}
+                size = {size}
+                manufacturer = {manufacturer}
+                price = {price}
+                photo = {photo}
+                handleKeyPress = {handleKeyPress}
+            />
             <div>
                 <span>
                     Описание:
@@ -199,37 +155,10 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
                     </option>
                 </select>
             </div>
-            <div className = {css.dropdownCheckbox}>
-                <label className = {css.labelTitle}>
-                    Тип ухода
-                </label>
-                <ul>
-                    <li>
-                        <label>
-                            <input
-                                name = "categories"
-                                checked = {currentCategories.indexOf('Уход за руками') !== -1}
-                                type = "checkbox"
-                                onChange = {setCategories}
-                                value = "Уход за руками"
-                            />
-                            Уход за руками
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input
-                                name = "categories"
-                                checked = {currentCategories.indexOf('Уход за телом') !== -1}
-                                type = "checkbox"
-                                onChange = {setCategories}
-                                value = "Уход за телом"
-                            />
-                            Уход за телом
-                        </label>
-                    </li>
-                </ul>
-            </div>
+            <DropdownCheckbox 
+                setCategories = {setCategories}
+                currentCategories = {currentCategories}
+            />
             <button
                 className = {css.confirm}
                 onClick = {confirm}>

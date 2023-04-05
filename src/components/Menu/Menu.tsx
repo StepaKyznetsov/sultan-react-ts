@@ -2,7 +2,7 @@ import React from 'react';
 import PriceButton from '../../ui/PriceButton/PriceButton';
 import css from './Menu.module.scss';
 import {useNavigate} from 'react-router-dom';
-import {CATALOG, MAIN} from '../../constants/constants';
+import {CATALOG, MAIN} from '../../constants';
 import BasketHead from "../../ui/Basket/Basket";
 import Input from '../../ui/Input/Input';
 

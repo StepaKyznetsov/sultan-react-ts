@@ -1,11 +1,8 @@
-interface IBrand {
-    name: string;
-    counter: number;
-}
+import {Brand} from '../types/brand';
 
 export const getBrands = (
     arr: any[], 
-    brands: IBrand[], 
+    brands: Brand[], 
 ) => {
     arr.map(item => {
         if (!brands.filter(e => e.name === item.brand).length)
@@ -14,7 +11,7 @@ export const getBrands = (
                 counter: 1
             })
         else {
-            let obj: IBrand | undefined = brands.find(e => e.name === item.brand)
+            let obj: Brand | undefined = brands.find(e => e.name === item.brand)
             if (!obj) return
             obj.counter += 1
         }

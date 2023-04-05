@@ -1,7 +1,7 @@
 import React from 'react';
 import Catalog from './pages/Catalog/Catalog';
 import {Routes, Route, Navigate, BrowserRouter} from 'react-router-dom';
-import {ADMIN, BASKET, CATALOG} from './constants/constants';
+import {ADMIN, BASKET, CATALOG} from './constants';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Footer from './components/Footer/Footer';

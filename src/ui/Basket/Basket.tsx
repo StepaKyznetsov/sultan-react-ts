@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './Basket.module.scss'
-import {BASKET} from "../../constants/constants";
+import {BASKET} from "../../constants";
 import {useNavigate} from "react-router-dom";
 import {useReadLocalStorage} from "usehooks-ts";
 import {useTypedSelector} from "../../hooks/useTypedSelector";

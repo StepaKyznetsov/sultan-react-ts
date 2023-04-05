@@ -4,7 +4,7 @@ import {useActions} from '../../hooks/useActions';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import Counter from '../../ui/Counter/Counter';
 import css from './BasketItem.module.scss';
-import {CATALOG} from "../../constants/constants";
+import {CATALOG} from "../../constants";
 import {useNavigate} from "react-router-dom";
 
 interface IBasketItem {
@@ -37,6 +37,13 @@ const BasketItem: React.FC<IBasketItem> = ({
     const {addToBasket, removeFromBasket, getProductById} = useActions()
     const [sum, setSum] = useLocalStorage('sum', 0)
 
+    
+    const dec = (): void => {
+        if (count === 1) return
+        setSum(sum - price)
+        addToBasket(barcode, items, order, -1)
+    }
+    
     const inc = (): void => {
         setSum(sum + price)
         addToBasket(barcode, items, order, 1)
@@ -45,12 +52,6 @@ const BasketItem: React.FC<IBasketItem> = ({
     const productPage = (id: number, items: any[]): void => {
         navigate(CATALOG + '/' + id)
         getProductById(id, items)
-    }
-
-    const dec = (): void => {
-        if (count === 1) return
-        setSum(sum - price)
-        addToBasket(barcode, items, order, -1)
     }
 
     const removeItem = (): void => {

@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import css from './Header.module.scss';
-import {CATALOG, LINKS} from '../../constants/constants';
+import {CATALOG, LINKS} from '../../constants';
 import Basket from "../../ui/Basket/Basket";
 import {useActions} from "../../hooks/useActions";
 import {useNavigate} from "react-router-dom";
@@ -133,8 +133,7 @@ const Header: React.FC = () => {
                     </div>
                 </div>
             </header>
-        <div className = {open ? `${css.back}` : ''}>
-        </div>
+        <div className = {open ? `${css.back}` : ''}></div>
         </>
     )
 }

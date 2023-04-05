@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './ProductCard.module.scss';
 import {useNavigate} from 'react-router-dom';
-import {CATALOG} from '../../constants/constants';
+import {CATALOG} from '../../constants';
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useActions} from "../../hooks/useActions";
 import {useLocalStorage} from 'usehooks-ts';
@@ -80,7 +80,7 @@ const ProductCard: React.FC<ICardProps> = ({
                 {title}
             </span>
             {characteristicsOnCard.map(e => 
-                <div className = {css.item}>
+                <div key = {e.name} className = {css.item}>
                     <span>
                         {e.name}
                     </span>

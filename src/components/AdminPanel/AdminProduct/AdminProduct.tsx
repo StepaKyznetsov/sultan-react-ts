@@ -3,6 +3,7 @@ import css from './AdminProduct.module.scss';
 import {useActions} from "../../../hooks/useActions";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import EditProduct from "../../../ui/EditProduct/EditProduct";
+import { useClickOutside } from '../../../hooks/useClickOutside';
 
 interface IAdminProduct {
     photo: string;
@@ -37,19 +38,9 @@ const AdminProduct: React.FC<IAdminProduct> = ({
     const {removeFromCatalog, getProductById} = useActions()
 
     const wrapperRef: any = useRef(null)
-
-    useEffect(() => {
-        const handleClickOutside = (event: any) => {
-            if (wrapperRef.current && !wrapperRef.current.contains(event.target))
-                setOpen(false)
-        }
-        document.addEventListener('click', handleClickOutside)
-        return () => {
-            document.removeEventListener('click', handleClickOutside)
-        }
-    }, [])
-
-
+    
+    useClickOutside(wrapperRef, setOpen)
+    
     const startEdit = (id: number) => {
         getProductById(id, items)
         setOpen(!open)

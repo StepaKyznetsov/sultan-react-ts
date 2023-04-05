@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './Breadcrumbs.module.scss';
 import {useNavigate} from 'react-router-dom';
-import {MAIN} from '../../constants/constants';
+import {MAIN} from '../../constants';
 
 interface link {
     title: string;

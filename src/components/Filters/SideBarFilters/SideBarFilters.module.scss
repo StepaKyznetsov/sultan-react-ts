@@ -1,0 +1,46 @@
+.sideBarFilters {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #111111;
+    @media (max-width: 1765px) {
+        display: none;
+    }
+    @media (max-width: 1260px) {
+        display: flex;
+    }
+    @media (max-width: 800px) {
+        margin: 10px 0 86px 0;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        line-height: 17px;
+    }
+    @media (max-width: 400px) {
+        text-transform: none;
+        margin-right: auto;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+    }
+    span {
+        cursor: pointer;
+        margin: 0 0 20px 0;
+        @media (max-width: 800px) {
+            margin-bottom: 10px;
+            &:last-child {
+                margin: 0;
+            }
+        }
+        &:last-child {
+            margin: 0;
+        }
+    }
+    .activeSpan {
+        color: #FFC85E;
+    }
+}

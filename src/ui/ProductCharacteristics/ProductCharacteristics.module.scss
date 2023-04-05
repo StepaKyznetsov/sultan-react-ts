@@ -1,0 +1,57 @@
+.characteristics {
+    display: flex;
+    flex-direction: column;
+    span {
+        margin-bottom: 5px;
+    }
+    @media (max-width: 1500px) {
+        width: 100%;
+
+    }
+    .value {
+        font-weight: 500;
+        line-height: 150%;
+        color: #111111;
+    }
+    .subtitle {
+        cursor: pointer;
+        width: fit-content;
+        font-weight: 500;
+        font-size: 16px;
+        color: #111111;
+        margin: 30px 0 15px 0;
+        position: relative;
+        &:after {
+            position: absolute;
+            content: url('../../../public/images/product/arrow.png');
+            right: -12px;
+            top: -2px;
+        }
+    }
+    .ch {
+        &:before {
+            pointer-events: none;
+            position: absolute;
+            content: url('../../../public/images/product/border.png');
+            bottom: 34px;
+        }
+    }
+    .rotate {
+        &:after {
+            position: absolute;
+            content: url('../../../public/images/product/arrow.png');
+            right: -12px;
+            top: 3px;
+            transform: rotate(180deg);
+        }
+    }
+    p {
+        margin-bottom: 10px;
+        font-weight: 300;
+        font-size: 12px;
+        width: 611px;
+        @media (max-width: 1500px) {
+            width: 100%;
+        }
+    }
+}
