@@ -19,8 +19,8 @@ const ProductCharacteristics: React.FC<IProductCharacteristics> = ({
     description
 }) => {
 
-    const [showDescription, setShowDescription] = useState(false)
-    const [showCharacteristics, setShowCharacteristics] = useState(false)
+    const [showDescription, setShowDescription] = useState<boolean>(false)
+    const [showCharacteristics, setShowCharacteristics] = useState<boolean>(false)
 
     const characteristics = [
         [

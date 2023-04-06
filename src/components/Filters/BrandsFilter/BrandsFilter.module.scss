@@ -21,7 +21,7 @@
     }
     .brandSubtitle {
         @media (max-width: 800px) and (min-width: 400px) {
-            margin-bottom: 5px;
+            margin-bottom: 5px !important;
         }
         &:before {
             position: absolute;

@@ -10,7 +10,7 @@ import BackArrow from "../../ui/BackArrow/BackArrow";
 const AdminPanel: React.FC = () => {
 
     const {items} = useTypedSelector(state => state.catalog)
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState<boolean>(false)
 
     return(
         <div className={css.container}>

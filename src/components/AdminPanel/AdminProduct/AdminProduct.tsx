@@ -41,7 +41,7 @@ const AdminProduct: React.FC<IAdminProduct> = ({
     
     useClickOutside(wrapperRef, setOpen)
     
-    const startEdit = (id: number) => {
+    const startEdit = (id: number): void => {
         getProductById(id, items)
         setOpen(!open)
     }

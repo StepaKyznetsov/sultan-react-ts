@@ -28,7 +28,7 @@ const ProductAbout: React.FC<IProductAbout> = ({
     const {addToBasket} = useActions()
     const {items} = useTypedSelector(state => state.catalog)
     const {order} = useTypedSelector(state => state.basket)
-    const [counter, setCounter] = useState(1)
+    const [counter, setCounter] = useState<number>(1)
 
     const addToCart = (): void => {
         setSum(sum + counter * price)

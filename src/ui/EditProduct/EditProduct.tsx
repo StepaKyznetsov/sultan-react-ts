@@ -105,6 +105,10 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
             notifyNewProduct()
         }
         else {
+            if (currentProduct.barcode !== +getElement('barcodeInput') && 
+                items.filter(e => e.barcode === +getElement('barcodeInput')).length === 1
+                ) 
+                return notifyExistBarcode()
             changeProduct({
                 data: {
                     id: currentProduct.id,

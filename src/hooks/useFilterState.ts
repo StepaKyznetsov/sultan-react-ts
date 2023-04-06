@@ -9,8 +9,7 @@ export default function useFilterState() {
     const [currentSort, setCurrentSort] = useState<string>('name')
     const [showAll, setShowAll] = useState<boolean>(false)
     const [open, setOpen] = useState<boolean>(false)
-    const [changeBrands, setChangeBrands] = useState<boolean>(false)
-    const [brandsDefault, setBrandsDefault] = useState<string[]>([])
+    const [brandsFilter, setBrandsFilter] = useState<string[]>([])
     const [findBrand, setFindBrand] = useState<string>('')
     const [query, setQuery] = useState<string>('')
 
@@ -23,8 +22,7 @@ export default function useFilterState() {
         currentSort, setCurrentSort,
         showAll, setShowAll,
         open, setOpen,
-        changeBrands, setChangeBrands,
-        brandsDefault, setBrandsDefault,
+        brandsFilter, setBrandsFilter,
         findBrand, setFindBrand,
         query, setQuery
     }

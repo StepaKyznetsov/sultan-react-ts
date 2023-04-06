@@ -14,7 +14,7 @@ const Order: React.FC = () => {
 
     const [sum, setSum] = useLocalStorage('sum', 0)
     const [products, setProducts] = useLocalStorage('products', 0)
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState<boolean>(false)
     const {resetBasket} = useActions()
     const {order} = useTypedSelector(state => state.basket)
     const navigate = useNavigate()

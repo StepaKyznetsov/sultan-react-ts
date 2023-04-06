@@ -1,250 +1,168 @@
-.container {
-    margin-top: 45px;
-    width: 100%;
-    @media (max-width: 1100px) and (min-width: 501px) {
-        padding-top: 160px;
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media (max-width: 1765px) {
+        flex-direction: column;
     }
-    @media (max-width: 1100px) {
-        margin-top: 0;
-    }
-    @media (max-width: 500px) {
-        padding-top: 20px;
-    }
-    .content {
-        width: 71.15%;
-        margin: 0 auto;
-        @media (max-width: 698px) {
-            width: 90.625%;
-        }
-        .head {
-            position: relative;
-            display: flex;
+    .filters {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        @media (max-width: 1765px) {
             flex-direction: row;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 50px;
+        }
+        @media (max-width: 1360px) {
+            flex-direction: column;
+            align-items: center;
+        }
+        @media (max-width: 400px) {
+            align-items: flex-start;
+            width: 100%;
+            margin: 0 auto;
+        }
+        h4 {
+            color: black;
+            position: relative;
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 10px;
             @media (max-width: 800px) {
+                margin: 0;
+            }
+            @media (max-width: 400px) {
+                margin: 19px 0;
+            }
+        }
+        .params {
+            position: relative;
+            margin-bottom: 30px;
+            @media (max-width: 800px) {
+                margin: 0;
+                width: 100%;
+                display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-top: 25px;
+                justify-content: space-between;
             }
             @media (max-width: 400px) {
                 align-items: flex-start;
+                width:100%;
+                margin-top: 10px;
             }
-            h2 {
-                font-weight: 500;
-                font-size: 40px;
-                line-height: 120%;
-                color: black;
-                text-transform: uppercase;
-                width: fit-content;
-                @media (max-width: 1500px) {
-                    font-size: 30px;
-                }
-                @media (max-width: 1100px) {
-                    font-size: 20px;
-                }
-            }
-        }
-        .main {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            @media (max-width: 1765px) {
-                flex-direction: column;
-            }
-            .filters {
-                background-color: white;
-                display: flex;
-                flex-direction: column;
-                margin-top: 20px;
-                @media (max-width: 1765px) {
+            .openMenu {
+                @media (max-width: 800px) {
+                    width: 80%;
+                    display: flex;
                     flex-direction: row;
-                    justify-content: space-between;
-                }
-                @media (max-width: 1360px) {
-                    flex-direction: column;
+                    justify-content: space-around;
                     align-items: center;
                 }
                 @media (max-width: 400px) {
-                    align-items: flex-start;
                     width: 100%;
-                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-between;
                 }
-                h4 {
-                    color: black;
-                    position: relative;
-                    font-weight: 500;
-                    font-size: 16px;
-                    margin-bottom: 10px;
+                .burger {
+                    display: none;
+                    background: #FFCA65;
+                    opacity: 0.5;
+                    border-radius: 100px;
+                    width: 32px;
+                    height: 32px;
                     @media (max-width: 800px) {
-                        margin: 0;
+                        display: block;
                     }
-                    @media (max-width: 400px) {
-                        margin: 19px 0;
-                    }
-                }
-                .params {
-                    position: relative;
-                    margin-bottom: 30px;
-                    @media (max-width: 800px) {
-                        margin: 0;
-                        width: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: space-between;
-                    }
-                    @media (max-width: 400px) {
-                        align-items: flex-start;
-                        width:100%;
-                        margin-top: 10px;
-                    }
-                    .openMenu {
-                        @media (max-width: 800px) {
-                            width: 80%;
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: space-around;
-                            align-items: center;
-                        }
-                        @media (max-width: 400px) {
-                            width: 100%;
-                            display: flex;
-                            justify-content: space-between;
-                        }
-                        .burger {
-                            display: none;
-                            background: #FFCA65;
-                            opacity: 0.5;
-                            border-radius: 100px;
-                            width: 32px;
-                            height: 32px;
-                            @media (max-width: 800px) {
-                                display: block;
-                            }
-                        } 
-                    }
-                    .burger {
-                        display: none;
-                        background: #FFCA65;
-                        opacity: 0.5;
-                        border-radius: 100px;
-                        width: 32px;
-                        height: 32px;
-                        @media (max-width: 800px) {
-                            display: block;
-                        }
-                    }
-                    .priceInput {
-                        z-index: 99;
-                        @media (max-width: 800px) {
-                            width: 100vw;
-                            background-color: white;
-                            position: absolute;
-                            top: 40px;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                        }
-                        @media (max-width: 400px) {
-                            top: 60px; 
-                            width: 100vw;
-                            align-items: flex-start;
-                            left: -5.8%;
-                            padding-left: 15px;
-                        }
-                        .price {
-                            font-weight: 300;
-                        }
-                        .currency {
-                            margin-left: 5px;
-                            color: black;
-                            font-weight: 500;
-                        }
-                    }
-                }
-                .brand {
-                    position: relative;
-                    @media (max-width: 1765px) {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
-                        width: 60%;
-                    }
-                    @media (max-width: 1360px) {
-                        flex-direction: column;
-                        align-items: center;
-                    }
-                    @media (max-width: 500px) {
-                        width: 90.625%;
-                    }
+                } 
+            }
+            .burger {
+                display: none;
+                background: #FFCA65;
+                opacity: 0.5;
+                border-radius: 100px;
+                width: 32px;
+                height: 32px;
+                @media (max-width: 800px) {
+                    display: block;
                 }
             }
-            .emptyList {
-                font-weight: 500;
-                font-size: 30px;
-                line-height: 120%;
-                color: black;
-                text-transform: uppercase;
-                margin: 0 auto;
-                @media (max-width: 1500px) {
-                    margin-top: 20px;
-                    font-size: 20px;
-                }
-                @media (max-width: 1100px) {
-                    font-size: 14px;
-                }
-            }
-            .cards {
-                width: 74.67%;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                grid-gap: 21px;
-                @media (max-width: 1763px) {
-                    width: 100%;
-                }
-                @media (max-width: 1280px) {
-                    grid-template-columns: 1fr 1fr;
-                }
-                @media (max-width: 850px) {
+            .priceInput {
+                z-index: 99;
+                @media (max-width: 800px) {
+                    width: 100vw;
+                    background-color: white;
+                    position: absolute;
+                    top: 40px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                 }
-            }
-        }
-        .pagination {
-            width: 74.67%;
-            margin-top: 59px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            margin-left: auto;
-            @media (max-width: 1760px) {
-                margin-right: auto;
-            }
-            .activePage {
-                background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
-                border-radius: 1000px;
-            }
-            div {
-                width: 35px;
-                height: 35px;
-                cursor: pointer;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                &:last-child {
-                    margin: 0;
+                @media (max-width: 400px) {
+                    top: 60px; 
+                    width: 100vw;
+                    align-items: flex-start;
+                    left: -5.8%;
+                    padding-left: 15px;
+                }
+                .price {
+                    font-weight: 300;
+                }
+                .currency {
+                    margin-left: 5px;
+                    color: black;
+                    font-weight: 500;
                 }
             }
         }
+        .brand {
+            position: relative;
+            @media (max-width: 1765px) {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 60%;
+            }
+            @media (max-width: 1360px) {
+                flex-direction: column;
+                align-items: center;
+            }
+            @media (max-width: 500px) {
+                width: 90.625%;
+            }
+        }
     }
-}
-.hiddenContent {
-    @media (max-width: 800px) {
-        position: absolute;
-        display: none !important; 
+    .emptyList {
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 120%;
+        color: black;
+        text-transform: uppercase;
+        margin: 0 auto;
+        @media (max-width: 1500px) {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        @media (max-width: 1100px) {
+            font-size: 14px;
+        }
+    }
+    .cards {
+        width: 74.67%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 21px;
+        @media (max-width: 1763px) {
+            width: 100%;
+        }
+        @media (max-width: 1280px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: 850px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }

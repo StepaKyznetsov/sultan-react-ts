@@ -4,18 +4,30 @@ import {CATALOG, LINKS} from '../../constants';
 import Basket from "../../ui/Basket/Basket";
 import {useActions} from "../../hooks/useActions";
 import {useNavigate} from "react-router-dom";
-import { useClickOutside } from '../../hooks/useClickOutside';
+import {useClickOutside} from '../../hooks/useClickOutside';
+import {useTypedSelector} from '../../hooks/useTypedSelector';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header: React.FC = () => {
 
-    const [open, setOpen] = useState(false)
+    const {order} = useTypedSelector(state => state.basket)
+    const [open, setOpen] = useState<boolean>(false)
+    const [orderCount, setOrderCount] = useState<number>(order.length)
     const {changeLimit} = useActions()
     const navigate = useNavigate()
     const wrapperRef: any = useRef(null)
     useClickOutside(wrapperRef, setOpen)
+    const notifyAddToCart = () => toast(`Позиция была добавлена в корзину!`)
+    const removeFromCart = () => toast(`Позиция была удалена из корзины!`)
 
     useEffect(() => {
-        const handleWidthResize = () => {
+        orderCount > order.length ? removeFromCart() : notifyAddToCart()
+        setOrderCount(order.length)
+    }, [order.length])
+
+    useEffect(() => {
+        const handleWidthResize = (): void => {
             window.innerWidth <= 1280 ? changeLimit(16) : changeLimit(15)
         }
         window.addEventListener('resize', handleWidthResize)
@@ -23,10 +35,11 @@ const Header: React.FC = () => {
             window.removeEventListener('resize', handleWidthResize)
         }
     }, [])
-
+    
     return(
         <>
             <header className = {css.container} ref = {wrapperRef}>
+                <ToastContainer />
                 <div 
                     className = {
                         open ? `

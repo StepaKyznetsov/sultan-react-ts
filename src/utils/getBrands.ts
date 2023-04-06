@@ -3,7 +3,8 @@ import {Brand} from '../types/brand';
 export const getBrands = (
     arr: any[], 
     brands: Brand[], 
-) => {
+): Brand[] => {
+    brands = []
     arr.map(item => {
         if (!brands.filter(e => e.name === item.brand).length)
             brands.push({

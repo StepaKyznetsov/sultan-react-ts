@@ -1,5 +1,4 @@
 import React from 'react';
-import css from './DropdownCheckbox.module.scss';
 import ChangeProductInput from "../../ChangeProductInput/ChangeProductInput";
 
 interface IInputData {

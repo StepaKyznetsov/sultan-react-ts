@@ -1,9 +1,9 @@
-export const MAIN = '/';
-export const CATALOG = '/catalog';
-export const BASKET = '/basket';
-export const ADMIN = '/admin';
-export const PAGES = [1, 2, 3, 4, 5]
-export const LINKS = [
+export const MAIN: string = '/';
+export const CATALOG: string = '/catalog';
+export const BASKET: string = '/basket';
+export const ADMIN: string = '/admin';
+export const PAGES: number[] = [1, 2, 3, 4, 5]
+export const LINKS: string[][] = [
     [
         'О компании',
         'Доставка и оплата',
@@ -19,7 +19,12 @@ export const LINKS = [
     ]
 ]
 
-export const DROPDOWN_OPTIONS = [
+interface Dropdown {
+    value: string; 
+    name: string; 
+}
+
+export const DROPDOWN_OPTIONS: Dropdown[] = [
     {
         value: 'name',
         name: 'Название'

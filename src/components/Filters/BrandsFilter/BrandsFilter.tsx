@@ -3,45 +3,44 @@ import css from './BrandsFilter.module.scss';
 import Input from '../../../ui/Input/Input';
 import {choosePage} from '../../../utils';
 import {useActions} from '../../../hooks/useActions';
-import {Brand} from '../../../types/brand';
+import {useTypedSelector} from '../../../hooks/useTypedSelector';
 
 interface IBrandsFilter {
-    brands: Brand[];
     setRequestData:() => void;
     filterState: any;
 }
 
-const BrandsFilter: React.FC<IBrandsFilter> = ({brands, filterState, setRequestData}) => {
+const BrandsFilter: React.FC<IBrandsFilter> = ({filterState, setRequestData}) => {
 
     const {setCatalogPage} = useActions()
+    const {brands} = useTypedSelector(state => state.brand)
 
-    const handleFindBrand = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFindBrand = (e: React.ChangeEvent<HTMLInputElement>): void => {
         e.preventDefault()
         const value = e.target.value
         filterState.setFindBrand(value)
     }
 
-    const handleBrands = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleBrands = (e: React.ChangeEvent<HTMLInputElement>): void => {
         let value = e.target.value
-        if (!filterState.brandsDefault.filter((e: any) => e === value).length) {
-            filterState.setBrandsDefault([...filterState.brandsDefault, value])
+        if (!filterState.brandsFilter.filter((e: any) => e === value).length) {
+            filterState.setBrandsFilter([...filterState.brandsFilter, value])
             choosePage(1, setCatalogPage)
         }
-        else filterState.setBrandsDefault(filterState.brandsDefault.filter((e: any) => e !== value))
+        else filterState.setBrandsFilter(filterState.brandsFilter.filter((e: any) => e !== value))
     }
 
-    const handleKeyPress = (e: any) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
         if(e.key === 'Enter') setRequestData()
     }
 
-    const removeRequestData = () => {
+    const removeRequestData = (): void => {
         filterState.setQuery('')
         filterState.setFindBrand('')
         filterState.setMinQuery(0)
         filterState.setMaxQuery(10000)
         filterState.setMin(0)
         filterState.setMax(10000)
-        filterState.setChangeBrands(false)
     }
 
     return(
@@ -57,7 +56,7 @@ const BrandsFilter: React.FC<IBrandsFilter> = ({brands, filterState, setRequestD
                 </h4>
                 <Input
                     onChange = {handleFindBrand}
-                    onKeyDown={(e: any) => handleKeyPress(e)}
+                    onKeyDown={handleKeyPress}
                     value = {filterState.findBrand}
                     divStyles = {css.inputBlock}
                     inputStyles = {css.input}
@@ -72,7 +71,24 @@ const BrandsFilter: React.FC<IBrandsFilter> = ({brands, filterState, setRequestD
                     `${css.enumBrands}` : 
                     `${css.enumBrands} ${css.hiddenContent}`
                 }>
-                {brands.map(e =>
+                {!filterState.showAll ?
+                brands.slice(0, 4).map(e =>
+                    <div className = {css.soloBrand} key = {e.name}>
+                        <input
+                            type = "checkbox"
+                            onChange = {handleBrands}
+                            id = {e.name}
+                            value = {e.name} />
+                        <span>
+                            {e.name}
+                        </span>
+                        <span>
+                            ({e.counter})
+                        </span>
+                    </div>
+                )
+                :
+                brands.map(e =>
                     <div className = {css.soloBrand} key = {e.name}>
                         <input
                             type = "checkbox"
@@ -87,7 +103,7 @@ const BrandsFilter: React.FC<IBrandsFilter> = ({brands, filterState, setRequestD
                         </span>
                     </div>
                 )}
-                {brands.length >= 4 &&
+                {brands.length > 4 &&
                     <div
                         onClick = {() => filterState.setShowAll(!filterState.showAll)}
                         className = {

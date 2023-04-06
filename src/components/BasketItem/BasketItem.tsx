@@ -36,7 +36,6 @@ const BasketItem: React.FC<IBasketItem> = ({
     const {items} = useTypedSelector(state => state.catalog)
     const {addToBasket, removeFromBasket, getProductById} = useActions()
     const [sum, setSum] = useLocalStorage('sum', 0)
-
     
     const dec = (): void => {
         if (count === 1) return

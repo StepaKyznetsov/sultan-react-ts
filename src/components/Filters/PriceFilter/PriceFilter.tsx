@@ -8,7 +8,7 @@ interface IPriceFilter {
 
 const PriceFilter: React.FC<IPriceFilter> = ({filterState, setRequestData}) => {
 
-    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>): void => {
         if(e.key === 'Enter') setRequestData()
     }
 
