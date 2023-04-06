@@ -9,6 +9,7 @@ const BackArrow: React.FC = () => {
 
     return(
         <div
+            data-testid = 'back-button'
             onClick={() => navigate(CATALOG)}
             className = {css.container}
         >

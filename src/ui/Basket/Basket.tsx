@@ -32,9 +32,9 @@ const Basket: React.FC = () => {
                 }
             </div>
             <div className = {css.sum}>
-                        <span>
-                            Корзина
-                        </span>
+                <span>
+                    Корзина
+                </span>
                 <div className = {css.money}>
                     {parseFloat(Number(sum).toFixed(2))} ₸
                 </div>

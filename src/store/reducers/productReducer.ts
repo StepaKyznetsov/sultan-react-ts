@@ -2,7 +2,6 @@ import {ProductAction, ProductActionTypes, ProductState} from "../../types/produ
 
 const initialState: ProductState = {
     current: {},
-    error: null
 }
 
 export const productReducer = (state = initialState, action: ProductAction): ProductState => {

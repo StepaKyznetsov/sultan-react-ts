@@ -1,6 +1,5 @@
 export interface ProductState {
     current: Object;
-    error: null | string;
 }
 
 export enum ProductActionTypes {

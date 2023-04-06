@@ -37,7 +37,7 @@ const ProductAbout: React.FC<IProductAbout> = ({
     }
 
     return(
-        <div className = {css.about}>
+        <div className = {css.about} data-testid = 'product-page'>
             <span className = {css.stock}>
                 В наличии
             </span>
@@ -45,7 +45,7 @@ const ProductAbout: React.FC<IProductAbout> = ({
                 <span className = {css.brand}>
                     {brand}
                 </span>
-                <span className = {css.title}>
+                <span className = {css.title} data-testid = 'product-title'>
                     {title}
                 </span>
             </div>
@@ -58,12 +58,12 @@ const ProductAbout: React.FC<IProductAbout> = ({
                     }  
                     alt = "type" 
                 />
-                <span className = {css.value}>
+                <span className = {css.value}  data-testid = 'product-size'>
                     {size}
                 </span>
             </div>
             <div className = {css.interaction}>
-                <span className = {css.price}>
+                <span className = {css.price} data-testid = 'product-price'>
                     {price} ₸
                 </span>
                 <Counter

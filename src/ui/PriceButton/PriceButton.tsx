@@ -9,7 +9,8 @@ interface IButton {
 
 const PriceButton: React.FC<IButton> = ({
     text, 
-    url, buttonStyles
+    url, 
+    buttonStyles
 }) => {
     return (
         <button

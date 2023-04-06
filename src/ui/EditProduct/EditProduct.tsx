@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import css from "./EditProduct.module.scss";
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {ToastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DropdownCheckbox from './DropdownCheckbox/DropdownCheckbox';
 import InputData from './InputData/InputData';
@@ -20,10 +20,10 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
 
     const {items} = useTypedSelector(state => state.catalog)
     const {current} = useTypedSelector(state => state.product)
-    const {addProduct, changeProduct} = useActions()
     const [currentDescription, setCurrentDescription] = useState<string>('')
     const [currentType, setCurrentType] = useState<string>('вес')
     const [currentCategories, setCurrentCategories] = useState<string[]>([])
+    const {addProduct, changeProduct} = useActions()
     const notifyValidation = () => toast.warn("Не все поля заполнены!")
     const notifyExistBarcode = () => toast.warn("Такой штрих-код уже используется!")
     const notifyNewProduct = () => toast("Новый товар создан!")
@@ -168,11 +168,6 @@ const EditProduct: React.FC<IEditProduct> = ({usage}) => {
                 onClick = {confirm}>
                 Сохранить изменения
             </button>
-            <ToastContainer
-                position="bottom-center"
-                theme="dark"
-                closeOnClick
-            />
         </div>
     )
 }

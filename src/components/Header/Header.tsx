@@ -8,6 +8,7 @@ import {useClickOutside} from '../../hooks/useClickOutside';
 import {useTypedSelector} from '../../hooks/useTypedSelector';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useUpdateEffect} from 'usehooks-ts'
 
 const Header: React.FC = () => {
 
@@ -21,7 +22,7 @@ const Header: React.FC = () => {
     const notifyAddToCart = () => toast(`Позиция была добавлена в корзину!`)
     const removeFromCart = () => toast(`Позиция была удалена из корзины!`)
 
-    useEffect(() => {
+    useUpdateEffect(() => {
         orderCount > order.length ? removeFromCart() : notifyAddToCart()
         setOrderCount(order.length)
     }, [order.length])
@@ -85,6 +86,7 @@ const Header: React.FC = () => {
                     <nav>
                         {LINKS[0].map(e =>
                             <span 
+                                role = 'link'
                                 key = {e}
                                 className = {css.link}
                             >
@@ -100,9 +102,10 @@ const Header: React.FC = () => {
                         />
                     </button>
                 </div>
-                <div className = {css.mobile}>
+                <div className = {css.mobile} data-testid = 'mobile'>
                     <div className = {css.head}>
                         <div
+                            data-testid = 'burger'
                             className = {css.burger}
                             onClick = {() => setOpen(!open)}>
                             <img
