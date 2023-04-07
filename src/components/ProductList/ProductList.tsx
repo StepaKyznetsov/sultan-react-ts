@@ -4,10 +4,11 @@ import BrandsFilter from '../Filters/BrandsFilter/BrandsFilter';
 import PriceFilter from '../Filters/PriceFilter/PriceFilter';
 import SideBarFilters from '../Filters/SideBarFilters/SideBarFilters';
 import ProductCard from "../ProductCard/ProductCard";
+import { ICardProps } from '../ProductCard/ProductCard';
 
 interface IProductList {
     filterState: any;
-    resultArray: any[];
+    resultArray: ICardProps[];
     setRequestData(): void;
 }
 
@@ -76,6 +77,7 @@ const ProductList: React.FC<IProductList> = ({
                     {resultArray.map(e =>
                         <ProductCard
                             key = {e.id}
+                            id = {e.id}
                             title = {e.title}
                             photo = {e.photo}
                             size = {e.size}

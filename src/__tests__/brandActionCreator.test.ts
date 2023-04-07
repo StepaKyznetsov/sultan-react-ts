@@ -3,7 +3,7 @@ import {BrandActionTypes} from '../types/brand';
 
 describe('setCurrentBrands', () => {
     
-    it('Диспатч SET_CURRENT_BRANDS с верным стейтом Brand на выходе', () => {
+    it('Диспатч SET_CURRENT_BRANDS с верным стейтом на выходе', () => {
 
         const mockDispatch = jest.fn()
 
@@ -24,7 +24,7 @@ describe('setCurrentBrands', () => {
         ]
         const mockBrands = [
             { 
-                name: 'Ariel', 
+                name: 'BioMio', 
                 counter: 1 
             },
             {

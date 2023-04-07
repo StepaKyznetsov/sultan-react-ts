@@ -30,7 +30,7 @@ describe('ProductAbout', () => {
     
     it('Рендер с верными пропсами', () => {
         render(
-            <Provider store={store}>
+            <Provider store = {store}>
                 <ProductAbout
                     brand = "Bimax"
                     title = "Порошок стиральный Автомат 100 пятен COMPACT"

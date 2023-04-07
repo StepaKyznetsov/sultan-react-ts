@@ -12,7 +12,7 @@ function resizeToMobileDevice() {
     (window as any).dispatchEvent(new Event('resize'));
 }
 
-describe('Header component', () => {
+describe('Header', () => {
 
     const mockStore = configureMockStore()
     const navigate = jest.fn()
@@ -28,7 +28,7 @@ describe('Header component', () => {
         }
     })
 
-    test('Отображается корректная контактная информация', () => {
+    it('Отображается корректная контактная информация', () => {
 
         render(
             <Provider store = {store}>
@@ -45,7 +45,7 @@ describe('Header component', () => {
         expect(phoneElement).toBeInTheDocument()
     })
 
-    test('Отображается навигационная панель', () => {
+    it('Отображается навигационная панель', () => {
         
         render(
             <Provider store = {store}>
@@ -58,7 +58,7 @@ describe('Header component', () => {
         expect(linkElements.length).toBeGreaterThan(0)
     })
 
-    test('Отображается кнопка Прайс-лист', () => {
+    it('Отображается кнопка Прайс-лист', () => {
         
         render(
             <Provider store = {store}>
@@ -71,7 +71,7 @@ describe('Header component', () => {
         expect(priceBtnElement).toBeInTheDocument()
     })
     
-    test('Проверка на изменение хедера для мобильных устройств', () => {
+    it('Проверка на изменение хедера для мобильных устройств', () => {
         
         render(
             <Provider store = {store}>

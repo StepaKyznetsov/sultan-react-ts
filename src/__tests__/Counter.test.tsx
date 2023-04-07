@@ -1,8 +1,7 @@
-import React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 import Counter from '../ui/Counter/Counter';
 
-describe('Счетчик', () => {
+describe('Counter', () => {
 
     const mockIncrement = jest.fn()
     const mockDecrement = jest.fn()

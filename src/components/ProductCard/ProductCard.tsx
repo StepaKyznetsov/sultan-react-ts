@@ -6,7 +6,8 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useActions} from "../../hooks/useActions";
 import {useLocalStorage} from 'usehooks-ts';
 
-interface ICardProps {
+export interface ICardProps {
+    id: number;
     title: string;
     photo: string;
     size: string;
@@ -18,6 +19,7 @@ interface ICardProps {
 }
 
 const ProductCard: React.FC<ICardProps> = ({
+    id,
     title,
     photo,
     size,
