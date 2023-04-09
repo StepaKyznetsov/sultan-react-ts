@@ -2,8 +2,7 @@ import React from 'react';
 import css from './BrandsFilter.module.scss';
 import Input from '../../../ui/Input/Input';
 import {choosePage} from '../../../utils';
-import {useActions} from '../../../hooks/useActions';
-import {useTypedSelector} from '../../../hooks/useTypedSelector';
+import {useTypedSelector, useActions} from '../../../hooks';
 
 interface IBrandsFilter {
     setRequestData:() => void;

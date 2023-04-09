@@ -9,11 +9,28 @@ import {ADMIN, BASKET, CATALOG} from '../constants';
 const Router: React.FC = () => {
     return (
         <Routes>
-            <Route path = {CATALOG} element = {<Catalog />} />
-            <Route path = {CATALOG + '/:id'} element = {<Product />} />
-            <Route path = {BASKET} element = {<Basket />} />
-            <Route path = {ADMIN} element = {<Admin />} />
-            <Route path = "*" element = {<Navigate replace to = {CATALOG} />} />
+            <Route 
+                path = {CATALOG} 
+                element = {<Catalog />} 
+            />
+            <Route 
+                path = {CATALOG + '/:id'} 
+                element = {<Product />} 
+            />
+            <Route 
+                path = {BASKET} 
+                element = {<Basket />} 
+            />
+            <Route 
+                path = {ADMIN} 
+                element = {<Admin />} 
+            />
+            <Route 
+                path = "*" 
+                element = {
+                    <Navigate replace to = {CATALOG} />
+                } 
+            />
         </Routes>
     )
 }

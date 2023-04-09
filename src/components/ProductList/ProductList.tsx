@@ -3,8 +3,8 @@ import css from './ProductList.module.scss';
 import BrandsFilter from '../Filters/BrandsFilter/BrandsFilter';
 import PriceFilter from '../Filters/PriceFilter/PriceFilter';
 import SideBarFilters from '../Filters/SideBarFilters/SideBarFilters';
-import ProductCard from "../ProductCard/ProductCard";
-import { ICardProps } from '../ProductCard/ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
+import {ICardProps} from '../ProductCard/ProductCard';
 
 interface IProductList {
     filterState: any;

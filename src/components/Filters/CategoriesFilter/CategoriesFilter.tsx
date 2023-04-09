@@ -2,7 +2,7 @@ import React from 'react'
 import css from './CategoriesFilter.module.scss'
 import {filterByCategory} from '../../../utils';
 import {choosePage} from '../../../utils';
-import {useActions} from '../../../hooks/useActions';
+import {useActions} from '../../../hooks';
 
 interface ICategoriesFilter {
     filterState: any

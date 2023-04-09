@@ -1,8 +1,7 @@
 import React from 'react';
 import css from './SideBarFilters.module.scss'
-import {choosePage} from '../../../utils';
-import {useActions} from '../../../hooks/useActions';
-import {filterByCategory} from '../../../utils';
+import {choosePage, filterByCategory} from '../../../utils';
+import {useActions} from '../../../hooks';
 
 interface ISideBarFilters {
     filterState: any

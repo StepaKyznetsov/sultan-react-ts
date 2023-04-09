@@ -1,16 +1,18 @@
 import React, {useEffect, useRef} from 'react';
 import css from './CatalogList.module.scss';
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useActions} from "../../hooks/useActions";
-import Breadcrumbs from "../../ui/Breadcrumbs/Breadcrumbs";
-import {CATALOG, PAGES} from "../../constants";
-import BackArrow from "../../ui/BackArrow/BackArrow";
-import {useClickOutside} from '../../hooks/useClickOutside';
+import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
+import {CATALOG, PAGES} from '../../constants';
+import BackArrow from '../../ui/BackArrow/BackArrow';
 import {choosePage} from '../../utils';
-import useFilterState from "../../hooks/useFilterState"
+import useFilterState from '../../hooks/useFilterState';
 import CategoriesFilters from '../Filters/CategoriesFilter/CategoriesFilter';
 import Sort from '../Filters/Sort/Sort';
 import ProductList from '../ProductList/ProductList';
+import {
+    useActions, 
+    useTypedSelector, 
+    useClickOutside} 
+from '../../hooks';
 
 const CatalogList: React.FC = () => {
     

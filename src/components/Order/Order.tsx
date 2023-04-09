@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import css from './Order.module.scss';
 import BasketItem from '../BasketItem/BasketItem';
 import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
+import BackArrow from "../../ui/BackArrow/BackArrow";
 import Modal from '../Modal/Modal';
-import css from './Order.module.scss';
 import {useLocalStorage} from 'usehooks-ts';
 import {BASKET, CATALOG} from '../../constants';
-import {useActions} from '../../hooks/useActions';
-import {useTypedSelector} from '../../hooks/useTypedSelector';
-import BackArrow from "../../ui/BackArrow/BackArrow";
+import {useTypedSelector, useActions} from '../../hooks';
 import {useNavigate} from "react-router-dom";
 
 const Order: React.FC = () => {

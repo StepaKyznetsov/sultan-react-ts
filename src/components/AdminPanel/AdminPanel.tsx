@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import css from './AdminPanel.module.scss';
 import AdminProduct from './AdminProduct/AdminProduct';
-import {useTypedSelector} from "../../hooks/useTypedSelector";
-import Breadcrumbs from "../../ui/Breadcrumbs/Breadcrumbs";
-import {CATALOG} from "../../constants";
-import EditProduct from "../../ui/EditProduct/EditProduct";
-import BackArrow from "../../ui/BackArrow/BackArrow";
+import {useTypedSelector} from '../../hooks';
+import Breadcrumbs from '../../ui/Breadcrumbs/Breadcrumbs';
+import {CATALOG} from '../../constants';
+import EditProduct from '../../ui/EditProduct/EditProduct';
+import BackArrow from '../../ui/BackArrow/BackArrow';
 
 const AdminPanel: React.FC = () => {
 

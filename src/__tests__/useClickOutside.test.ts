@@ -1,4 +1,4 @@
-import {useClickOutside} from './../hooks/useClickOutside';
+import {useClickOutside} from '../hooks';
 import {renderHook} from '@testing-library/react-hooks';
 
 describe('useClickOutside', () => {

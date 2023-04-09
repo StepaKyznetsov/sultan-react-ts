@@ -1,14 +1,13 @@
 import React, {useEffect, useState, useRef} from 'react';
 import css from './Header.module.scss';
 import {CATALOG, LINKS} from '../../constants';
-import Basket from "../../ui/Basket/Basket";
-import {useActions} from "../../hooks/useActions";
-import {useNavigate} from "react-router-dom";
-import {useClickOutside} from '../../hooks/useClickOutside';
-import {useTypedSelector} from '../../hooks/useTypedSelector';
+import Basket from '../../ui/Basket/Basket';
+import {useNavigate} from 'react-router-dom';
+import {useTypedSelector, useClickOutside, useActions} from '../../hooks';
+import {useUpdateEffect} from 'usehooks-ts'
+import HeaderContacts from './HeaderContacts/HeaderContacts';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {useUpdateEffect} from 'usehooks-ts'
 
 const Header: React.FC = () => {
 
@@ -18,12 +17,17 @@ const Header: React.FC = () => {
     const {changeLimit} = useActions()
     const navigate = useNavigate()
     const wrapperRef: any = useRef(null)
+    const notifyAddToCart = () => toast('Позиция была добавлена в корзину!')
+    const removeFromCart = () => toast('Позиция была удалена из корзины!')
+    const emptyCart = () => toast('Корзина пуста!')
     useClickOutside(wrapperRef, setOpen)
-    const notifyAddToCart = () => toast(`Позиция была добавлена в корзину!`)
-    const removeFromCart = () => toast(`Позиция была удалена из корзины!`)
 
     useUpdateEffect(() => {
-        orderCount > order.length ? removeFromCart() : notifyAddToCart()
+        order.length === 0 ? 
+            emptyCart() : 
+            orderCount > order.length ? 
+                removeFromCart() : 
+                notifyAddToCart()
         setOrderCount(order.length)
     }, [order.length])
 
@@ -48,38 +52,7 @@ const Header: React.FC = () => {
                         `${css.content} ${css.hiddenContent}`
                     }
                 >
-                    <div className = {css.info}>
-                        <div className = {css.address}>
-                            <span>
-                                г. Кокчетав, ул. Ж. Ташенова 129Б
-                            </span>
-                            <span className = {css.undertext}>
-                                (Рынок Восточный)
-                            </span>
-                        </div>
-                        <div className = {css.mail}>
-                            <span>
-                                opt.sultan@mail.ru
-                            </span>
-                            <span className = {css.undertext}>
-                            На связи в любое время 
-                            </span>
-                        </div>
-                        <div className = {css.number}>
-                            <span>
-                                Отдел продаж
-                            </span>
-                            <span className = {css.undertext}>
-                            +7 (777) 490-00-91
-                            </span>
-                        </div>
-                        <div className = {css.time}>
-                            время работы: 9:00-20:00
-                        </div>
-                        <div className = {css.requestCall}>
-                            Заказать звонок
-                        </div>
-                    </div>
+                    <HeaderContacts />
                     <h3>
                         Меню сайта
                     </h3>

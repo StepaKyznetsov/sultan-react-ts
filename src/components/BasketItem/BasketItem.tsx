@@ -1,11 +1,13 @@
 import React from 'react';
 import {useLocalStorage} from 'usehooks-ts';
-import {useActions} from '../../hooks/useActions';
-import {useTypedSelector} from '../../hooks/useTypedSelector';
 import Counter from '../../ui/Counter/Counter';
 import css from './BasketItem.module.scss';
-import {CATALOG} from "../../constants";
-import {useNavigate} from "react-router-dom";
+import {CATALOG} from '../../constants';
+import {useNavigate} from 'react-router-dom';
+import {
+    useTypedSelector, 
+    useActions} 
+from '../../hooks';
 
 interface IBasketItem {
     image: string;

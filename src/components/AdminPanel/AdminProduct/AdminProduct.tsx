@@ -1,9 +1,11 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import css from './AdminProduct.module.scss';
-import {useActions} from "../../../hooks/useActions";
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import EditProduct from "../../../ui/EditProduct/EditProduct";
-import { useClickOutside } from '../../../hooks/useClickOutside';
+import EditProduct from '../../../ui/EditProduct/EditProduct';
+import {
+    useActions, 
+    useTypedSelector, 
+    useClickOutside} 
+from '../../../hooks';
 
 interface IAdminProduct {
     photo: string;
