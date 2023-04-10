@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import css from './ProductList.module.scss';
 import BrandsFilter from '../Filters/BrandsFilter/BrandsFilter';
 import PriceFilter from '../Filters/PriceFilter/PriceFilter';
@@ -17,6 +17,14 @@ const ProductList: React.FC<IProductList> = ({
     resultArray, 
     setRequestData,
 }) => {
+
+    useEffect(() => {
+        const footer = document.getElementsByTagName('footer')[0].style
+
+        filterState.open ? 
+            footer.display = 'none' :
+            footer.display = 'block'
+    }, [filterState.open])
 
     return (
         <div className = {css.main}>
@@ -73,7 +81,12 @@ const ProductList: React.FC<IProductList> = ({
                 <h2 className = {css.emptyList}>
                     Подходящих товаров не нашлось
                 </h2> :
-                <div className = {css.cards}>
+                <div className = {
+                            filterState.open ? 
+                            `${css.cards} ${css.hiddenContent}` : 
+                            `${css.cards}`
+                        }
+                    >
                     {resultArray.map(e =>
                         <ProductCard
                             key = {e.id}

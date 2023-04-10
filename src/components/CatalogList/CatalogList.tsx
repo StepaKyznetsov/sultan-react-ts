@@ -34,7 +34,7 @@ const CatalogList: React.FC = () => {
         filterState.query,
         filterState.showAll
     ])
-
+    
     let filteredItems = [...items]
     
     for (let i = 0; i < filterState.categoriesFilter.length; i++){

@@ -12,12 +12,12 @@ html, body {
     line-height: 150%;
     font-weight: 400;
     font-size: 14px;
-    overflow-y: auto;
     @media (max-width: 1500px){
         font-size: 12px;
     }
 }
 body {
+    overflow-y: auto;
     width: 100%;
     font-family: Inter;
     -webkit-font-smoothing: antialiased;
