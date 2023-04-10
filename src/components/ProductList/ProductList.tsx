@@ -20,10 +20,14 @@ const ProductList: React.FC<IProductList> = ({
 
     useEffect(() => {
         const footer = document.getElementsByTagName('footer')[0].style
-
+        
         filterState.open ? 
             footer.display = 'none' :
             footer.display = 'block'
+            
+        return () => {
+            footer.display = 'block'
+        }
     }, [filterState.open])
 
     return (
