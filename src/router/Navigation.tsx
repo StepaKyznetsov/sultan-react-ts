@@ -6,7 +6,7 @@ import Admin from '../pages/Admin/Admin';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import {ADMIN, BASKET, CATALOG} from '../constants';
 
-const Router: React.FC = () => {
+const Navigation: React.FC = () => {
     return (
         <Routes>
             <Route 
@@ -35,4 +35,4 @@ const Router: React.FC = () => {
     )
 }
 
-export default Router
+export default Navigation
