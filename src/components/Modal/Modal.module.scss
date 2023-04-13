@@ -1,29 +1,29 @@
 .modal {
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    display: none;
-    background: rgba(0,0,0, 0.5);
-    .content {
-        width: 675px;
-        height: 364px;
-        background: #FFFFFF;
-        border-radius: 8px;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        @media (max-width: 750px) {
-            height: 288px;
-            width: 90.625%;
-            padding: 0;
-        }
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  .content {
+    width: 675px;
+    height: 364px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 750px) {
+      height: 288px;
+      width: 90.625%;
+      padding: 0;
     }
+  }
 }
 .active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,20 +1,20 @@
 .dropdown {
-    position: relative;
-    width: 87px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    font-size: 16px;
-    color: #3F4E65;
-    background: transparent;
-    background: right no-repeat url("../../../public/images/catalog/select.png");
-    &::after {
-        content: url("../../../public/images/catalog/select.png");
-        position: absolute;
-        right: 5px;
-        top: 5px;
-    }
-    &:focus {
-        outline: none;
-    }
+  position: relative;
+  width: 87px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 16px;
+  color: #3f4e65;
+  background: transparent;
+  background: right no-repeat url("../../../public/images/catalog/select.png");
+  &::after {
+    content: url("../../../public/images/catalog/select.png");
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  &:focus {
+    outline: none;
+  }
 }

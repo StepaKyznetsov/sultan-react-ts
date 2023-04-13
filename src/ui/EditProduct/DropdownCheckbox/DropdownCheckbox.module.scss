@@ -1,32 +1,32 @@
-.dropdownCheckbox{
-    margin-bottom: 10px;
-    position:relative;
-    display:inline-block;
-    &:hover ul{
-        display:block;
+.dropdownCheckbox {
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  &:hover ul {
+    display: block;
+  }
+  .labelTitle {
+    font-size: 13px;
+  }
+  ul {
+    background-color: #f1d2d2;
+    position: absolute;
+    list-style: none;
+    min-width: 180px;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    display: none;
+    z-index: 1;
+    border: 1px solid #9c9c9c;
+    li {
+      font-size: 15px;
+      padding: 10px;
+      border-bottom: 1px solid #a5a5a5;
+      margin: 0;
+      input {
+        margin-right: 10px;
+      }
     }
-    .labelTitle{
-        font-size:13px;
-    }
-    ul{
-        background-color: #f1d2d2;
-        position: absolute;
-        list-style: none;
-        min-width: 180px;
-        margin: 0;
-        padding:0;
-        left:0;
-        display:none;
-        z-index:1;
-        border: 1px solid #9c9c9c;
-        li {
-            font-size: 15px;
-            padding: 10px;
-            border-bottom: 1px solid #a5a5a5;
-            margin: 0;
-            input {
-              margin-right:10px;
-            }
-        }
-    }
+  }
 }

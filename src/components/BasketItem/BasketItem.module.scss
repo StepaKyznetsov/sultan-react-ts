@@ -1,163 +1,162 @@
 .container {
-    width: 100%;
-    height: fit-content;
-    border-bottom: 1px #c5cad1 dashed;
-    .item {
-        height: 291px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        @media (max-width: 1760px) {
-            padding: 20px 0;
-            flex-direction: column;
-            height: fit-content;
-        }
-        .info {
-            width: 57.17%;
-            display: flex;
-            flex-direction: row;
-            @media (max-width: 1760px) {
-                width: 100%;
-            }
-            @media (max-width: 1168px) {
-                flex-direction: column;
-                align-items: center;
-            }
-            .image {
-                width: 60.57%;
-                height: 191px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                img {
-                    cursor: pointer;
-                    object-fit: cover;
-                    height: 100%;
-                    width: auto;
-                }
-            }
-            .text {
-                width: fit-content;
-                margin-left: 20px;
-                display: flex;
-                flex-direction: column;
-                height: fit-content;
-                margin-top: 15px;
-                @media (max-width: 698px) {
-                    line-height: 24px;
-                    margin: 0;
-                    width: 290px;
-                }
-                .sizeType {
-                    display: flex;
-                    align-items: center;
-                    @media (max-width: 698px) {
-                        margin-top: 10px;
-                    }
-                }
-                span {
-                    font-size: 12px;
-                    line-height: 130%;
-                    margin-left: 5px;
-                }
-                h2 {
-                    cursor: pointer;
-                    margin-top: 10px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    -webkit-line-clamp: 2;
-                    display: -moz-box;
-                    -moz-box-orient: vertical;
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    height: 72px;
-                    width: fit-content;
-                    font-weight: 700;
-                    font-size: 30px;
-                    line-height: 36px;
-                    color: #111111;
-                    @media (max-width: 1760px) {
-                        font-size: 20px;
-                    }
-                    @media (max-width: 698px) {
-                        line-height: 24px;
-                        margin-bottom: 10px;
-                    }
-                }
-                p {
-                    margin-top: 10px;
-                    font-weight: 300;
-                    font-size: 12px;
-                    width: 444px;
-                    @media (max-width: 698px) {
-                        margin: 0;
-                        width: 100%;
-                    }
-                }
-            }
-        }
-        .interactive {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            @media (max-width: 1760px) {
-                margin-top: 15px;
-            }
-            @media (max-width: 698px) {
-                width: 100%;
-            }
-            &:after {
-                position: absolute;
-                content: url('../../../public/images/basket/border.png');
-                left: -44px;
-                @media (max-width: 1760px) {
-                    display: none;
-                }
-            }
-            .price {
-                white-space: nowrap;
-                font-weight: 700;
-                font-size: 30px;
-                line-height: 130%;
-                color: #111111;
-                width: 200px;
-                position: relative;
-                margin-left: 88px;
-                @media (max-width: 1760px) {
-                    font-size: 20px;
-                }
-                @media (max-width: 700px) {
-                    margin-left: 0;
-                    width: 100%;
-                    text-align: center;
-                }
-                &:after {
-                    position: absolute;
-                    content: url('../../../public/images/basket/border.png');
-                    left: -44px;
-                    top: -4px;
-                    @media (max-width: 1760px) {
-                        display: none;
-                    }
-
-                }
-            }
-            .remove {
-                background: none;
-            }
-        }
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px #c5cad1 dashed;
+  .item {
+    height: 291px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 1760px) {
+      padding: 20px 0;
+      flex-direction: column;
+      height: fit-content;
     }
+    .info {
+      width: 57.17%;
+      display: flex;
+      flex-direction: row;
+      @media (max-width: 1760px) {
+        width: 100%;
+      }
+      @media (max-width: 1168px) {
+        flex-direction: column;
+        align-items: center;
+      }
+      .image {
+        width: 60.57%;
+        height: 191px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          cursor: pointer;
+          object-fit: cover;
+          height: 100%;
+          width: auto;
+        }
+      }
+      .text {
+        width: fit-content;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        margin-top: 15px;
+        @media (max-width: 698px) {
+          line-height: 24px;
+          margin: 0;
+          width: 290px;
+        }
+        .sizeType {
+          display: flex;
+          align-items: center;
+          @media (max-width: 698px) {
+            margin-top: 10px;
+          }
+        }
+        span {
+          font-size: 12px;
+          line-height: 130%;
+          margin-left: 5px;
+        }
+        h2 {
+          cursor: pointer;
+          margin-top: 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 2;
+          display: -moz-box;
+          -moz-box-orient: vertical;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          height: 72px;
+          width: fit-content;
+          font-weight: 700;
+          font-size: 30px;
+          line-height: 36px;
+          color: #111111;
+          @media (max-width: 1760px) {
+            font-size: 20px;
+          }
+          @media (max-width: 698px) {
+            line-height: 24px;
+            margin-bottom: 10px;
+          }
+        }
+        p {
+          margin-top: 10px;
+          font-weight: 300;
+          font-size: 12px;
+          width: 444px;
+          @media (max-width: 698px) {
+            margin: 0;
+            width: 100%;
+          }
+        }
+      }
+    }
+    .interactive {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      @media (max-width: 1760px) {
+        margin-top: 15px;
+      }
+      @media (max-width: 698px) {
+        width: 100%;
+      }
+      &:after {
+        position: absolute;
+        content: url("../../../public/images/basket/border.png");
+        left: -44px;
+        @media (max-width: 1760px) {
+          display: none;
+        }
+      }
+      .price {
+        white-space: nowrap;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 130%;
+        color: #111111;
+        width: 200px;
+        position: relative;
+        margin-left: 88px;
+        @media (max-width: 1760px) {
+          font-size: 20px;
+        }
+        @media (max-width: 700px) {
+          margin-left: 0;
+          width: 100%;
+          text-align: center;
+        }
+        &:after {
+          position: absolute;
+          content: url("../../../public/images/basket/border.png");
+          left: -44px;
+          top: -4px;
+          @media (max-width: 1760px) {
+            display: none;
+          }
+        }
+      }
+      .remove {
+        background: none;
+      }
+    }
+  }
 }
 .counter {
-    text-align: center;
-    margin-right: 88px;
-    @media (max-width: 1500px) {
-        margin-left: 0;
-    }
-    @media (max-width: 400px) {
-        margin: 0;
-    }
+  text-align: center;
+  margin-right: 88px;
+  @media (max-width: 1500px) {
+    margin-left: 0;
+  }
+  @media (max-width: 400px) {
+    margin: 0;
+  }
 }

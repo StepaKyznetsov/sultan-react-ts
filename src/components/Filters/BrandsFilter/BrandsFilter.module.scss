@@ -1,163 +1,162 @@
 .brandInput {
-    width: fit-content;
-    height: fit-content;
-    @media (max-width: 800px) {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 99;
-        width: 100vw;
-        background-color: white;
-        position: absolute;
-        top: 77px;
-        @media (max-width: 400px) {
-            top: 65px;
-            align-items: flex-start;
-            margin: 0 auto;
-            left: -5.8%;
-            padding-left: 15px;
-        }
-    }
-    .brandSubtitle {
-        @media (max-width: 800px) and (min-width: 400px) {
-            margin-bottom: 5px !important;
-        }
-        &:before {
-            position: absolute;
-            content: url('../../../../public/images/catalog/border.png');
-            top: -20px;
-            @media (max-width: 1765px) {
-                visibility: hidden;
-            }
-            @media (max-width: 400px) {
-                visibility: visible;
-            }
-        }
-    }
-    .inputBlock {
-        margin-bottom: 15px;
-        width: 260px;
-        .input {
-            width: 260px;
-        }
-        .icon {
-            right: -20px;
-        }
-    }
-}
-.enumBrands {
-    z-index: 99;
+  width: fit-content;
+  height: fit-content;
+  @media (max-width: 800px) {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    z-index: 99;
+    width: 100vw;
+    background-color: white;
+    position: absolute;
+    top: 77px;
+    @media (max-width: 400px) {
+      top: 65px;
+      align-items: flex-start;
+      margin: 0 auto;
+      left: -5.8%;
+      padding-left: 15px;
+    }
+  }
+  .brandSubtitle {
+    @media (max-width: 800px) and (min-width: 400px) {
+      margin-bottom: 5px !important;
+    }
+    &:before {
+      position: absolute;
+      content: url("../../../../public/images/catalog/border.png");
+      top: -20px;
+      @media (max-width: 1765px) {
+        visibility: hidden;
+      }
+      @media (max-width: 400px) {
+        visibility: visible;
+      }
+    }
+  }
+  .inputBlock {
+    margin-bottom: 15px;
+    width: 260px;
+    .input {
+      width: 260px;
+    }
+    .icon {
+      right: -20px;
+    }
+  }
+}
+.enumBrands {
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @media (max-width: 800px) {
+    width: 100vw;
+    margin: 0 auto;
+    background-color: white;
+    position: absolute;
+    top: 160px;
+    align-items: center;
+    padding-top: 10px;
+  }
+  @media (max-width: 400px) {
+    top: 200px;
+    left: -5.8%;
     align-items: flex-start;
+  }
+  .soloBrand {
+    box-sizing: border-box;
     @media (max-width: 800px) {
-        width: 100vw;
-        margin: 0 auto;
-        background-color: white;
-        position: absolute;
-        top: 160px;
-        align-items: center;
-        padding-top: 10px;
+      width: 45%;
     }
     @media (max-width: 400px) {
-        top: 200px;
-        left: -5.8%;
-        align-items: flex-start;
+      width: 100%;
+      padding-left: 15px;
     }
-    .soloBrand {
-        box-sizing: border-box;
-        @media (max-width: 800px) {
-            width: 45%;
-        }
-        @media (max-width: 400px) {
-            width: 100%;
-            padding-left: 15px;
-        }
+  }
+  div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    &:last-child {
+      margin-bottom: 15px;
     }
-    div {
-        display: flex;
-        align-items: center;
-        margin-bottom: 5px;
-        &:last-child {
-            margin-bottom: 15px;
-        }
-        span {
-            margin: 0 5px 0 10px;
-            font-size: 14px;
-            line-height: 150%;
-            &:last-child {
-                margin: 0;
-            }
-        }
+    span {
+      margin: 0 5px 0 10px;
+      font-size: 14px;
+      line-height: 150%;
+      &:last-child {
+        margin: 0;
+      }
     }
-    .showAll {
-        position: relative;
-        margin-top: 15px;
-        width: fit-content;
-        cursor: pointer;
-        &:after {
-            position: absolute;
-            content: url('../../../../public/images/product/arrow.png');
-            right: -12px;
-            top: 0;
-        }
-        @media (max-width: 400px) {
-            margin-left: 15px;
-        }
+  }
+  .showAll {
+    position: relative;
+    margin-top: 15px;
+    width: fit-content;
+    cursor: pointer;
+    &:after {
+      position: absolute;
+      content: url("../../../../public/images/product/arrow.png");
+      right: -12px;
+      top: 0;
     }
-    .rotate {
-        &:after {
-            position: absolute;
-            content: url('../../../../public/images/product/arrow.png');
-            right: -12px;
-            top: 3px;
-            transform: rotate(180deg);
-        }
+    @media (max-width: 400px) {
+      margin-left: 15px;
     }
-    .findBrand {
-        z-index: 80;
-        margin-top: 25px;
-        display: flex;
-        flex-direction: row;
-        @media (max-width: 800px) {
-            
-            margin: 25px auto 0 auto;
-        }
-        @media (max-width: 400px) {
-            justify-content: space-between;
-            width: 290px;
-        }
-        button {
-            color: white;
-            background: #FFC85E;
-            border-radius: 79px;
-            &:hover {
-                background-color: #fad074;
-            }
-            &:active {
-                background-color: #f7ddae;
-            }
-        }
-        .show {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 19px;
-            width: 169px;
-            height: 59px;
-        }
-        .remove {
-            margin-left: 10px;
-            width: 59px;
-            height: 59px;
-        }
+  }
+  .rotate {
+    &:after {
+      position: absolute;
+      content: url("../../../../public/images/product/arrow.png");
+      right: -12px;
+      top: 3px;
+      transform: rotate(180deg);
     }
+  }
+  .findBrand {
+    z-index: 80;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    @media (max-width: 800px) {
+      margin: 25px auto 0 auto;
+    }
+    @media (max-width: 400px) {
+      justify-content: space-between;
+      width: 290px;
+    }
+    button {
+      color: white;
+      background: #ffc85e;
+      border-radius: 79px;
+      &:hover {
+        background-color: #fad074;
+      }
+      &:active {
+        background-color: #f7ddae;
+      }
+    }
+    .show {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 19px;
+      width: 169px;
+      height: 59px;
+    }
+    .remove {
+      margin-left: 10px;
+      width: 59px;
+      height: 59px;
+    }
+  }
 }
 .hiddenContent {
-    @media (max-width: 800px) {
-        position: absolute;
-        display: none !important; 
-    }
+  @media (max-width: 800px) {
+    position: absolute;
+    display: none !important;
+  }
 }

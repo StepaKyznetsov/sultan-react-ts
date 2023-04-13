@@ -1,57 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prata&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prata&display=swap");
 * {
-	padding: 0;
-	margin: 0;
-	border: none;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    color: #3F4E65;
-    line-height: 150%;
-    font-weight: 400;
-    font-size: 14px;
-    @media (max-width: 1500px){
-        font-size: 12px;
-    }
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: #3f4e65;
+  line-height: 150%;
+  font-weight: 400;
+  font-size: 14px;
+  @media (max-width: 1500px) {
+    font-size: 12px;
+  }
 }
 body {
-    overflow-y: auto;
-    width: 100%;
-    font-family: Inter;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  overflow-y: auto;
+  width: 100%;
+  font-family: Inter;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-nav, footer, header, aside {
-    display: block;
+nav,
+footer,
+header,
+aside {
+  display: block;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-size: inherit;
-    font-weight: inherit;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 button {
-    transition: ease-in 0.3s;
-    font-family: Inter;
-    cursor: pointer;
-    &:hover {
-        background-color: #fad074;
-    }
-    &:active {
-        background-color: #fcd58d;
-    }
+  transition: ease-in 0.3s;
+  font-family: Inter;
+  cursor: pointer;
+  &:hover {
+    background-color: #fad074;
+  }
+  &:active {
+    background-color: #fcd58d;
+  }
 }
 
-a { 
-    text-decoration: none;
-    color: inherit;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 input::-webkit-outer-spin-button,
@@ -59,7 +69,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
- 
-input[type=number] {
+
+input[type="number"] {
   -moz-appearance: textfield;
 }

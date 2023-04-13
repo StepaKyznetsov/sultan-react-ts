@@ -1,5 +1,5 @@
-import React from 'react';
-import CatalogList from '../../components/CatalogList/CatalogList';
+import React from "react";
+import CatalogList from "../../components/CatalogList/CatalogList";
 
 const Catalog: React.FC = () => {
   return (
@@ -7,6 +7,6 @@ const Catalog: React.FC = () => {
       <CatalogList />
     </>
   );
-}
+};
 
 export default Catalog;

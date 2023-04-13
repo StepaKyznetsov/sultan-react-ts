@@ -1,75 +1,77 @@
 .basket {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  width: 9.52%;
+  @media (max-width: 1500px) {
+    width: fit-content;
     margin-left: auto;
+    margin-right: 0;
+  }
+  @media (max-width: 1100px) {
+    margin: 0;
+  }
+  @media (max-width: 1100px) {
+    margin: 0;
+  }
+  .basketIcon {
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    margin-right: auto;
+    img {
+      @media (max-width: 500px) {
+        width: 21px;
+        height: auto;
+        margin-top: 10px;
+      }
+    }
+    .basketCounter {
+      position: absolute;
+      padding-top: 3px;
+      width: 22px;
+      height: 22px;
+      background: center no-repeat
+        url("../../../public/images/menu/basketCounter.png");
+      font-weight: 700;
+      line-height: 17px;
+      color: #ffffff;
+      top: 0;
+      right: -2px;
+      @media (max-width: 500px) {
+        padding-top: 6px;
+        right: -10px;
+        top: -4px;
+        font-size: 10px;
+        background: center no-repeat
+          url("../../../public/images/menu/smallCircle.png");
+      }
+    }
+  }
+  .sum {
+    margin-left: 14px;
     display: flex;
-    align-items: center;
-    width: 9.52%;
-    @media (max-width: 1500px) {
-        width: fit-content;
-        margin-left: auto;
-        margin-right: 0;
-    }
+    flex-direction: column;
     @media (max-width: 1100px) {
-        margin: 0;
+      display: none;
     }
-    @media (max-width: 1100px) {
-        margin: 0;
+    span {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 150%;
+      @media (max-width: 1300px) {
+        font-size: 10px;
+      }
     }
-    .basketIcon {
-        cursor: pointer;
-        text-align: center;
-        position: relative;
-        margin-right: auto;
-        img {
-            @media (max-width: 500px) {
-                width: 21px;
-                height: auto;
-                margin-top: 10px;
-            }
-        }
-        .basketCounter {
-            position: absolute;
-            padding-top: 3px;
-            width: 22px;
-            height: 22px;
-            background: center no-repeat url('../../../public/images/menu/basketCounter.png');
-            font-weight: 700;
-            line-height: 17px;
-            color: #FFFFFF;
-            top: 0;
-            right: -2px;
-            @media (max-width: 500px) {
-                padding-top: 6px;
-                right: -10px;
-                top:-4px;
-                font-size: 10px;
-                background: center no-repeat url('../../../public/images/menu/smallCircle.png');
-            }
-        }
+    .money {
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 150%;
+      color: #111111;
+      @media (max-width: 1300px) {
+        font-size: 10px;
+      }
     }
-    .sum {
-        margin-left: 14px;
-        display: flex;
-        flex-direction: column;
-        @media (max-width: 1100px) {
-            display: none;
-        }
-        span {
-            font-weight: 300;
-            font-size: 12px;
-            line-height: 150%;
-            @media (max-width: 1300px) {
-                 font-size: 10px;
-            }
-        }
-        .money {
-            white-space: nowrap;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 150%;
-            color: #111111;
-            @media (max-width: 1300px) {
-                font-size: 10px;
-            }
-        }
-    }
+  }
 }

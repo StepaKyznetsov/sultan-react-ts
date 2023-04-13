@@ -1,13 +1,13 @@
 .dropdown {
-    @media (max-width: 800px) {
-        z-index: 99;
-        position: absolute;
-        top: 175px
-    }
-    span {
-        margin-right: 5px;
-        font-weight: 500;
-        font-size: 16px;
-        color: black;
-    }
+  @media (max-width: 800px) {
+    z-index: 99;
+    position: absolute;
+    top: 175px;
+  }
+  span {
+    margin-right: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+  }
 }

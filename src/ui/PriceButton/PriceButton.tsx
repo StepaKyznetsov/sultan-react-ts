@@ -1,28 +1,19 @@
-import React from 'react';
-import css from './PriceButton.module.scss';
+import React from "react";
+import css from "./PriceButton.module.scss";
 
 interface IButton {
-    buttonStyles: string;
-    text: string;
-    url: string;
+  buttonStyles: string;
+  text: string;
+  url: string;
 }
 
-const PriceButton: React.FC<IButton> = ({
-    text, 
-    url, 
-    buttonStyles
-}) => {
-    return (
-        <button
-            className = {`${css.priceButton} ${buttonStyles}`}
-        >
-            {text}
-            <img 
-                src = {url} 
-                alt = "download" 
-            />
-        </button>
-    )
-}
+const PriceButton: React.FC<IButton> = ({ text, url, buttonStyles }) => {
+  return (
+    <button className={`${css.priceButton} ${buttonStyles}`}>
+      {text}
+      <img src={url} alt="download" />
+    </button>
+  );
+};
 
-export default PriceButton
+export default PriceButton;

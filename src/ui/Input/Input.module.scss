@@ -1,25 +1,25 @@
 .inputBlock {
-    position: relative;
-    max-width: 100%;
-    input {
-        background-color: #EDEDED;
-        border-radius: 36px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 13px 10px 13px 20px;
-        font-size: 12px;
-        line-height: 150%;
-        height: 33px;
-        &::placeholder {
-            opacity: 0.6;
-        }
+  position: relative;
+  max-width: 100%;
+  input {
+    background-color: #ededed;
+    border-radius: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 10px 13px 20px;
+    font-size: 12px;
+    line-height: 150%;
+    height: 33px;
+    &::placeholder {
+      opacity: 0.6;
     }
-    .icon {
-        cursor: pointer;
-        position: absolute;
-        top: 10px;
-        right: 10px
-    }
+  }
+  .icon {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 }
